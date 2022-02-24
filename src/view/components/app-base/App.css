@@ -1,41 +1,62 @@
-.App {
+.background {
+  /*content*/
+  background-image: url("../../resources/placeholder.png");
+
+  /*Positie*/
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  height: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /*attributen*/
   text-align: center;
 }
 
-.background-image{
-  background-image: url("./view/resources/placeholder.png");
+.content_container{
+  /*positie*/
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+
+  z-index: 0;
+
+  /*afmetingen*/
+  width: 25em;
+  height: 35em;
+  max-width: 25em;
+  max-height: 35em;
+
+  /*attributen*/
+  border: solid black 2px;
+  border-radius: 25px;
+
+  /*TIJDELIJK*/
+  background-color: White;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.novi-logo {
+  /*positie*/
+  margin-top: -7.5em;
+
+  /*afmetingen*/
+  height: 15rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 5s linear;
-  }
-}
+.alternating_content{
+  height: 22em;
+  width: 24em;
+  margin: auto;
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  border: 2px solid black;
 }

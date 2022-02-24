@@ -1,0 +1,13 @@
+.button01{
+    /*afmetingen*/
+    width: 7em;
+    height: 2.5em;
+
+    /*attributen*/
+    background-color: orange;
+    border-radius: 10px;
+
+    /*gedrag*/
+
+
+}
