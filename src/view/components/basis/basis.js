@@ -1,8 +1,8 @@
 import React from "react";
-import logo from "../../resources/logo/novi_logo.PNG";
+import logo from "../../resources/logo/novi_logo.png";
 import "./basis.css";
-import LoginPage from "../login-page/login-page";
 import Keuzemenu from "../keuzemenu/keuzemenu";
+
 
 class Basis extends React.Component{
     render() {
@@ -12,7 +12,9 @@ class Basis extends React.Component{
                     <div className="inner_content_container">
                         <img src={logo} className="novi-logo" alt="novi-logo"/>
                         <div className="alternating_content_container">
+
                             <Keuzemenu/>
+
                         </div>
                     </div>
                 </div>
