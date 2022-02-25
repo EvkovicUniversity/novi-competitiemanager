@@ -1,0 +1,18 @@
+.login_invoervelden{
+    margin: 0.5em;
+
+    /*attributen*/
+    font-size: 20px;
+    padding: 5px 0;
+}
+
+#geen_wachtwoord_paragraaf{
+    /*attributen*/
+    font-size: 10px;
+    color: grey;
+}
+
+#login_button{
+    margin-top: 1em;
+    margin-bottom: 4em;
+}
