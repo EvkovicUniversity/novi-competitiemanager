@@ -1,6 +1,6 @@
 .background {
   /*content*/
-  background-image: url("../../resources/placeholder.png");
+  background-image: url("../../resources/background.jpg");
 
   /*Positie*/
   position: absolute;
@@ -19,7 +19,7 @@
   text-align: center;
 }
 
-.content_container{
+.outer_content_container{
   /*positie*/
   position: absolute;
   margin: auto;
@@ -27,7 +27,6 @@
   right: 0;
   bottom: 0;
   left: 0;
-  overflow: auto;
 
   z-index: 0;
 
@@ -38,25 +37,54 @@
   max-height: 35em;
 
   /*attributen*/
-  border: solid black 2px;
   border-radius: 25px;
-
-  /*TIJDELIJK*/
   background-color: White;
+}
+
+.inner_content_container{
+  /*positie*/
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /*afmetingen*/
+  width: 24em;
+  height: 34em;
+  max-width: 24em;
+  max-height: 34em;
+
+  /*attributen*/
+  border: solid black 2px;
+  border-radius: 1em;
 }
 
 .novi-logo {
   /*positie*/
-  margin-top: -7.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.4em;
 
   /*afmetingen*/
-  height: 15rem;
+  height: 8rem;
+  /*border: 2px solid black;*/
+  border-radius: 5em;
+  box-shadow: 0.3em 0.7em 1.2em black;
 }
 
-.alternating_content{
-  height: 22em;
-  width: 24em;
-  margin: auto;
+.alternating_content_container{
+  /*positie*/
+  margin-left: -2px;
 
+  /*afmetingen*/
+  height: 24.6em;
+  width: 24em;
+
+  /*attributen*/
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+
+  /*TIJDELIJK*/
   border: 2px solid black;
 }
