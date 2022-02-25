@@ -1,0 +1,46 @@
+.keuzemenuknop{
+    /*positie*/
+    margin: 2em 2em;
+
+    /*afmetingen*/
+    padding: 0.75em;
+
+    /*attributen*/
+    border: 2px solid black;
+    border-radius: 5em;
+    box-shadow: 0.3em 0.7em 1.2em black;
+
+}
+
+#keuzemenu_01{
+    background: rgba(240,136,35,255);
+}
+
+#keuzemenu_02{
+    background: rgba(231,78,63,255);
+}
+
+#keuzemenu_03{
+    background: rgba(227,19,68,255);
+}
+
+#keuzemenu_01:hover{
+    padding: 1em;
+    margin: 0 1em;
+}
+
+#keuzemenu_02:hover{
+    padding: 1em;
+    margin: 0 1em;
+}
+
+#keuzemenu_03:hover{
+    padding: 1em;
+    margin: 0 1em;
+}
+
+/*
+orange: rgba(240,136,35,255)
+middle: rgba(231,78,63,255)
+red/purplish: rgba(227,19,68,255)
+*/
