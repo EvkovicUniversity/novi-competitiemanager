@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../../resources/logo/novi_logo.png";
 import "./basis.css";
 import Keuzemenu from "../keuzemenu/keuzemenu";
+import LoginPage from "../login-page/login-page";
 
 
 class Basis extends React.Component{

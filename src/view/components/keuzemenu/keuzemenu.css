@@ -8,36 +8,36 @@
     /*attributen*/
     border: 2px solid black;
     border-radius: 5em;
-    box-shadow: 0.3em 0.7em 1.2em black;
+    box-shadow: 0.3em 0.4em 1.2em black;
+    background-image: linear-gradient(to bottom, rgb(240,136,35) 0%, rgb(231,78,63) 50%, rgb(227,19,68) 100%);
 
+    color: white;
+    font-family: "Helvetica Neue" ,sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    /*gedrag*/
+    cursor: pointer;
+
+}
+
+.keuzemenuknop:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 #keuzemenu_01{
-    background: rgba(240,136,35,255);
+
 }
 
 #keuzemenu_02{
-    background: rgba(231,78,63,255);
+
 }
 
 #keuzemenu_03{
-    background: rgba(227,19,68,255);
+
 }
 
-#keuzemenu_01:hover{
-    padding: 1em;
-    margin: 0 1em;
-}
 
-#keuzemenu_02:hover{
-    padding: 1em;
-    margin: 0 1em;
-}
-
-#keuzemenu_03:hover{
-    padding: 1em;
-    margin: 0 1em;
-}
 
 /*
 orange: rgba(240,136,35,255)
