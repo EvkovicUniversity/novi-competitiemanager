@@ -1,3 +1,9 @@
+html{
+    font-family: "Helvetica Neue" ,sans-serif;
+    font-weight: bold;
+}
+
+
 .background {
     /*content*/
     background-image: url("../../resources/background.jpg");
@@ -71,6 +77,9 @@
     /*border: 2px solid black;*/
     border-radius: 5em;
     box-shadow: 0.3em 0.7em 1.2em black;
+
+    /*gedrag*/
+    cursor: pointer;
 }
 
 .alternating_content_container{
@@ -85,6 +94,4 @@
     border-bottom-left-radius: 14px;
     border-bottom-right-radius: 14px;
 
-    /*TIJDELIJK*/
-    border: 2px solid black;
 }

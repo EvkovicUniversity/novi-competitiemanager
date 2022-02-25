@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../resources/logo/novi_logo.PNG";
+import logo from "../../resources/logo/novi_logo.png";
 import "./basis.css";
 
 class Basis extends React.Component{
