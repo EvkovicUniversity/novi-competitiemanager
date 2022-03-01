@@ -1,14 +1,12 @@
 import React from "react";
 
-class Settings extends React.Component {
+function Settings() {
 
-    render() {
-        return (
-            <div>
+    return (
+        <div>
 
-            </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default Settings;

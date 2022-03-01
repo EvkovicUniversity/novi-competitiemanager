@@ -1,14 +1,12 @@
 import React from "react";
 
-class Competities extends React.Component {
+function Competities() {
 
-    render() {
-        return (
-            <div>
+    return (
+        <div>
 
-            </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default Competities;

@@ -1,11 +1,13 @@
-import React from "react";
+import React, {useCallback} from "react";
+import {useNavigate} from 'react-router-dom';
 import "../algemeen/algemeen.css";
 import "./login-page-css.css";
 
-class LoginPage extends React.Component {
+function LoginPage(){
 
+    const navigate = useNavigate();
+    const navigateOnClick = useCallback(() => navigate('/menu', {replace: true}), [navigate]);
 
-    render() {
         return (
             <div>
                 <h1>Novi's competitiemanager</h1>
@@ -21,7 +23,7 @@ class LoginPage extends React.Component {
                            className="login_invoervelden"
                            id="password_input"/>
                     <br/>
-                    <button className="button01" id="login_button">Login</button>
+                    <button className="button01" id="login_button" onClick={navigateOnClick}>Login</button>
                 </form>
 
                 <p id="geen_wachtwoord_paragraaf">
@@ -31,6 +33,6 @@ class LoginPage extends React.Component {
             </div>
         );
     }
-}
+// }
 
 export default LoginPage;

@@ -1,24 +1,29 @@
-import React from "react";
+import React, {useCallback} from "react";
 import "./keuzemenu.css";
+import {useNavigate} from "react-router-dom";
 
-class Keuzemenu extends React.Component {
-    render() {
-        return(
-            <div>
-                <div className="keuzemenuknop" id="keuzemenu_01">
-                    <p>Competities bekijken</p>
-                </div>
+function Keuzemenu() {
 
-                <div className="keuzemenuknop" id="keuzemenu_02">
-                    <p>Account instellingen</p>
-                </div>
+    const navigate = useNavigate();
+    const navigateOnClickCompetities = useCallback(() => navigate('/competities', {replace: true}), [navigate]);
+    const navigateOnClickSettings = useCallback(() => navigate('/settings', {replace: true}), [navigate]);
+    const navigateOnClickLogout = useCallback(() => navigate('/', {replace: true}), [navigate]);
 
-                <div className="keuzemenuknop" id="keuzemenu_03">
-                    <p>Uitloggen</p>
-                </div>
+    return(
+        <div>
+            <div className="keuzemenuknop" id="keuzemenu_01" onClick={navigateOnClickCompetities}>
+                <p>Competities bekijken</p>
             </div>
-        )
-    }
+
+            <div className="keuzemenuknop" id="keuzemenu_02" onClick={navigateOnClickSettings}>
+                <p>Account instellingen</p>
+            </div>
+
+            <div className="keuzemenuknop" id="keuzemenu_03" onClick={navigateOnClickLogout}>
+                <p>Uitloggen</p>
+            </div>
+        </div>
+    )
 }
 
 export default Keuzemenu;
