@@ -10,12 +10,15 @@ import CompetitieCreator from "../competitiecreator/competitiecreator";
 
 function App() {
 
+    // const navigate = useNavigate();
+    // const navigateOnClick = useCallback(() => navigate('/menu', {replace: true}), [navigate]);
+
     return (
         <Router>
             <div className="background">
                 <div className="outer_content_container">
                     <div className="inner_content_container">
-                        <img src={logo} className="novi-logo" alt="novi-logo"/>
+                        <img src={logo} className="novi-logo" alt="novi-logo" />
                         <div className="alternating_content_container">
 
                             <Routes>
