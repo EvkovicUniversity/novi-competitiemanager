@@ -12,6 +12,7 @@ html{
     background-image: linear-gradient(to bottom, rgb(240,136,35) 0%, rgb(231,78,63) 51%, rgb(227,19,68) 100%);
     border-radius: 10px;
     text-transform: uppercase;
+    font-weight: bold;
 
     color: white;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
