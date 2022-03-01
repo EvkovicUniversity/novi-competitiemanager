@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../../resources/logo/novi_logo.png";
 import "./basis.css";
 import LoginPage from "../login-page/login-page";
+import Keuzemenu from "../keuzemenu/keuzemenu";
 
 
 class Basis extends React.Component{
@@ -14,6 +15,7 @@ class Basis extends React.Component{
                         <div className="alternating_content_container">
 
                             <LoginPage/>
+                            {/*<Keuzemenu/>*/}
 
                         </div>
                     </div>
