@@ -3,6 +3,8 @@ import "../algemeen/algemeen.css";
 import "./login-page-css.css";
 
 class LoginPage extends React.Component {
+
+
     render() {
         return (
             <div>
