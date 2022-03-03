@@ -5,13 +5,11 @@ import logo from "../../resources/logo/novi_logo.png";
 import './App.css';
 import Keuzemenu from "../keuzemenu/keuzemenu";
 import Settings from "../settings/settings";
-import Competities from "../competities/competities";
-import CompetitieCreator from "../competitiecreator/competitiecreator";
+import CompetitieLijst from "../competities/competitieLijst/competitieLijst";
+import CompetitieCreator from "../competities/competitiecreator/competitiecreator";
+import Competitie from "../competities/competitie/competitie";
 
 function App() {
-
-    // const navigate = useNavigate();
-    // const navigateOnClick = useCallback(() => navigate('/menu', {replace: true}), [navigate]);
 
     return (
         <Router>
@@ -24,7 +22,8 @@ function App() {
                             <Routes>
                                 <Route path="/" element={<LoginPage/>}/>
                                 <Route path='menu' element={<Keuzemenu/>}/>
-                                <Route path='competities' element={<Competities/>}/>
+                                <Route path='competities' element={<CompetitieLijst/>}/>
+                                <Route path='competities/:competitieid' element={<Competitie/>}/>
                                 <Route path='competities/creator' element={<CompetitieCreator/>}/>
                                 <Route path='settings' element={<Settings/>}/>
                             </Routes>

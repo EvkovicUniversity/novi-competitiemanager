@@ -1,12 +1,9 @@
-import React, {useCallback} from "react";
-import {useNavigate} from 'react-router-dom';
+import React from "react";
 import "../algemeen/algemeen.css";
 import "./login-page-css.css";
+import NavigeerNaar from "../../../controller/Navigatie/navigeerNaar";
 
 function LoginPage(){
-
-    const navigate = useNavigate();
-    const navigateOnClick = useCallback(() => navigate('/menu', {replace: true}), [navigate]);
 
         return (
             <div>
@@ -23,7 +20,7 @@ function LoginPage(){
                            className="login_invoervelden"
                            id="password_input"/>
                     <br/>
-                    <button className="button01" id="login_button" onClick={navigateOnClick}>Login</button>
+                    <button className="button01" id="login_button" onClick={NavigeerNaar('menu')}>Login</button>
                 </form>
 
                 <p id="geen_wachtwoord_paragraaf">

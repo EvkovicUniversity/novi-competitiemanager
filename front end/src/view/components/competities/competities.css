@@ -1,0 +1,28 @@
+.competitieLijstcontainer{
+    border: 2px solid black;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+.competitieLijstcontainer:hover {
+    box-shadow: 10px 10px 20px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.formulier {
+
+}
+
+.creator_invoerveldencontainer {
+    height: 17em;
+}
+
+input{
+    height: 2em;
+    margin: 3px;
+}
+
+.tabel{
+    border: 2px solid red;
+}
+
