@@ -1,0 +1,6 @@
+create table INFORMATION_SCHEMA.COLLATIONS
+(
+    NAME VARCHAR,
+    KEY  VARCHAR
+);
+

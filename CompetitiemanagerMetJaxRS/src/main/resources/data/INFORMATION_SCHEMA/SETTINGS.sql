@@ -1,0 +1,6 @@
+create table INFORMATION_SCHEMA.SETTINGS
+(
+    NAME  VARCHAR,
+    VALUE VARCHAR
+);
+

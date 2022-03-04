@@ -1,0 +1,6 @@
+create table INFORMATION_SCHEMA.SESSION_STATE
+(
+    KEY VARCHAR,
+    SQL VARCHAR
+);
+

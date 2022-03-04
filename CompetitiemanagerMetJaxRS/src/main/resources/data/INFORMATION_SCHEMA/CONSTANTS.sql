@@ -1,0 +1,11 @@
+create table INFORMATION_SCHEMA.CONSTANTS
+(
+    CONSTANT_CATALOG VARCHAR,
+    CONSTANT_SCHEMA  VARCHAR,
+    CONSTANT_NAME    VARCHAR,
+    DATA_TYPE        INTEGER,
+    REMARKS          VARCHAR,
+    SQL              VARCHAR,
+    ID               INTEGER
+);
+

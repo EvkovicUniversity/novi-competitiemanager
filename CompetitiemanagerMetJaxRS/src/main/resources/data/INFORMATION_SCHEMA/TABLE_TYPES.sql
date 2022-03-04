@@ -1,0 +1,5 @@
+create table INFORMATION_SCHEMA.TABLE_TYPES
+(
+    TYPE VARCHAR
+);
+

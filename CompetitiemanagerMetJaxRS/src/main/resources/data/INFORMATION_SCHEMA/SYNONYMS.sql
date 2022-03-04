@@ -1,0 +1,13 @@
+create table INFORMATION_SCHEMA.SYNONYMS
+(
+    SYNONYM_CATALOG    VARCHAR,
+    SYNONYM_SCHEMA     VARCHAR,
+    SYNONYM_NAME       VARCHAR,
+    SYNONYM_FOR        VARCHAR,
+    SYNONYM_FOR_SCHEMA VARCHAR,
+    TYPE_NAME          VARCHAR,
+    STATUS             VARCHAR,
+    REMARKS            VARCHAR,
+    ID                 INTEGER
+);
+

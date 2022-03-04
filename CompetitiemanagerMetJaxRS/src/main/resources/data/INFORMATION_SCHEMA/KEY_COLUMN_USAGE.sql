@@ -1,0 +1,13 @@
+create table INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+(
+    CONSTRAINT_CATALOG            VARCHAR,
+    CONSTRAINT_SCHEMA             VARCHAR,
+    CONSTRAINT_NAME               VARCHAR,
+    TABLE_CATALOG                 VARCHAR,
+    TABLE_SCHEMA                  VARCHAR,
+    TABLE_NAME                    VARCHAR,
+    COLUMN_NAME                   VARCHAR,
+    ORDINAL_POSITION              INTEGER,
+    POSITION_IN_UNIQUE_CONSTRAINT INTEGER
+);
+

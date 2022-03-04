@@ -1,0 +1,9 @@
+create table INFORMATION_SCHEMA.HELP
+(
+    ID      INTEGER,
+    SECTION VARCHAR,
+    TOPIC   VARCHAR,
+    SYNTAX  VARCHAR,
+    TEXT    VARCHAR
+);
+
