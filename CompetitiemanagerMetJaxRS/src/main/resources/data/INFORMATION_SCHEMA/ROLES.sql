@@ -1,7 +1,0 @@
-create table INFORMATION_SCHEMA.ROLES
-(
-    NAME    VARCHAR,
-    REMARKS VARCHAR,
-    ID      INTEGER
-);
-

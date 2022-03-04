@@ -9,6 +9,7 @@ import CompetitieLijst from "../competities/competitieLijst/competitieLijst";
 import CompetitieCreator from "../competities/competitiecreator/competitiecreator";
 import Competitie from "../competities/competitie/competitie";
 
+
 function App() {
 
     return (
