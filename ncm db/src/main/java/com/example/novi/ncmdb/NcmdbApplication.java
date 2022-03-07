@@ -2,12 +2,14 @@ package com.example.novi.ncmdb;
 
 import com.example.novi.ncmdb.domain.Coureur;
 import com.example.novi.ncmdb.repository.CoureurRepository;
+import com.fasterxml.jackson.annotation.JsonGetter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootApplication
 public class NcmdbApplication {

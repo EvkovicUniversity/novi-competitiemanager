@@ -14,22 +14,28 @@ class Formula1 extends React.Component {
     componentDidMount() {
         DataServices.getData("http://localhost:8080/formula1/coureurs")
             .then((res) => {
-              this.setState({coureurs: res.data})
+                this.setState({coureurs: res.data})
             })
     }
 
     render() {
         return (
             <div>
-                {
-                    this.state.coureurs.map(
-                        coureur =>
-                            <tr key={coureur.id}>
-                                <td>{coureur.name}</td>
-                                <td>{coureur.winfactor}</td>
-                            </tr>
-                    )
-                }
+                <table className='tabel'>
+                    <tr>
+                        <th>Positie</th>
+                        <th>Coureur</th>
+                    </tr>
+                    {
+                        this.state.coureurs.map(
+                            coureur =>
+                                <tr key={coureur.id}>
+                                    <td>{coureur.id}e</td>
+                                    <td>{coureur.name}</td>
+                                </tr>
+                        )
+                    }
+                </table>
             </div>
         )
     }

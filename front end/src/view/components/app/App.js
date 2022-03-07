@@ -8,7 +8,6 @@ import Settings from "../settings/settings";
 import CompetitieLijst from "../competities/competitieLijst/competitieLijst";
 import CompetitieCreator from "../competities/competitiecreator/competitiecreator";
 import Competitie from "../competities/competitie/competitie";
-import Formula1 from "../dataTests/formula1";
 
 
 function App() {
@@ -23,7 +22,6 @@ function App() {
 
                             <Routes>
                                 <Route path="/" element={<LoginPage/>}/>
-                                {/*<Route path="/" element={<Formula1/>}/>*/}
                                 <Route path='menu' element={<Keuzemenu/>}/>
                                 <Route path='competities' element={<CompetitieLijst/>}/>
                                 <Route path='competities/:competitieid' element={<Competitie/>}/>

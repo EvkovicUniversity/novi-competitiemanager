@@ -1,33 +1,50 @@
 import React from "react";
+import DataServices from "../../../../controller/services/DataServices";
 
-function Competitie(){
+class Competitie extends React.Component {
 
-    return (
-        <div>
-            <h1>Competitienaam</h1>
+    constructor(props) {
+        super(props);
 
-            <div className={'competitietabel'}>
-                <table className='tabel'>
-                    <tr>
-                        <th>Positie</th>
-                        <th>Naam</th>
-                    </tr>
-                    <tr>
-                        <td>1e</td>
-                        <td>willy</td>
-                    </tr>
-                    <tr>
-                        <td>2e</td>
-                        <td>willy</td>
-                    </tr>
-                    <tr>
-                        <td>3e</td>
-                        <td>willy</td>
-                    </tr>
-                </table>
+        this.state = {
+            coureurs: []
+        }
+    }
+
+    componentDidMount() {
+        DataServices.getData("http://localhost:8080/formula1/coureurs")
+            .then((res) => {
+                this.setState({coureurs: res.data})
+            })
+    }
+
+    render() {
+        return (
+            <div>
+
+                <h1>{} Competitionez</h1>
+
+                <div className={'tabelContainer'}>
+                    <table className='tabel'>
+                        <tr>
+                            <th className='tabelheaders' id='positieCel'>Positie</th>
+                            <th className='tabelheaders'>Coureur</th>
+                        </tr>
+                        {
+                            this.state.coureurs.map(
+                                coureur =>
+                                    <tr key={coureur.id}>
+                                        <td className='tableRow' id='positieWaarde'>{coureur.id}e</td>
+                                        <td className='tableRow'>{coureur.name}</td>
+                                    </tr>
+                            )
+                        }
+                    </table>
+                </div>
             </div>
-        </div>
-    );
+        )
+    }
+
 }
 
-export default Competitie;
+export default Competitie

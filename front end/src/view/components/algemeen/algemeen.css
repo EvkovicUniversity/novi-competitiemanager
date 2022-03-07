@@ -22,7 +22,26 @@
 
 }
 
+/*Scrollbar*/
+::-webkit-scrollbar{
+    width: 0.5em;
+}
+::-webkit-scrollbar-track{
+    background: white;
+}
+::-webkit-scrollbar-thumb{
+    background: orange;
+    border-radius: 80px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: rgb(227,19,68)
+}
+
 /*kleurenpalet:
+   orange: rgb(240,136,35)
+   middle: rgb(231,78,63)
+   red/purplish: rgb(227,19,68)
+
    orange: rgba(240,136,35,255)
    middle: rgba(231,78,63,255)
    red/purplish: rgba(227,19,68,255)

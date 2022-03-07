@@ -1,18 +1,16 @@
 package com.example.novi.ncmdb.domain;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
-@Table(name = "coureurs")
 public class Coureur {
 
     @Id
     @GeneratedValue
-    @Column(name = "id")
     private Long id;
-    @Column(name = "name")
     private String name;
-    @Column(name = "winfactor")
     double winfactor;
 
     public Coureur(String name, double winfactor){

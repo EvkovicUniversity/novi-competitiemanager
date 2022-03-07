@@ -5,11 +5,12 @@ import com.example.novi.ncmdb.repository.CoureurRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CoureurService {
 
-    private CoureurRepository coureurRepository;
+    private final CoureurRepository coureurRepository;
 
     public CoureurService(CoureurRepository coureurRepository){
         this.coureurRepository = coureurRepository;
@@ -18,4 +19,9 @@ public class CoureurService {
     public List<Coureur> findAll(){
         return coureurRepository.findAll();
     }
+
+    public Optional<Coureur> findById(Long id){
+        return coureurRepository.findById(id);
+    }
+
 }
