@@ -24,4 +24,17 @@ public class CoureurService {
         return coureurRepository.findById(id);
     }
 
+    public List<Coureur> findGeneratedF1MatchById(Long id){
+
+
+
+        return null;
+    }
+
+//    private List<Coureur> generateF1Match(){
+//        Math.random()
+//
+//        return null;
+//    }
+
 }

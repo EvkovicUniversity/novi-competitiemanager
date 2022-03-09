@@ -3,6 +3,7 @@ package com.example.novi.ncmdb.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Comparator;
 
 @Entity
 public class Coureur {
@@ -16,6 +17,11 @@ public class Coureur {
     public Coureur(String name, double winfactor){
         this.name = name;
         this.winfactor = winfactor;
+    }
+
+    public Coureur(Long id, String name){
+        this.id = id;
+        this.name = name;
     }
 
     public Coureur() {
@@ -33,5 +39,4 @@ public class Coureur {
     public double getWinfactor() {
         return winfactor;
     }
-
 }
