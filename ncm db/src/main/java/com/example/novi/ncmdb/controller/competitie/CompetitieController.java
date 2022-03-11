@@ -29,6 +29,7 @@ public class CompetitieController {
         return f1CompetitieService.findById(id);
     }
 
+    @CrossOrigin
     @PostMapping("/formula1/competities")
     public void addCompetitie(@RequestBody F1Competitie f1Competitie){
         f1CompetitieService.addF1Competitie(f1Competitie);
