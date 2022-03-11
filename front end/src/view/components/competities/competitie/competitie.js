@@ -7,22 +7,31 @@ class Competitie extends React.Component {
         super(props);
 
         this.state = {
-            coureurs: []
+            raceUitslag: [],
+            competitieinfo: []
         }
     }
 
     componentDidMount() {
+        const getUrl = window.location.href;
+        const urlParsed = getUrl.replace('http://localhost:3000', '');
+
         DataServices.getData("http://localhost:8080/formula1/coureurs")
             .then((res) => {
-                this.setState({coureurs: res.data})
+                this.setState({raceUitslag: res.data})
+            })
+        DataServices.getData("http://localhost:8080/formula1" + urlParsed)
+            .then((res) => {
+                this.setState({competitieinfo: res.data})
             })
     }
+
 
     render() {
         return (
             <div>
 
-                <h1>{} Competitionez</h1>
+                <h1>{this.state.competitieinfo.competitienaam}</h1>
 
                 <div className={'tabelContainer'}>
                     <table className='tabel'>
@@ -31,7 +40,7 @@ class Competitie extends React.Component {
                             <th className='tabelheaders'>Coureur</th>
                         </tr>
                         {
-                            this.state.coureurs.map(
+                            this.state.raceUitslag.map(
                                 coureur =>
                                     <tr key={coureur.id}>
                                         <td className='tableRow' id='positieWaarde'>{coureur.id}e</td>

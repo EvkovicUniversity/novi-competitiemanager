@@ -1,23 +1,10 @@
-.competitieLijstContainer{
-    height: 17em;
-    max-height: 17em;
-}
-
-.enkeleCompetitieUitLijstContainer{
+.formulier {
     border: 2px solid black;
-    cursor: pointer;
     width: 100%;
 }
 
-.enkeleCompetitieUitLijstContainer:hover {
-    box-shadow: 10px 10px 20px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
-
-.formulier {
-
-}
-
-.creator_invoerveldencontainer {
+/*COMPETITIE CREATOR*/
+.creator_invoerveldcontainer {
     height: 17em;
 }
 
@@ -26,6 +13,8 @@ input{
     margin: 3px;
 }
 
+
+/*COMPETITIEUITSLAG*/
 .tabel{
     /*Positie*/
     margin: auto;

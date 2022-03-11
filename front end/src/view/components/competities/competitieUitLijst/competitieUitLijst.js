@@ -1,12 +1,14 @@
 import React from "react";
 import NavigeerNaar from "../../../../controller/Navigatie/navigeerNaar";
 
-function CompetitieUitLijst() {
+function CompetitieUitLijst(props) {
+
+    const path = 'competities/' + props.competitieId;
 
     return(
 
-    <div onClick={NavigeerNaar('competities/:competitieid')}>
-        <p>&#123; Competitienaam &#125;</p>
+    <div onClick={NavigeerNaar(path)}>
+        <p>{props.competitienaam}</p>
     </div>
 
     )

@@ -7,13 +7,13 @@ function Settings() {
             <h1>Account instellingen</h1>
 
             <div>
-                <p>Blie</p>
+                <p>Verander gebruikersnaam</p>
             </div>
             <div>
-                <p>Bloe</p>
+                <p>Verander wachtwoord</p>
             </div>
             <div>
-                <p>Blaa</p>
+                <p>Creër een account</p>
             </div>
         </div>
     );

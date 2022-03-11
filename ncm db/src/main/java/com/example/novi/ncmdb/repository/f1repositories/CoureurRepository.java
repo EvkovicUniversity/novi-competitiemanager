@@ -1,6 +1,6 @@
-package com.example.novi.ncmdb.repository;
+package com.example.novi.ncmdb.repository.f1repositories;
 
-import com.example.novi.ncmdb.domain.Coureur;
+import com.example.novi.ncmdb.domain.Formula1.Coureur;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.example.novi.ncmdb.controller;
 
-import com.example.novi.ncmdb.domain.Coureur;
+import com.example.novi.ncmdb.domain.Formula1.Coureur;
 import com.example.novi.ncmdb.service.CoureurService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

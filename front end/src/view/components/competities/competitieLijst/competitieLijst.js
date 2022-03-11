@@ -1,7 +1,7 @@
 import React from "react";
-import '../competities.css';
+import './competitieLijst.css';
 import NavigeerNaar from "../../../../controller/Navigatie/navigeerNaar";
-import CompetitieUitLijst from "../competitieUitLijst/competitieUitLijst";
+import ToonCompetities from "../competitieLijst/ToonCompetities"
 
 function CompetitieLijst() {
 
@@ -10,12 +10,7 @@ function CompetitieLijst() {
             <h1>Competities</h1>
 
             <div className='competitieLijstContainer'>
-
-                <div className='enkeleCompetitieUitLijstContainer'>
-
-                    <CompetitieUitLijst/>
-
-                </div>
+                <ToonCompetities/>
             </div>
 
             <button className='button01' onClick={NavigeerNaar('competities/creator')}>Create</button>

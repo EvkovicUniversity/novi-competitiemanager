@@ -1,4 +1,4 @@
-package com.example.novi.ncmdb.domain;
+package com.example.novi.ncmdb.domain.Formula1;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
