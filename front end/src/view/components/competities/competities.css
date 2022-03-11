@@ -1,16 +1,47 @@
+/*COMPETITIE CREATOR*/
 .formulier {
-    border: 2px solid black;
+    margin: 2em auto;
     width: 100%;
 }
 
-/*COMPETITIE CREATOR*/
 .creator_invoerveldcontainer {
-    height: 17em;
+    height: 16em;
+    max-height: 17em;
 }
 
 input{
     height: 2em;
     margin: 3px;
+    width: 13em;
+}
+
+#Competitienaam_input{
+
+}
+#team_deelnemers_input{
+    width: 13.6em;
+    height: 2.5em;
+}
+#extraDeelnemers_input{
+    width: 10em;
+}
+#startmoment_input{
+    width: 13.3em;
+}
+#raceAantal_input{
+
+}
+#tijdAantal_input{
+    width: 3em;
+}
+#tijdseenheid_input{
+    height: 2.5em;
+    width: 5.2em;
+}
+
+#button_addPlayer{
+    width: 2.8em;
+    margin-right: 0.25em;
 }
 
 
