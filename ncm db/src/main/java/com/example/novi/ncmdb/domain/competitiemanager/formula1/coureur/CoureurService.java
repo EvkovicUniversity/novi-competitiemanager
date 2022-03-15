@@ -1,7 +1,5 @@
-package com.example.novi.ncmdb.service;
+package com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur;
 
-import com.example.novi.ncmdb.domain.Formula1.Coureur;
-import com.example.novi.ncmdb.repository.f1repositories.CoureurRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

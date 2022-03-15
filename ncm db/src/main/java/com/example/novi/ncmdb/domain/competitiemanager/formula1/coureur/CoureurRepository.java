@@ -1,6 +1,5 @@
-package com.example.novi.ncmdb.repository.f1repositories;
+package com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur;
 
-import com.example.novi.ncmdb.domain.Formula1.Coureur;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
@@ -12,5 +11,5 @@ public interface CoureurRepository extends CrudRepository<Coureur, Long> {
     List<Coureur> findAll();
 
     @Override
-    Optional<Coureur> findById(Long aLong);
+    Optional<Coureur> findById(Long id);
 }

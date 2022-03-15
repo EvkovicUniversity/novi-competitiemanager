@@ -1,7 +1,8 @@
 package com.example.novi.ncmdb.service;
 
-import com.example.novi.ncmdb.domain.Formula1.Coureur;
-import com.example.novi.ncmdb.repository.f1repositories.CoureurRepository;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.Coureur;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.CoureurRepository;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.CoureurService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,13 +22,7 @@ public class CoureurServiceTest {
     }
 
     @Test
-    public void findAllTest() {
-        sut.findAll();
-    }
-
-    @Test
     void generateF1MatchTest(){
-
         List<Coureur> raceUitslag;
 
         raceUitslag = sut.generateF1Match();
