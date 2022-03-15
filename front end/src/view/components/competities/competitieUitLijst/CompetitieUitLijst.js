@@ -5,11 +5,11 @@ function CompetitieUitLijst(props) {
 
     const path = 'competities/' + props.competitieId;
 
-    return(
+    return (
 
-    <div onClick={NavigeerNaar(path)}>
-        <p>{props.competitienaam}</p>
-    </div>
+        <div onClick={NavigeerNaar(path)}>
+            <p>{props.competitienaam}</p>
+        </div>
 
     )
 }

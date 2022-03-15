@@ -1,5 +1,5 @@
 import React from "react";
-import CompetitieUitLijst from "../competitieUitLijst/competitieUitLijst";
+import CompetitieUitLijst from "../competitieUitLijst/CompetitieUitLijst";
 import DataServices from "../../../../controller/services/DataServices";
 
 class ToonCompetities extends React.Component {
@@ -27,10 +27,12 @@ class ToonCompetities extends React.Component {
                         competitie =>
 
                             <div className='enkeleCompetitieUitLijstContainer'>
-                                <CompetitieUitLijst
-                                    competitienaam={competitie.competitienaam}
-                                    competitieId={competitie.id}
-                                />
+                                <div className="background_enkeleCompetitie">
+                                    <CompetitieUitLijst
+                                        competitienaam={competitie.competitienaam}
+                                        competitieId={competitie.id}
+                                    />
+                                </div>
                             </div>
                     )
                 }

@@ -71,13 +71,30 @@ input{
     border-bottom: 2px solid blue;
 }
 
-.tabelContainer{
+.competitieMenuContainer{
     margin: auto;
 
     height: 17em;
     max-height: 17em;
+    width: 100%;
     overflow: auto;
 
     border: 2px solid purple;
 }
 
+.competitieMenuInhoudContainer{
+    border: 2px solid black;
+}
+
+.competitieMenuContent{
+    display: flex;
+}
+
+.uitklapbare_pijl{
+    margin-left: 1em;
+}
+
+.titel_CompetitieMenuContent{
+    margin-left: 3em;
+    margin-top: 1em;
+}

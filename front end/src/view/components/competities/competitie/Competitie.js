@@ -1,5 +1,8 @@
 import React from "react";
 import DataServices from "../../../../controller/services/DataServices";
+import RaceUitslag from "./RaceUitslag";
+import OpkomendeRace from "./competitiemenu/OpkomendeRace";
+import RaceResults from "./competitiemenu/RaceResults";
 
 class Competitie extends React.Component {
 
@@ -7,7 +10,6 @@ class Competitie extends React.Component {
         super(props);
 
         this.state = {
-            raceUitslag: [],
             competitieinfo: []
         }
     }
@@ -16,10 +18,6 @@ class Competitie extends React.Component {
         const getUrl = window.location.href;
         const urlParsed = getUrl.replace('http://localhost:3000', '');
 
-        DataServices.getData("http://localhost:8080/formula1/coureurs")
-            .then((res) => {
-                this.setState({raceUitslag: res.data})
-            })
         DataServices.getData("http://localhost:8080/formula1" + urlParsed)
             .then((res) => {
                 this.setState({competitieinfo: res.data})
@@ -33,23 +31,21 @@ class Competitie extends React.Component {
 
                 <h1>{this.state.competitieinfo.competitienaam}</h1>
 
-                <div className={'tabelContainer'}>
-                    <table className='tabel'>
-                        <tr>
-                            <th className='tabelheaders' id='positieCel'>Positie</th>
-                            <th className='tabelheaders'>Coureur</th>
-                        </tr>
-                        {
-                            this.state.raceUitslag.map(
-                                coureur =>
-                                    <tr key={coureur.id}>
-                                        <td className='tableRow' id='positieWaarde'>{coureur.id}e</td>
-                                        <td className='tableRow'>{coureur.name}</td>
-                                    </tr>
-                            )
-                        }
-                    </table>
-                </div>
+
+                    <div className='competitieMenuContainer'>
+
+                        <div className="competitieMenuInhoudContainer">
+                            <OpkomendeRace/>
+                        </div>
+
+                        <div className="competitieMenuInhoudContainer">
+                            <RaceResults/>
+                        </div>
+
+
+                    </div>
+
+                <button className="button01">Race!</button>
             </div>
         )
     }

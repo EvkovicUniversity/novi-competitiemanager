@@ -1,8 +1,8 @@
 import React from "react";
 import '../competities.css';
-import CreatorForm from "./creatorForm";
+import CreatorForm from "./CreatorForm";
 
-function CompetitieCreator() {
+function Competitiecreator() {
     return (
         <div>
             <h1>F1 Competitie Creator</h1>
@@ -13,4 +13,4 @@ function CompetitieCreator() {
     )
 }
 
-export default CompetitieCreator;
+export default Competitiecreator;
