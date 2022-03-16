@@ -32,12 +32,15 @@ public class CoureurService {
     };
 
     public List<Coureur> generateF1Match() {
-        List<Coureur> coureurs = getCoureurLijst();
+//        List<Coureur> coureurs = getCoureurLijstViaDB();
+        List<Coureur> coureurs = getCoureurLijstLocal();
         List<Coureur> einduitslag;
 
         einduitslag = berekenF1Uitslag(coureurs);
+        einduitslag = sorteerLijstOpEindpositie(einduitslag);
+        kenEindpositieToe(einduitslag);
 
-        return sorteerLijstOpEindPositie(einduitslag);
+        return einduitslag;
     }
 
     private List<Coureur> berekenF1Uitslag(List<Coureur> coureurs) {
@@ -49,7 +52,7 @@ public class CoureurService {
             Double eindpositie = ((Math.random()) * c.getWinfactor() * 100000);
             Long eindpositieId = eindpositie.longValue();
 
-            Coureur coureurGefinished = new Coureur(eindpositieId, c.getName());
+            Coureur coureurGefinished = new Coureur(eindpositieId, c.getName(), 1);
 
             resultaat.add(coureurGefinished);
         }
@@ -57,13 +60,13 @@ public class CoureurService {
         return resultaat;
     }
 
-    private List<Coureur> sorteerLijstOpEindPositie(List<Coureur> resultaat) {
+    private List<Coureur> sorteerLijstOpEindpositie(List<Coureur> resultaat) {
         resultaat.sort(Comparator.comparing(Coureur::getId).reversed());
 
         return resultaat;
     }
 
-    private List<Coureur> getCoureurLijst() {
+    private List<Coureur> getCoureurLijstViaDB() {
         RestTemplate template = new RestTemplate();
         ResponseEntity<List<Coureur>> responseEntity = template.exchange(
                 "http://localhost:8080/formula1/coureurs",
@@ -73,6 +76,40 @@ public class CoureurService {
                 });
 
     return responseEntity.getBody();
+    }
+
+    void kenEindpositieToe(List<Coureur> resultaat){
+        for (int i = 0; i<20; i++){
+            int eindpositie = i +1;
+            resultaat.get(i).setEindpositie(eindpositie);
+        }
+    }
+
+    private List<Coureur> getCoureurLijstLocal() {
+        List<Coureur> coureurs = new ArrayList<>();
+
+        coureurs.add(new Coureur("Alexander Albon", 1));
+        coureurs.add(new Coureur("Fernando Alonso", 1));
+        coureurs.add(new Coureur("Valtteri Bottas", 1));
+        coureurs.add(new Coureur("Pierre Gasly", 1));
+        coureurs.add(new Coureur("Lewis Hamilton", 1));
+        coureurs.add(new Coureur("Nicholas Latifi", 1));
+        coureurs.add(new Coureur("Charles Leclerc", 1));
+        coureurs.add(new Coureur("Nikita Mazepin", 1));
+        coureurs.add(new Coureur("Lando Norris", 1));
+        coureurs.add(new Coureur("Esteban Ocon", 1));
+        coureurs.add(new Coureur("Sergio Pérez", 1));
+        coureurs.add(new Coureur("Daniel Ricciardo", 1));
+        coureurs.add(new Coureur("George Russell", 1));
+        coureurs.add(new Coureur("Carlos Sainz jr.", 1));
+        coureurs.add(new Coureur("Mick Schumacher", 1));
+        coureurs.add(new Coureur("Yuki Tsunoda", 1));
+        coureurs.add(new Coureur("Lance Stroll", 1));
+        coureurs.add(new Coureur("Max Verstappen", 1));
+        coureurs.add(new Coureur("Sebastian Vettel", 1));
+        coureurs.add(new Coureur("Guanyu Zhou", 1));
+
+        return coureurs;
     }
 
 }

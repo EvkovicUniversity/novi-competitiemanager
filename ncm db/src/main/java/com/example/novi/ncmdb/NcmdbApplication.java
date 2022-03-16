@@ -3,9 +3,9 @@ package com.example.novi.ncmdb;
 import com.example.novi.ncmdb.domain.competitiemanager.competitie.Competitie;
 import com.example.novi.ncmdb.domain.competitiemanager.competitie.CompetitieRepository;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.Coureur;
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.CoureurController;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.CoureurRepository;
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.CoureurService;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.races.Races;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.races.RacesRepository;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.Raceuitslag;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.RaceuitslagRepository;
 import org.springframework.boot.SpringApplication;
@@ -28,13 +28,16 @@ public class NcmdbApplication {
                 configurableApplicationContext.getBean(CompetitieRepository.class);
         RaceuitslagRepository raceuitslagRepository =
                 configurableApplicationContext.getBean(RaceuitslagRepository.class);
+        RacesRepository racesRepository =
+                configurableApplicationContext.getBean(RacesRepository.class);
 
 
         NcmdbApplication app = new NcmdbApplication();
         app.db_init(
                 coureurRepository,
                 competitieRepository,
-                raceuitslagRepository
+                raceuitslagRepository,
+                racesRepository
         );
 
     }
@@ -42,11 +45,15 @@ public class NcmdbApplication {
     private void db_init(
             CoureurRepository coureurRep,
             CompetitieRepository competitieRep,
-            RaceuitslagRepository raceuitslagRep
+            RaceuitslagRepository raceuitslagRep,
+            RacesRepository racesRep
     ) {
         init_coureurs(coureurRep);
         init_competities(competitieRep);
-        init_raceuitslagen(coureurRep, raceuitslagRep);
+        init_raceuitslagen(coureurRep, raceuitslagRep, racesRep);
+
+        List<Raceuitslag> raceuitslagen = getRaceresultaten(coureurRep,racesRep);
+        createCompetitieMetRaces(raceuitslagen, competitieRep, racesRep);
     }
 
     private void init_gebruikers() {
@@ -65,8 +72,8 @@ public class NcmdbApplication {
         competitieRepository.saveAll(competities);
     }
 
-    private void init_raceuitslagen(CoureurRepository coureurRepository, RaceuitslagRepository raceuitslagRepository) {
-        List<Raceuitslag> raceresultaten = getRaceresultaten(coureurRepository);
+    private void init_raceuitslagen(CoureurRepository coureurRepository, RaceuitslagRepository raceuitslagRepository, RacesRepository racesRepository) {
+        List<Raceuitslag> raceresultaten = getRaceresultaten(coureurRepository, racesRepository);
 
         raceuitslagRepository.saveAll(raceresultaten);
     }
@@ -113,10 +120,16 @@ public class NcmdbApplication {
         return competities;
     }
 
-    private List<Raceuitslag> getRaceresultaten(CoureurRepository coureurRep){
+    private List<Raceuitslag> getRaceresultaten(CoureurRepository coureurRep, RacesRepository racesRepository){
         List<Raceuitslag> raceuitslagen = new ArrayList<>();
-        CoureurService service = new CoureurService(coureurRep);
+//        List<Races> races = new ArrayList<>();
+//        CoureurService service = new CoureurService(coureurRep);
 //        List<Coureur> generatedRace1 = service.generateF1Match();
+//
+//        RacesService racesService = new RacesService(racesRepository);
+//        races.add(new Races());
+//        racesRepository.saveAll(races);
+
 
 //        raceuitslagen.add(new Raceuitslag("Henk", generatedRace1));
 //        raceuitslagen.add(new Raceuitslag("John", generatedRace1));
@@ -124,16 +137,21 @@ public class NcmdbApplication {
 //        raceuitslagen.add(new Raceuitslag("Boris", generatedRace1));
 //        raceuitslagen.add(new Raceuitslag("Joost", generatedRace1));
 
-        raceuitslagen.add(new Raceuitslag("Henk"));
-        raceuitslagen.add(new Raceuitslag("John"));
-        raceuitslagen.add(new Raceuitslag("Floris"));
-        raceuitslagen.add(new Raceuitslag("Boris"));
-        raceuitslagen.add(new Raceuitslag("Joost"));
-
-
-
+        raceuitslagen.add(new Raceuitslag());
+        raceuitslagen.add(new Raceuitslag());
+        raceuitslagen.add(new Raceuitslag());
+        raceuitslagen.add(new Raceuitslag());
+        raceuitslagen.add(new Raceuitslag());
 
         return raceuitslagen;
+    }
+
+    private void createCompetitieMetRaces(List<Raceuitslag> raceuitslagen, CompetitieRepository competitieRepository, RacesRepository racesRepository){
+        Races races = new Races(raceuitslagen);
+        Competitie competitie = new Competitie("John Doe", races);
+
+        racesRepository.save(races);
+        competitieRepository.save(competitie);
     }
 
 }

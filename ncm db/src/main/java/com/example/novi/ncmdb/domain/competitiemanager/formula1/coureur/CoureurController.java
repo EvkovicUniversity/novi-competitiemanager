@@ -1,8 +1,8 @@
 package com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur;
 
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.Raceuitslag;
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.RaceuitslagRepository;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 

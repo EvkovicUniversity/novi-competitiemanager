@@ -3,7 +3,6 @@ package com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class RaceuitslagService {
@@ -18,18 +17,12 @@ public class RaceuitslagService {
         return raceuitslagRepository.findAll();
     }
 
-    public Optional<Raceuitslag> findById(Long id){
-        return raceuitslagRepository.findById(id);
+    public Raceuitslag findById(Long id){
+        return raceuitslagRepository.findById(id).get();
     }
 
     public void save(Raceuitslag raceuitslag) {
         raceuitslagRepository.save(raceuitslag);
     }
-
-
-
-
-
-
 
 }

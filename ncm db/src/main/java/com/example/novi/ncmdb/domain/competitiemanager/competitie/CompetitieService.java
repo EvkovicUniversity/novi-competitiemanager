@@ -3,7 +3,6 @@ package com.example.novi.ncmdb.domain.competitiemanager.competitie;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CompetitieService {
@@ -18,8 +17,8 @@ public class CompetitieService {
         return competitieRepository.findAll();
     }
 
-    public Optional<Competitie> findById(Long id){
-        return competitieRepository.findById(id);
+    public Competitie findById(Long id){
+        return competitieRepository.findById(id).get();
     }
 
     public void addCompetitie(Competitie competitie){

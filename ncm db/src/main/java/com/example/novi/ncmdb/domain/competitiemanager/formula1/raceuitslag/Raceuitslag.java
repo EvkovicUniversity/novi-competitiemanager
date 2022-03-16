@@ -1,12 +1,8 @@
 package com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag;
 
-import com.example.novi.ncmdb.domain.competitiemanager.competitie.Competitie;
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.Coureur;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.races.Races;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 public class Raceuitslag {
@@ -14,33 +10,28 @@ public class Raceuitslag {
     @Id
     @GeneratedValue
     private Long id;
-    private String testRace;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "competitie_id", referencedColumnName = "id")
-    private Competitie competitie;
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "competitie_id", referencedColumnName = "id")
+//    private Competitie competitie;
 
-    @JsonIgnore
-    @ManyToMany
-    @JoinTable(
-            name = "coureursEnrolled",
-            joinColumns = @JoinColumn(name = "raceuitslagId"),
-            inverseJoinColumns = @JoinColumn(name = "coureurId")
-    )
-    private Set<Coureur> coureurs = new HashSet<>();
+//    @JsonIgnore
+//    @ManyToMany
+//    @JoinTable(
+//            name = "raceuitkomst",
+//            joinColumns = @JoinColumn(name = "raceuitslagId"),
+//            inverseJoinColumns = @JoinColumn(name = "coureurId")
+//    )
+//    private Set<Coureur> coureurs = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "races_id", referencedColumnName = "id")
+    private Races races;
 
     /**
     * CONSTRUCTORS
     **/
     public Raceuitslag(){}
-
-    public Raceuitslag(String testRace){
-        this.testRace = testRace;
-    }
-    public Raceuitslag(String testRace, Set<Coureur> raceuitslag){
-        this.testRace = testRace;
-        this.coureurs = raceuitslag;
-    }
 
     /**
     * GETTERS & SETTERS
@@ -49,23 +40,27 @@ public class Raceuitslag {
         return id;
     }
 
-    public String getTestRace() {
-        return testRace;
+    public Races getRaces(){
+        return this.races;
     }
 
-    public Competitie getCompetitie() {
-        return competitie;
+    public void assignToRaces(Races races){
+        this.races = races;
     }
 
-    public Set<Coureur> getRaceuitslag() {
-        return coureurs;
-    }
+//    public Competitie getCompetitie() {
+//        return competitie;
+//    }
 
-    public void assignCoureur(Coureur coureur){
-        coureurs.add(coureur);
-    }
-
-    public void assignCompetitie(Competitie competitie) {
-        this.competitie = competitie;
-    }
+//    public Set<Coureur> getRaceuitslag() {
+//        return coureurs;
+//    }
+//
+//    public void assignCoureur(Coureur coureur){
+//        coureurs.add(coureur);
+//    }
+//
+//    public void assignCompetitie(Competitie competitie) {
+//        this.competitie = competitie;
+//    }
 }

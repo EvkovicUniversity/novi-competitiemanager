@@ -1,13 +1,10 @@
 package com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur;
 
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.Raceuitslag;
-
-import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
-@Table
 public class Coureur {
 
     @Id
@@ -17,9 +14,6 @@ public class Coureur {
     private int eindpositie;
     double winfactor;
 
-    @ManyToMany(mappedBy = "coureurs")
-    private Set<Raceuitslag> raceuitslagen = new HashSet<>();
-
     /**
      * CONSTRUCTORS
      **/
@@ -27,14 +21,19 @@ public class Coureur {
 
     }
 
+//    @JsonIgnore
+//    @ManyToMany(mappedBy = "coureurs")
+//    private Set<Raceuitslag> raceuitslagen = new HashSet<>();
+
     public Coureur(String name, double winfactor) {
         this.name = name;
         this.winfactor = winfactor;
     }
 
-    public Coureur(Long id, String name) {
+    public Coureur(Long id, String name, int eindpositie) {
         this.id = id;
         this.name = name;
+        this.eindpositie = eindpositie;
     }
 
     /**
@@ -52,8 +51,15 @@ public class Coureur {
         return winfactor;
     }
 
-    public Set<Raceuitslag> getRaceuitslagen() {
-        return raceuitslagen;
+//    public Set<Raceuitslag> getRaceuitslagen() {
+//        return raceuitslagen;
+//    }
+
+    public int getEindpositie() {
+        return eindpositie;
     }
 
+    public void setEindpositie(int eindpositie){
+        this.eindpositie=eindpositie;
+    }
 }

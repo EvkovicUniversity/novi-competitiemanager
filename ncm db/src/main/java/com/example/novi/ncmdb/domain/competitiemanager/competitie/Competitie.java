@@ -1,11 +1,8 @@
 package com.example.novi.ncmdb.domain.competitiemanager.competitie;
 
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.Raceuitslag;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.races.Races;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 public class Competitie {
@@ -15,9 +12,13 @@ public class Competitie {
     private Long id;
     private String competitienaam;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "competitie")
-    private Set<Raceuitslag> races = new HashSet<>();
+    @OneToOne
+    @JoinColumn(name = "races_id", referencedColumnName = "id")
+    private Races races;
+
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "competitie")
+//    private Set<Raceuitslag> races = new HashSet<>();
 
     /**
      * CONSTRUCTORS
@@ -26,6 +27,11 @@ public class Competitie {
 
     public Competitie(String competitienaam){
         this.competitienaam = competitienaam;
+    }
+
+    public Competitie(String competitienaam, Races races) {
+        this.competitienaam = competitienaam;
+        this.races = races;
     }
 
     /**
@@ -39,8 +45,15 @@ public class Competitie {
         return competitienaam;
     }
 
-    public Set<Raceuitslag> getRaces() {
+    public Races getRaces() {
         return races;
     }
 
+    public void assignRaces(Races races){
+        this.races = races;
+    }
+
+//    public Set<Raceuitslag> getRaces() {
+//        return races;
+//    }
 }
