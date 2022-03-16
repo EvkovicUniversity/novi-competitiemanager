@@ -1,19 +1,24 @@
 package com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur;
 
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.Raceuitslag;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
+@Table
 public class Coureur {
 
     @Id
     @GeneratedValue
     private Long id;
     private String name;
+    private int eindpositie;
     double winfactor;
 
-    //    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "coureur_id", referencedColumnName = "id")
-//    private Raceuitslag raceuitslag;
+    @ManyToMany(mappedBy = "coureurs")
+    private Set<Raceuitslag> raceuitslagen = new HashSet<>();
 
     /**
      * CONSTRUCTORS
@@ -47,7 +52,8 @@ public class Coureur {
         return winfactor;
     }
 
-//    public Raceuitslag getRaceuitslag() {
-//        return raceuitslag;
-//    }
+    public Set<Raceuitslag> getRaceuitslagen() {
+        return raceuitslagen;
+    }
+
 }

@@ -3,7 +3,9 @@ package com.example.novi.ncmdb;
 import com.example.novi.ncmdb.domain.competitiemanager.competitie.Competitie;
 import com.example.novi.ncmdb.domain.competitiemanager.competitie.CompetitieRepository;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.Coureur;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.CoureurController;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.CoureurRepository;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.CoureurService;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.Raceuitslag;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.RaceuitslagRepository;
 import org.springframework.boot.SpringApplication;
@@ -44,7 +46,7 @@ public class NcmdbApplication {
     ) {
         init_coureurs(coureurRep);
         init_competities(competitieRep);
-        init_raceuitslagen(raceuitslagRep);
+        init_raceuitslagen(coureurRep, raceuitslagRep);
     }
 
     private void init_gebruikers() {
@@ -63,8 +65,8 @@ public class NcmdbApplication {
         competitieRepository.saveAll(competities);
     }
 
-    private void init_raceuitslagen(RaceuitslagRepository raceuitslagRepository) {
-        List<Raceuitslag> raceresultaten = getRaceresultaten();
+    private void init_raceuitslagen(CoureurRepository coureurRepository, RaceuitslagRepository raceuitslagRepository) {
+        List<Raceuitslag> raceresultaten = getRaceresultaten(coureurRepository);
 
         raceuitslagRepository.saveAll(raceresultaten);
     }
@@ -111,14 +113,24 @@ public class NcmdbApplication {
         return competities;
     }
 
-    private List<Raceuitslag> getRaceresultaten(){
+    private List<Raceuitslag> getRaceresultaten(CoureurRepository coureurRep){
         List<Raceuitslag> raceuitslagen = new ArrayList<>();
+        CoureurService service = new CoureurService(coureurRep);
+//        List<Coureur> generatedRace1 = service.generateF1Match();
+
+//        raceuitslagen.add(new Raceuitslag("Henk", generatedRace1));
+//        raceuitslagen.add(new Raceuitslag("John", generatedRace1));
+//        raceuitslagen.add(new Raceuitslag("Floris", generatedRace1));
+//        raceuitslagen.add(new Raceuitslag("Boris", generatedRace1));
+//        raceuitslagen.add(new Raceuitslag("Joost", generatedRace1));
 
         raceuitslagen.add(new Raceuitslag("Henk"));
         raceuitslagen.add(new Raceuitslag("John"));
         raceuitslagen.add(new Raceuitslag("Floris"));
         raceuitslagen.add(new Raceuitslag("Boris"));
         raceuitslagen.add(new Raceuitslag("Joost"));
+
+
 
 
         return raceuitslagen;

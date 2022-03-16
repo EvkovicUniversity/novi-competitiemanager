@@ -1,6 +1,10 @@
 package com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur;
 
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -18,6 +22,14 @@ public class CoureurService {
     public List<Coureur> findAll() {
         return coureurRepository.findAll();
     }
+
+    public Coureur findById(Long id){
+        return coureurRepository.findById(id).get();
+    }
+
+    public void addCoureur(Coureur coureur){
+        coureurRepository.save(coureur);
+    };
 
     public List<Coureur> generateF1Match() {
         List<Coureur> coureurs = getCoureurLijst();
@@ -52,30 +64,15 @@ public class CoureurService {
     }
 
     private List<Coureur> getCoureurLijst() {
-        List<Coureur> coureurs = new ArrayList<>();
+        RestTemplate template = new RestTemplate();
+        ResponseEntity<List<Coureur>> responseEntity = template.exchange(
+                "http://localhost:8080/formula1/coureurs",
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<List<Coureur>>() {
+                });
 
-        coureurs.add(new Coureur("Alexander Albon", 1));
-        coureurs.add(new Coureur("Fernando Alonso", 1));
-        coureurs.add(new Coureur("Valtteri Bottas", 1));
-        coureurs.add(new Coureur("Pierre Gasly", 1));
-        coureurs.add(new Coureur("Lewis Hamilton", 6));
-        coureurs.add(new Coureur("Nicholas Latifi", 1));
-        coureurs.add(new Coureur("Charles Leclerc", 1));
-        coureurs.add(new Coureur("Nikita Mazepin", 1));
-        coureurs.add(new Coureur("Lando Norris", 1));
-        coureurs.add(new Coureur("Esteban Ocon", 1));
-        coureurs.add(new Coureur("Sergio Pérez", 1));
-        coureurs.add(new Coureur("Daniel Ricciardo", 1));
-        coureurs.add(new Coureur("George Russell", 1));
-        coureurs.add(new Coureur("Carlos Sainz jr.", 1));
-        coureurs.add(new Coureur("Mick Schumacher", 1));
-        coureurs.add(new Coureur("Yuki Tsunoda", 1));
-        coureurs.add(new Coureur("Lance Stroll", 1));
-        coureurs.add(new Coureur("Max Verstappen", 5));
-        coureurs.add(new Coureur("Sebastian Vettel", 1));
-        coureurs.add(new Coureur("Guanyu Zhou", 1));
-
-        return coureurs;
+    return responseEntity.getBody();
     }
 
 }
