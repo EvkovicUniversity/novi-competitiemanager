@@ -23,13 +23,13 @@ public class CoureurService {
         return coureurRepository.findAll();
     }
 
-    public Coureur findById(Long id){
+    public Coureur findById(Long id) {
         return coureurRepository.findById(id).get();
     }
 
-    public void addCoureur(Coureur coureur){
+    public void addCoureur(Coureur coureur) {
         coureurRepository.save(coureur);
-    };
+    }
 
     public ArrayList<Coureur> generateF1Match() {
 //        List<Coureur> coureurs = getCoureurLijstViaDB();
@@ -78,12 +78,12 @@ public class CoureurService {
                 new ParameterizedTypeReference<List<Coureur>>() {
                 });
 
-    return responseEntity.getBody();
+        return responseEntity.getBody();
     }
 
-    void kenEindpositieToe(List<Coureur> resultaat){
-        for (int i = 0; i<20; i++){
-            int eindpositie = i +1;
+    void kenEindpositieToe(List<Coureur> resultaat) {
+        for (int i = 0; i < 20; i++) {
+            int eindpositie = i + 1;
             resultaat.get(i).setEindpositie(eindpositie);
         }
     }

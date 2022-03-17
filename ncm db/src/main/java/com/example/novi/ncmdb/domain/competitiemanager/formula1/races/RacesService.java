@@ -11,15 +11,15 @@ public class RacesService {
         this.racesRepository = racesRepository;
     }
 
-    public void save(Races races){
+    public void save(Races races) {
         racesRepository.save(races);
     }
 
-    public Races findById(Long id){
+    public Races findById(Long id) {
         return racesRepository.findById(id).get();
     }
 
-    public Iterable<Races> findAll(){
+    public Iterable<Races> findAll() {
         return racesRepository.findAll();
     }
 }

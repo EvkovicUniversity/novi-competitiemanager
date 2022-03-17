@@ -46,7 +46,7 @@ public class Races {
         return raceResultaten;
     }
 
-    public void setCompetitie(Competitie competitie){
+    public void setCompetitie(Competitie competitie) {
         this.competitie = competitie;
     }
 

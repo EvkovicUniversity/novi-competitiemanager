@@ -17,6 +17,7 @@ public class Coureur {
     @ManyToOne
     @JoinColumn(name = "raceuitslag_id")
     private Raceuitslag raceuitslag;
+
     /**
      * CONSTRUCTORS
      **/
@@ -64,8 +65,8 @@ public class Coureur {
         return eindpositie;
     }
 
-    public void setEindpositie(int eindpositie){
-        this.eindpositie=eindpositie;
+    public void setEindpositie(int eindpositie) {
+        this.eindpositie = eindpositie;
     }
 
     public void setRaceuitslag(Raceuitslag raceuitslag) {

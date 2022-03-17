@@ -34,11 +34,6 @@ public class NcmdbApplication {
                 configurableApplicationContext.getBean(RaceuitslagRepository.class);
 
 
-
-
-
-
-
         NcmdbApplication app = new NcmdbApplication();
 
         app.db_init(
@@ -110,7 +105,7 @@ public class NcmdbApplication {
         return competities;
     }
 
-    private void getCompetitiesMetRaces(CoureurRepository coureurRepository, RaceuitslagRepository raceuitslagRepository, RacesRepository racesRepository, CompetitieRepository competitieRepository){
+    private void getCompetitiesMetRaces(CoureurRepository coureurRepository, RaceuitslagRepository raceuitslagRepository, RacesRepository racesRepository, CompetitieRepository competitieRepository) {
         // Maak Competities.
         Competitie competitie1 = new Competitie("CompetitieCompleet1");
         Competitie competitie2 = new Competitie("CompetitieCompleet2");
@@ -197,10 +192,8 @@ public class NcmdbApplication {
     }
 
     /**
-     *
-     * @param raceresultaten: Dit is een lijst met de uitkomst van een gegenereerde formule1 race.
+     * @param raceresultaten:       Dit is een lijst met de uitkomst van een gegenereerde formule1 race.
      * @param koppelAanRaceuitslag: dit de raceuitslag waar de uitkomst van raceresultaten aan gekoppeld moet worden
-     *
      **/
     private List<Coureur> geefLijstMetNieuweCoureurObjecten(List<Coureur> raceresultaten, Raceuitslag koppelAanRaceuitslag) {
         List<Coureur> lijstMetNieuweCoureurObjecten = new ArrayList<>();

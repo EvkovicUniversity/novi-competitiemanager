@@ -21,9 +21,10 @@ public class Competitie {
     /**
      * CONSTRUCTORS
      **/
-    public Competitie(){}
+    public Competitie() {
+    }
 
-    public Competitie(String competitienaam){
+    public Competitie(String competitienaam) {
         this.competitienaam = competitienaam;
     }
 

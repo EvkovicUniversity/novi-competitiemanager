@@ -21,7 +21,7 @@ public class RacesController {
 
     @CrossOrigin
     @GetMapping(path = "races/getAll")
-    Iterable<Races> getAllRaces(){
+    Iterable<Races> getAllRaces() {
         return racesService.findAll();
     }
 
@@ -29,7 +29,7 @@ public class RacesController {
     void assignUitslagToRace(
             @PathVariable Long raceuitslag_id,
             @PathVariable Long race_id
-    ){
+    ) {
         Raceuitslag raceuitslag = raceuitslagService.findById(raceuitslag_id);
         Races races = racesService.findById(race_id);
         raceuitslag.setRaces(races);
@@ -41,7 +41,7 @@ public class RacesController {
     void assignRacesToCompetitie(
             @PathVariable Long races_id,
             @PathVariable Long competitie_id
-    ){
+    ) {
         Competitie competitie = competitieService.findById(competitie_id);
         Races races = racesService.findById(races_id);
         races.setCompetitie(competitie);

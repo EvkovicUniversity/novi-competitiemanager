@@ -9,20 +9,16 @@ public class RaceuitslagService {
 
     private final RaceuitslagRepository raceuitslagRepository;
 
-    public RaceuitslagService(RaceuitslagRepository raceuitslagRepository){
+    public RaceuitslagService(RaceuitslagRepository raceuitslagRepository) {
         this.raceuitslagRepository = raceuitslagRepository;
     }
 
-    public List<Raceuitslag> findAll(){
+    public List<Raceuitslag> findAll() {
         return raceuitslagRepository.findAll();
     }
 
-    public Raceuitslag findById(Long id){
+    public Raceuitslag findById(Long id) {
         return raceuitslagRepository.findById(id).get();
-    }
-
-    public void save(Raceuitslag raceuitslag) {
-        raceuitslagRepository.save(raceuitslag);
     }
 
 }

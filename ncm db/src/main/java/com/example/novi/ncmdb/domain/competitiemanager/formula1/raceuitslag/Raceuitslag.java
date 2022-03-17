@@ -26,26 +26,27 @@ public class Raceuitslag {
     private List<Coureur> raceuitkomst = new ArrayList<>();
 
     /**
-    * CONSTRUCTORS
-    **/
-    public Raceuitslag(){}
+     * CONSTRUCTORS
+     **/
+    public Raceuitslag() {
+    }
 
-    public Raceuitslag(Races races){
+    public Raceuitslag(Races races) {
         this.races = races;
     }
 
     /**
-    * GETTERS & SETTERS
-    **/
+     * GETTERS & SETTERS
+     **/
     public Long getId() {
         return id;
     }
 
-    public Races getRaces(){
+    public Races getRaces() {
         return this.races;
     }
 
-    public void setRaces(Races races){
+    public void setRaces(Races races) {
         this.races = races;
     }
 
