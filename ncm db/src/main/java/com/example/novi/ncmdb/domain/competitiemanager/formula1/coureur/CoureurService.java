@@ -31,7 +31,7 @@ public class CoureurService {
         coureurRepository.save(coureur);
     };
 
-    public List<Coureur> generateF1Match() {
+    public ArrayList<Coureur> generateF1Match() {
 //        List<Coureur> coureurs = getCoureurLijstViaDB();
         List<Coureur> coureurs = getCoureurLijstLocal();
         List<Coureur> einduitslag;
@@ -40,7 +40,10 @@ public class CoureurService {
         einduitslag = sorteerLijstOpEindpositie(einduitslag);
         kenEindpositieToe(einduitslag);
 
-        return einduitslag;
+        ArrayList<Coureur> einduitslagArray = new ArrayList<>();
+
+        einduitslagArray.addAll(einduitslag);
+        return einduitslagArray;
     }
 
     private List<Coureur> berekenF1Uitslag(List<Coureur> coureurs) {

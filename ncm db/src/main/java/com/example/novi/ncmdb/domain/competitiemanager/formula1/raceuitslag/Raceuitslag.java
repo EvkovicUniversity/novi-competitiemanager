@@ -1,8 +1,11 @@
 package com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag;
 
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.Coureur;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.races.Races;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Raceuitslag {
@@ -11,27 +14,25 @@ public class Raceuitslag {
     @GeneratedValue
     private Long id;
 
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "competitie_id", referencedColumnName = "id")
-//    private Competitie competitie;
-
-//    @JsonIgnore
-//    @ManyToMany
-//    @JoinTable(
-//            name = "raceuitkomst",
-//            joinColumns = @JoinColumn(name = "raceuitslagId"),
-//            inverseJoinColumns = @JoinColumn(name = "coureurId")
-//    )
-//    private Set<Coureur> coureurs = new HashSet<>();
-
     @ManyToOne
     @JoinColumn(name = "races_id", referencedColumnName = "id")
     private Races races;
+
+    @OneToMany(
+            mappedBy = "raceuitslag",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Coureur> raceuitkomst = new ArrayList<>();
 
     /**
     * CONSTRUCTORS
     **/
     public Raceuitslag(){}
+
+    public Raceuitslag(Races races){
+        this.races = races;
+    }
 
     /**
     * GETTERS & SETTERS
@@ -44,23 +45,11 @@ public class Raceuitslag {
         return this.races;
     }
 
-    public void assignToRaces(Races races){
+    public void setRaces(Races races){
         this.races = races;
     }
 
-//    public Competitie getCompetitie() {
-//        return competitie;
-//    }
-
-//    public Set<Coureur> getRaceuitslag() {
-//        return coureurs;
-//    }
-//
-//    public void assignCoureur(Coureur coureur){
-//        coureurs.add(coureur);
-//    }
-//
-//    public void assignCompetitie(Competitie competitie) {
-//        this.competitie = competitie;
-//    }
+    public void setRaceuitkomst(List<Coureur> raceuitkomst) {
+        this.raceuitkomst = raceuitkomst;
+    }
 }

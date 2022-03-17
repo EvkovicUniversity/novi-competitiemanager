@@ -1,7 +1,5 @@
 package com.example.novi.ncmdb.domain.competitiemanager.competitie;
 
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.races.RacesService;
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.RaceuitslagService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

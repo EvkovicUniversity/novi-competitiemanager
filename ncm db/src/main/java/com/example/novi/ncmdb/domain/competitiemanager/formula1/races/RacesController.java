@@ -32,19 +32,7 @@ public class RacesController {
     ){
         Raceuitslag raceuitslag = raceuitslagService.findById(raceuitslag_id);
         Races races = racesService.findById(race_id);
-        raceuitslag.assignToRaces(races);
-        racesService.save(races);
-    }
-
-    @CrossOrigin
-    @PutMapping(path = "/races/uitslag/{raceuitslag_id}/{races_id}")
-    void assignRacesuitslagToRaces(
-            @PathVariable Long raceuitslag_id,
-            @PathVariable Long races_id
-    ){
-        Raceuitslag raceuitslag = raceuitslagService.findById(raceuitslag_id);
-        Races races = racesService.findById(races_id);
-        races.assignRaceResultaten(raceuitslag);
+        raceuitslag.setRaces(races);
         racesService.save(races);
     }
 
@@ -56,7 +44,7 @@ public class RacesController {
     ){
         Competitie competitie = competitieService.findById(competitie_id);
         Races races = racesService.findById(races_id);
-        races.assignCompetitie(competitie);
+        races.setCompetitie(competitie);
         racesService.save(races);
     }
 }

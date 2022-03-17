@@ -2,8 +2,10 @@ package com.example.novi.ncmdb.domain.competitiemanager.formula1.races;
 
 import com.example.novi.ncmdb.domain.competitiemanager.competitie.Competitie;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.Raceuitslag;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,16 +17,18 @@ public class Races {
     @OneToOne(mappedBy = "races")
     private Competitie competitie;
 
-    @OneToMany(mappedBy = "races")
-    private List<Raceuitslag> raceResultaten;
+    @JsonIgnore
+    @OneToMany(
+            mappedBy = "races",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Raceuitslag> raceResultaten = new ArrayList<>();
+
     /**
      * CONSTRUCTORS
      **/
     public Races() {
-    }
-
-    public Races(List<Raceuitslag> raceResultaten) {
-        this.raceResultaten = raceResultaten;
     }
 
     /**
@@ -42,11 +46,11 @@ public class Races {
         return raceResultaten;
     }
 
-    public void assignCompetitie(Competitie competitie){
+    public void setCompetitie(Competitie competitie){
         this.competitie = competitie;
     }
 
-    public void assignRaceResultaten(Raceuitslag raceuitslag){
-        this.raceResultaten.add(raceuitslag);
+    public void setRaceResultaten(List<Raceuitslag> raceResultaten) {
+        this.raceResultaten = raceResultaten;
     }
 }

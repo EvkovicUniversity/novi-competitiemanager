@@ -1,8 +1,8 @@
 package com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.Raceuitslag;
+
+import javax.persistence.*;
 
 @Entity
 public class Coureur {
@@ -14,16 +14,15 @@ public class Coureur {
     private int eindpositie;
     double winfactor;
 
+    @ManyToOne
+    @JoinColumn(name = "raceuitslag_id")
+    private Raceuitslag raceuitslag;
     /**
      * CONSTRUCTORS
      **/
     public Coureur() {
 
     }
-
-//    @JsonIgnore
-//    @ManyToMany(mappedBy = "coureurs")
-//    private Set<Raceuitslag> raceuitslagen = new HashSet<>();
 
     public Coureur(String name, double winfactor) {
         this.name = name;
@@ -34,6 +33,16 @@ public class Coureur {
         this.id = id;
         this.name = name;
         this.eindpositie = eindpositie;
+    }
+
+    public Coureur(Raceuitslag raceuitslag) {
+        this.raceuitslag = raceuitslag;
+    }
+
+    public Coureur(String name, int eindpositie, Raceuitslag raceuitslag) {
+        this.name = name;
+        this.eindpositie = eindpositie;
+        this.raceuitslag = raceuitslag;
     }
 
     /**
@@ -51,15 +60,15 @@ public class Coureur {
         return winfactor;
     }
 
-//    public Set<Raceuitslag> getRaceuitslagen() {
-//        return raceuitslagen;
-//    }
-
     public int getEindpositie() {
         return eindpositie;
     }
 
     public void setEindpositie(int eindpositie){
         this.eindpositie=eindpositie;
+    }
+
+    public void setRaceuitslag(Raceuitslag raceuitslag) {
+        this.raceuitslag = raceuitslag;
     }
 }
