@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
 
 export default function fetchData(url){
@@ -14,7 +14,7 @@ export default function fetchData(url){
                 setData(response.data);
             })
             .catch((err) =>{
-                setError(err);
+                // setError(err);
             })
             .finally(()=>{
                 setLoading(false);

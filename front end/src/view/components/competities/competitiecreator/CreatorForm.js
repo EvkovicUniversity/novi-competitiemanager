@@ -1,7 +1,7 @@
-import React from "react";
+import React, {Component} from "react";
 import axios from "axios";
 
-class CreatorForm extends React.Component {
+class CreatorForm extends Component {
     constructor(props) {
         super(props);
 
@@ -35,12 +35,12 @@ class CreatorForm extends React.Component {
     render() {
         const {
             competitienaam,
-            team_deelnemers,
+            // team_deelnemers,
             extraDeelnemers,
-            startmoment,
+            // startmoment,
             raceAantal,
             tijdAantal,
-            tijdseenheid
+            // tijdseenheid
         } = this.state
         return (
             <div>

@@ -1,20 +1,21 @@
 import React, {useState} from "react";
 import RaceUitslagMenu from "./RaceUitslagMenu";
+import fetchData from "../../../../../controller/Data/fetchData";
+import OpkomendeRace from "./OpkomendeRace";
+import History from "./History";
 
-function RaceResults() {
+function RaceResults(props) {
 
-    const [open, setOpen] = useState(false);
+    // const {data, loading} = fetchData("http://localhost:8080/competities/raceuitslagen/raceId/" + props.competitieId)
 
     return (
+
         <div>
-            <div className="competitieMenuContent">
-                <h1 className="uitklapbare_pijl" onClick={() => setOpen(!open)}> > </h1>
-                <h2 className="titel_CompetitieMenuContent">History</h2>
-            </div>
-
-            {open && <RaceUitslagMenu/>}
-
+                    <div>
+                        <History competitieId={props.competitieId}/>
+                    </div>
         </div>
+
     )
 
 }

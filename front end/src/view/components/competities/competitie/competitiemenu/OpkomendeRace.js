@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import RaceUitslag from "../RaceUitslag";
+import DoeVoorspelling from "../DoeVoorspelling";
 
 function OpkomendeRace(){
 
@@ -12,7 +12,7 @@ function OpkomendeRace(){
                     <h2 className="titel_CompetitieMenuContent">Opkomend</h2>
                 </div>
 
-                {open && <RaceUitslag/>}
+                {open && <DoeVoorspelling/>}
 
             </div>
         )

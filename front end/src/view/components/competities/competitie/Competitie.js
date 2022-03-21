@@ -1,8 +1,7 @@
 import React from "react";
 import DataServices from "../../../../controller/services/DataServices";
-import RaceUitslag from "./RaceUitslag";
-import OpkomendeRace from "./competitiemenu/OpkomendeRace";
 import RaceResults from "./competitiemenu/RaceResults";
+import OpkomendeRace from "./competitiemenu/OpkomendeRace";
 
 class Competitie extends React.Component {
 
@@ -31,19 +30,18 @@ class Competitie extends React.Component {
 
                 <h1>{this.state.competitieinfo.competitienaam}</h1>
 
+                <div className='competitieMenuContainer'>
 
-                    <div className='competitieMenuContainer'>
-
-                        <div className="competitieMenuInhoudContainer">
-                            <OpkomendeRace/>
-                        </div>
-
-                        <div className="competitieMenuInhoudContainer">
-                            <RaceResults/>
-                        </div>
-
-
+                    <div className="competitieMenuInhoudContainer">
+                        <OpkomendeRace/>
                     </div>
+
+                    <div className="competitieMenuInhoudContainer">
+                        <RaceResults competitieId={this.state.competitieinfo.id}/>
+                    </div>
+
+
+                </div>
 
                 <button className="button01">Race!</button>
             </div>
