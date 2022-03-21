@@ -2,6 +2,7 @@ package com.example.novi.ncmdb;
 
 import com.example.novi.ncmdb.domain.authenticatie.gebruiker.Gebruiker;
 import com.example.novi.ncmdb.domain.authenticatie.gebruiker.GebruikerRepository;
+import com.example.novi.ncmdb.domain.authenticatie.gebruiker.GebruikerService;
 import com.example.novi.ncmdb.domain.competitiemanager.competitie.Competitie;
 import com.example.novi.ncmdb.domain.competitiemanager.competitie.CompetitieRepository;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.Coureur;
@@ -15,13 +16,14 @@ import com.example.novi.ncmdb.domain.competitiemanager.formula1.voorspelling.Voo
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.voorspelling.VoorspellingRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 public class NcmdbApplication {
 
     public static void main(String[] args) {
@@ -56,15 +58,13 @@ public class NcmdbApplication {
     }
 
     private void init_gebruikers(GebruikerRepository gebruikerRepository){
-        List<Gebruiker> gebruikers = new ArrayList<>();
+        GebruikerService service = new GebruikerService(gebruikerRepository);
 
         Gebruiker user1 = new Gebruiker("noviadmin", "noviadmin");
         Gebruiker user2 = new Gebruiker("evan", "evan");
-        Gebruiker user3 = new Gebruiker("billy", "billy");
 
-        gebruikerRepository.save(user1);
-        gebruikerRepository.save(user2);
-        gebruikerRepository.save(user3);
+        service.gebruikerToevoegen(user1);
+        service.gebruikerToevoegen(user2);
 
     }
 
