@@ -2,6 +2,7 @@ package com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag;
 
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.Coureur;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.races.Races;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class Raceuitslag {
     @JoinColumn(name = "races_id", referencedColumnName = "id")
     private Races races;
 
+    @JsonIgnore
     @OneToMany(
             mappedBy = "raceuitslag",
             cascade = CascadeType.ALL,
@@ -53,4 +55,9 @@ public class Raceuitslag {
     public void setRaceuitkomst(List<Coureur> raceuitkomst) {
         this.raceuitkomst = raceuitkomst;
     }
+
+    public List<Coureur> getRaceuitkomst() {
+        return raceuitkomst;
+    }
+
 }

@@ -1,7 +1,7 @@
 package com.example.novi.ncmdb.domain.competitiemanager.competitie;
 
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.races.Races;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
 
@@ -46,4 +46,5 @@ public class Competitie {
     public void setRaces(Races races) {
         this.races = races;
     }
+
 }

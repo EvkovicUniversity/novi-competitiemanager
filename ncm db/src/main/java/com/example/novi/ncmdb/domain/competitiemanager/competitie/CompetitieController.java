@@ -20,6 +20,12 @@ public class CompetitieController {
     }
 
     @CrossOrigin
+    @GetMapping(path = "/competities/raceuitslagen/raceId/{competitieId}")
+    public Long getRaceId(@PathVariable Long competitieId){
+        return competitieService.findById(competitieId).getRaces().getId();
+    }
+
+    @CrossOrigin
     @GetMapping(path = "/formula1/competities/{id}")
     public Competitie getCompetitieById(@PathVariable Long id) {
         return competitieService.findById(id);

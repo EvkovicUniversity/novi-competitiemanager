@@ -72,4 +72,8 @@ public class Coureur {
     public void setRaceuitslag(Raceuitslag raceuitslag) {
         this.raceuitslag = raceuitslag;
     }
+
+    public Raceuitslag getRaceuitslag() {
+        return raceuitslag;
+    }
 }

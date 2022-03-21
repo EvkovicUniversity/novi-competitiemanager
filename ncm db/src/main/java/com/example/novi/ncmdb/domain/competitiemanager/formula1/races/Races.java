@@ -2,6 +2,7 @@ package com.example.novi.ncmdb.domain.competitiemanager.formula1.races;
 
 import com.example.novi.ncmdb.domain.competitiemanager.competitie.Competitie;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.Raceuitslag;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ public class Races {
     @Id
     @GeneratedValue
     private Long id;
+
     @OneToOne(mappedBy = "races")
     private Competitie competitie;
 
@@ -29,6 +31,10 @@ public class Races {
      * CONSTRUCTORS
      **/
     public Races() {
+    }
+
+    public Races(Competitie competitie) {
+        this.competitie = competitie;
     }
 
     /**

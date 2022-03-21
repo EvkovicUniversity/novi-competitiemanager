@@ -1,5 +1,7 @@
 package com.example.novi.ncmdb;
 
+import com.example.novi.ncmdb.domain.authenticatie.gebruiker.Gebruiker;
+import com.example.novi.ncmdb.domain.authenticatie.gebruiker.GebruikerRepository;
 import com.example.novi.ncmdb.domain.competitiemanager.competitie.Competitie;
 import com.example.novi.ncmdb.domain.competitiemanager.competitie.CompetitieRepository;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.Coureur;
@@ -9,6 +11,8 @@ import com.example.novi.ncmdb.domain.competitiemanager.formula1.races.Races;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.races.RacesRepository;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.Raceuitslag;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.RaceuitslagRepository;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.voorspelling.Voorspelling;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.voorspelling.VoorspellingRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -24,6 +28,8 @@ public class NcmdbApplication {
         ConfigurableApplicationContext configurableApplicationContext =
                 SpringApplication.run(NcmdbApplication.class, args);
 
+        GebruikerRepository gebruikerRepository =
+                configurableApplicationContext.getBean(GebruikerRepository.class);
         CoureurRepository coureurRepository =
                 configurableApplicationContext.getBean(CoureurRepository.class);
         CompetitieRepository competitieRepository =
@@ -32,9 +38,13 @@ public class NcmdbApplication {
                 configurableApplicationContext.getBean(RacesRepository.class);
         RaceuitslagRepository raceuitslagRepository =
                 configurableApplicationContext.getBean(RaceuitslagRepository.class);
+        VoorspellingRepository voorspellingRepository =
+                configurableApplicationContext.getBean(VoorspellingRepository.class);
 
 
         NcmdbApplication app = new NcmdbApplication();
+
+        app.init_gebruikers(gebruikerRepository);
 
         app.db_init(
                 coureurRepository,
@@ -42,6 +52,19 @@ public class NcmdbApplication {
                 raceuitslagRepository,
                 racesRepository
         );
+
+    }
+
+    private void init_gebruikers(GebruikerRepository gebruikerRepository){
+        List<Gebruiker> gebruikers = new ArrayList<>();
+
+        Gebruiker user1 = new Gebruiker("noviadmin", "noviadmin");
+        Gebruiker user2 = new Gebruiker("evan", "evan");
+        Gebruiker user3 = new Gebruiker("billy", "billy");
+
+        gebruikerRepository.save(user1);
+        gebruikerRepository.save(user2);
+        gebruikerRepository.save(user3);
 
     }
 
@@ -126,6 +149,7 @@ public class NcmdbApplication {
         Raceuitslag uitslag22 = new Raceuitslag(races2);
         Raceuitslag uitslag23 = new Raceuitslag(races2);
         Raceuitslag uitslag24 = new Raceuitslag(races2);
+        Raceuitslag uitslag25 = new Raceuitslag(races2);
 
         // Sla de racecontainers op in DB
         racesRepository.save(races1);
@@ -143,22 +167,32 @@ public class NcmdbApplication {
         raceuitslagRepository.save(uitslag22);
         raceuitslagRepository.save(uitslag23);
         raceuitslagRepository.save(uitslag24);
+        raceuitslagRepository.save(uitslag25);
 
 
         CoureurService coureurService = new CoureurService(coureurRepository);
 
         // Genereer een raceuitkomst
-        List<Coureur> eenRace = coureurService.generateF1Match();
+        List<Coureur> raceUitslag1 = coureurService.generateF1Match();
+        List<Coureur> raceUitslag2 = coureurService.generateF1Match();
+        List<Coureur> raceUitslag3 = coureurService.generateF1Match();
+        List<Coureur> raceUitslag4 = coureurService.generateF1Match();
+        List<Coureur> raceUitslag5 = coureurService.generateF1Match();
+        List<Coureur> raceUitslag6 = coureurService.generateF1Match();
+        List<Coureur> raceUitslag7 = coureurService.generateF1Match();
+        List<Coureur> raceUitslag8 = coureurService.generateF1Match();
+        List<Coureur> raceUitslag9 = coureurService.generateF1Match();
 
         // Maak nieuwe coureurobjecten. In dit nieuwe object zijn coureur (dus zijn eindpositie) & uitslag met elkaar verbonden
-        List<Coureur> lijstMetNieuweCoureurObjecten1 = geefLijstMetNieuweCoureurObjecten(eenRace, uitslag11);
-        List<Coureur> lijstMetNieuweCoureurObjecten2 = geefLijstMetNieuweCoureurObjecten(eenRace, uitslag12);
-        List<Coureur> lijstMetNieuweCoureurObjecten3 = geefLijstMetNieuweCoureurObjecten(eenRace, uitslag13);
-        List<Coureur> lijstMetNieuweCoureurObjecten4 = geefLijstMetNieuweCoureurObjecten(eenRace, uitslag14);
-        List<Coureur> lijstMetNieuweCoureurObjecten5 = geefLijstMetNieuweCoureurObjecten(eenRace, uitslag21);
-        List<Coureur> lijstMetNieuweCoureurObjecten6 = geefLijstMetNieuweCoureurObjecten(eenRace, uitslag22);
-        List<Coureur> lijstMetNieuweCoureurObjecten7 = geefLijstMetNieuweCoureurObjecten(eenRace, uitslag23);
-        List<Coureur> lijstMetNieuweCoureurObjecten8 = geefLijstMetNieuweCoureurObjecten(eenRace, uitslag24);
+        List<Coureur> lijstMetNieuweCoureurObjecten1 = geefLijstMetNieuweCoureurObjecten(raceUitslag1, uitslag11);
+        List<Coureur> lijstMetNieuweCoureurObjecten2 = geefLijstMetNieuweCoureurObjecten(raceUitslag2, uitslag12);
+        List<Coureur> lijstMetNieuweCoureurObjecten3 = geefLijstMetNieuweCoureurObjecten(raceUitslag3, uitslag13);
+        List<Coureur> lijstMetNieuweCoureurObjecten4 = geefLijstMetNieuweCoureurObjecten(raceUitslag4, uitslag14);
+        List<Coureur> lijstMetNieuweCoureurObjecten5 = geefLijstMetNieuweCoureurObjecten(raceUitslag5, uitslag21);
+        List<Coureur> lijstMetNieuweCoureurObjecten6 = geefLijstMetNieuweCoureurObjecten(raceUitslag6, uitslag22);
+        List<Coureur> lijstMetNieuweCoureurObjecten7 = geefLijstMetNieuweCoureurObjecten(raceUitslag7, uitslag23);
+        List<Coureur> lijstMetNieuweCoureurObjecten8 = geefLijstMetNieuweCoureurObjecten(raceUitslag8, uitslag24);
+        List<Coureur> lijstMetNieuweCoureurObjecten9 = geefLijstMetNieuweCoureurObjecten(raceUitslag9, uitslag25);
 
         // Sla op in DB
         coureurRepository.saveAll(lijstMetNieuweCoureurObjecten1);
@@ -169,10 +203,11 @@ public class NcmdbApplication {
         coureurRepository.saveAll(lijstMetNieuweCoureurObjecten6);
         coureurRepository.saveAll(lijstMetNieuweCoureurObjecten7);
         coureurRepository.saveAll(lijstMetNieuweCoureurObjecten8);
+        coureurRepository.saveAll(lijstMetNieuweCoureurObjecten9);
 
         // Zet de races in een lijst
         List<Raceuitslag> uitslagVoor1 = Arrays.asList(uitslag11, uitslag12, uitslag13, uitslag14);
-        List<Raceuitslag> uitslagVoor2 = Arrays.asList(uitslag21, uitslag22, uitslag23, uitslag24);
+        List<Raceuitslag> uitslagVoor2 = Arrays.asList(uitslag21, uitslag22, uitslag23, uitslag24, uitslag25);
 
         // Koppel de races aan een racecontainer
         races1.setRaceResultaten(uitslagVoor1);
@@ -202,6 +237,10 @@ public class NcmdbApplication {
             lijstMetNieuweCoureurObjecten.add(new Coureur(eenCoureur.getName(), eenCoureur.getEindpositie(), koppelAanRaceuitslag));
         }
         return lijstMetNieuweCoureurObjecten;
+    }
+
+    private void doVoorspelling(){
+        Voorspelling voorspelling = new Voorspelling();
     }
 
 }

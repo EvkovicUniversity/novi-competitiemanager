@@ -72,7 +72,7 @@ public class CoureurService {
     private List<Coureur> getCoureurLijstViaDB() {
         RestTemplate template = new RestTemplate();
         ResponseEntity<List<Coureur>> responseEntity = template.exchange(
-                "http://localhost:8080/formula1/coureurs",
+                "http://localhost:8080/formula1/vanillaCoureurs",
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<List<Coureur>>() {
