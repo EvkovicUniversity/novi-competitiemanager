@@ -2,7 +2,7 @@ import React from "react";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import LoginPage from "../../view/components/login-page/Login-page";
 import Keuzemenu from "../../view/components/keuzemenu/Keuzemenu";
-import CompetitieLijst from "../../view/components/competities/competitieLijst/CompetitieLijst";
+import CompetitieSelecteren from "../../view/components/competities/competitieSelectie/CompetitieSelecteren";
 import Competitie from "../../view/components/competities/competitie/Competitie";
 import Competitiecreator from "../../view/components/competities/competitiecreator/Competitiecreator";
 import Accountsettings from "../../view/components/settings/Accountsettings";
@@ -18,7 +18,7 @@ class AppRouter extends React.Component {
                     <Routes>
                         <Route path="/" element={<LoginPage/>}/>
                         <Route path='menu' element={<Keuzemenu/>}/>
-                        <Route path='competities' element={<CompetitieLijst/>}/>
+                        <Route path='competities' element={<CompetitieSelecteren/>}/>
                         <Route path='competities/:competitieid' element={<Competitie/>}/>
                         <Route path='competities/creator' element={<Competitiecreator/>}/>
                         <Route path='settings' element={<Accountsettings/>}/>

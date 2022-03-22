@@ -1,7 +1,7 @@
 import React from "react";
 import NavigeerNaar from "../../../../controller/Navigatie/navigeerNaar";
 
-function CompetitieUitLijst(props) {
+function ToonCompetitieNaam(props) {
 
     const path = 'competities/' + props.competitieId;
 
@@ -14,4 +14,4 @@ function CompetitieUitLijst(props) {
     )
 }
 
-export default CompetitieUitLijst;
+export default ToonCompetitieNaam;

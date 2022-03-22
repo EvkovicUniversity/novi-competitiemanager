@@ -1,7 +1,4 @@
-import React, {useState} from "react";
-import RaceUitslagMenu from "./RaceUitslagMenu";
-import fetchData from "../../../../../controller/Data/fetchData";
-import OpkomendeRace from "./OpkomendeRace";
+import React from "react";
 import History from "./History";
 
 function RaceResults(props) {

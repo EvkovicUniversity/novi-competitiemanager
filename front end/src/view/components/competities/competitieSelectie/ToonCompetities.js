@@ -1,5 +1,5 @@
 import React from "react";
-import CompetitieUitLijst from "../competitieUitLijst/CompetitieUitLijst";
+import ToonCompetitieNaam from "./ToonCompetitieNaam";
 import DataServices from "../../../../controller/services/DataServices";
 
 class ToonCompetities extends React.Component {
@@ -26,9 +26,9 @@ class ToonCompetities extends React.Component {
                     this.state.competities.map(
                         competitie =>
 
-                            <div className='enkeleCompetitieUitLijstContainer'>
+                            <div className="keuzemenuknop" id="competitieSelecteren">
                                 <div className="background_enkeleCompetitie">
-                                    <CompetitieUitLijst
+                                    <ToonCompetitieNaam
                                         competitienaam={competitie.competitienaam}
                                         competitieId={competitie.id}
                                     />
@@ -42,5 +42,3 @@ class ToonCompetities extends React.Component {
 }
 
 export default ToonCompetities;
-
-//

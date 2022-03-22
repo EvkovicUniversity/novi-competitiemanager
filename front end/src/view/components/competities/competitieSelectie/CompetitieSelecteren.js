@@ -1,9 +1,8 @@
 import React from "react";
-import './competitieLijst.css';
 import NavigeerNaar from "../../../../controller/Navigatie/navigeerNaar";
-import ToonCompetities from "../competitieLijst/ToonCompetities"
+import ToonCompetities from ".//ToonCompetities"
 
-function CompetitieLijst() {
+function CompetitieSelecteren() {
 
     return (
         <div>
@@ -18,4 +17,4 @@ function CompetitieLijst() {
     );
 }
 
-export default CompetitieLijst;
+export default CompetitieSelecteren;

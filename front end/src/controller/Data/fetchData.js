@@ -14,7 +14,7 @@ export default function fetchData(url){
                 setData(response.data);
             })
             .catch((err) =>{
-                // setError(err);
+                setError(err);
             })
             .finally(()=>{
                 setLoading(false);

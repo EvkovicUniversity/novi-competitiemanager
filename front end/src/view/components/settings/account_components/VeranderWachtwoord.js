@@ -19,7 +19,7 @@ class VeranderWachtwoord extends Component {
     submitHandler = (e) => {
         e.preventDefault()
         console.log(this.state)
-        axios.put('http://localhost:8080/gebruikers/gebruikersnaamwijzigen/' + '2/' + this.state.nieuwwachtwoord, this.state)
+        axios.put('http://localhost:8080/gebruikers/gebruikersnaamwijzigen/2/' + this.state.nieuwwachtwoord, this.state)
             .then(res => {
                 console.log(res)
             })
