@@ -12,4 +12,7 @@ public interface CoureurRepository extends CrudRepository<Coureur, Long> {
 
     @Override
     Optional<Coureur> findById(Long id);
+
+    @Override
+    <S extends Coureur> List<S> saveAll(Iterable<S> entities);
 }

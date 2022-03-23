@@ -1,5 +1,5 @@
 import React from "react";
-import "../algemeen/algemeen.css";
+import "../algemeen.css";
 import "./login-page-css.css";
 import NavigeerNaar from "../../../controller/Navigatie/navigeerNaar";
 

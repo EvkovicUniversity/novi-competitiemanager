@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import static java.lang.Long.parseLong;
+
 @RestController
 public class RacesController {
 
@@ -25,8 +27,14 @@ public class RacesController {
 
     @CrossOrigin
     @GetMapping(path = "/competities/raceuitslagen/racesId/{raceId}")
-    public List<Raceuitslag> getRaceuitslagIds(@PathVariable Long raceId) {
-        return racesService.findById(raceId).getRaceResultaten();
+    public List<Raceuitslag> getRaceuitslagIds(@PathVariable String raceId) {
+
+        if (raceId != null && !raceId.equals("undefined")){
+            Long raceIdLong = parseLong(raceId);
+            return racesService.findById(raceIdLong).getRaceResultaten();
+        }
+
+        return null;
     }
 
 }

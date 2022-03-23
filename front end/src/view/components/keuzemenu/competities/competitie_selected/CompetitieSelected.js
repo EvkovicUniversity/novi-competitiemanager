@@ -1,9 +1,10 @@
 import React, {Component} from "react";
 import DataServices from "../../../../../controller/services/DataServices";
-import RaceResults from "./RaceResults";
-import OpkomendeRace from "./OpkomendeRace";
+import OpkomendeRace from "./Opkomend/OpkomendeRace";
+import History from "./History/History";
+import axios from "axios";
 
-class Competitie extends Component {
+class CompetitieSelected extends Component {
 
     constructor(props) {
         super(props);
@@ -15,7 +16,7 @@ class Competitie extends Component {
 
     componentDidMount() {
         const getUrl = window.location.href;
-        const urlParsed = getUrl.replace('http://localhost:3000', '');
+        const urlParsed = getUrl.replace("http://localhost:3000", "");
 
         DataServices.getData("http://localhost:8080/formula1" + urlParsed)
             .then((res) => {
@@ -23,6 +24,18 @@ class Competitie extends Component {
             })
     }
 
+    // TODO: Als deze methode aan staat (en hij op de onClick staat) krijg ik in de backend een foutmelding.
+    //  hierdoor ontstaan er twee nieuwe races.
+    //  Wat mij opvalt is dat deze 4x af vuurt terwijl dat alleen zou moeten als er op de knop gedrukt wordt.
+    doRace(){
+        axios.post("http://localhost:8080/formula1/playmatch/" + this.state.competitieinfo.id)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
 
     render() {
         return (
@@ -37,17 +50,16 @@ class Competitie extends Component {
                     </div>
 
                     <div className="competitieMenuInhoudContainer">
-                        <RaceResults competitieId={this.state.competitieinfo.id}/>
+                        <History competitieId={this.state.competitieinfo.id}/>
                     </div>
-
 
                 </div>
 
-                <button className="button01">Race!</button>
+                <button className="button01" >Race!</button>
             </div>
         )
     }
 
 }
 
-export default Competitie
+export default CompetitieSelected

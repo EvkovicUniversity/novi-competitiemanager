@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import RaceUitslagMenu from "./RaceUitslagMenu";
-import fetchData from "../../../../../controller/Data/fetchData";
+import fetchData from "../../../../../../controller/Data/fetchData";
 
 function history(props) {
 

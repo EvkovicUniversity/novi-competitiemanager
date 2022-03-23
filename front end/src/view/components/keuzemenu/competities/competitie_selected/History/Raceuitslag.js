@@ -1,5 +1,5 @@
 import React from "react";
-import fetchData from "../../../../../controller/Data/fetchData";
+import fetchData from "../../../../../../controller/Data/fetchData";
 
 function Raceuitslag(props) {
 
@@ -25,8 +25,6 @@ function Raceuitslag(props) {
 
         let voorspellingArray = findArrayElementByTitle(voorspellingsdata, coureurnaam);
 
-        console.log(voorspellingArray);
-
         if (voorspellingArray !== undefined) {
 
             array = Object.values(voorspellingArray);
@@ -46,9 +44,10 @@ function Raceuitslag(props) {
         return '-';
     }
 
+    let uniqueKeyCounter=0;
     return (
 
-        <div>
+        <div >
 
             <table className='tabel'>
                 <thead>
@@ -63,7 +62,7 @@ function Raceuitslag(props) {
                     raceuitslagenResult.map(
                         coureur =>
 
-                            <tr key={coureur.id}>
+                            <tr key={"raceTabel"+uniqueKeyCounter++}>
                                 <td className='tableRow' id='positieWaarde'>{coureur.eindpositie}e</td>
                                 <td className='tableRow'>{coureur.name}</td>
                                 <td className='tableRow'

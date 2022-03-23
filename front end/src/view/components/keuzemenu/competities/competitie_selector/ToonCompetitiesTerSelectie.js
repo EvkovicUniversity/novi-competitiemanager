@@ -20,14 +20,16 @@ class ToonCompetitiesTerSelectie extends Component {
     }
 
     render() {
+
+        let uniqueKeyCounter = 0;
         return (
             <div>
                 {
                     this.state.competities.map(
                         competitie =>
 
-                            <div className="keuzemenuknop" id="competitieSelecteren">
-                                <div className="background_enkeleCompetitie">
+                            <div className="keuzemenuknop" id="competitieSelecteren" key={"competitie" + uniqueKeyCounter++}>
+                                <div className="background_enkeleCompetitie" >
                                     <ToonCompetitieNaam
                                         competitienaam={competitie.competitienaam}
                                         competitieId={competitie.id}

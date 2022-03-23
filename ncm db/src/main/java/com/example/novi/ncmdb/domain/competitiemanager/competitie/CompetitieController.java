@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static java.lang.Long.parseLong;
+
 @RestController
 public class CompetitieController {
 
@@ -21,14 +23,24 @@ public class CompetitieController {
 
     @CrossOrigin
     @GetMapping(path = "/competities/raceuitslagen/raceId/{competitieId}")
-    public Long getRaceId(@PathVariable Long competitieId){
-        return competitieService.findById(competitieId).getRaces().getId();
+    public Long getRaceId(@PathVariable String competitieId){
+
+        if (competitieId != null && !competitieId.equals("undefined")){
+            Long competitieIdLong = parseLong(competitieId);
+            return competitieService.findById(competitieIdLong).getRaces().getId();
+        }
+        return null;
     }
 
     @CrossOrigin
     @GetMapping(path = "/formula1/competities/{id}")
-    public Competitie getCompetitieById(@PathVariable Long id) {
-        return competitieService.findById(id);
+    public Competitie getCompetitieById(@PathVariable String id) {
+
+        if (id != null && !id.equals("undefined")){
+            Long idLong = parseLong(id);
+            return competitieService.findById(idLong);
+        }
+        return null;
     }
 
     @CrossOrigin

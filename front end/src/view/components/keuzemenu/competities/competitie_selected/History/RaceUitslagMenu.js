@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import fetchData from "../../../../../controller/Data/fetchData";
+import fetchData from "../../../../../../controller/Data/fetchData";
 import Raceuitslag from "./Raceuitslag";
 
 function RaceUitslagMenu(props) {
@@ -13,12 +13,13 @@ function RaceUitslagMenu(props) {
     if (error) console.log(error);
     let aantalRaces = result.length;
 
+    let uniqueKeyCounter=0;
     return (
         <div>
 
             {result.map(
                 races =>
-                    <div>
+                    <div key={"race"+uniqueKeyCounter++}>
                         <div className="competitieMenuContent">
                             <h2 className="uitklapbare_pijl" onClick={() => setOpen(!open)}> {'\u276F'} </h2>
                             <h2 className="titel_CompetitieMenuContent">Race {aantalRaces--}</h2>

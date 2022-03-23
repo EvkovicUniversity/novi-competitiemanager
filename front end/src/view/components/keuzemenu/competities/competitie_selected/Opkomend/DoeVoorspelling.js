@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import DataServices from "../../../../../controller/services/DataServices";
+import DataServices from "../../../../../../controller/services/DataServices";
 import axios from "axios";
 
 class doeVoorspelling extends Component {
@@ -18,7 +18,6 @@ class doeVoorspelling extends Component {
 
     submitHandler = (e) => {
         e.preventDefault()
-        console.log(this.state);
         axios.post('', this.state)
             .then(res => {
                 console.log("PostData: " + res)
