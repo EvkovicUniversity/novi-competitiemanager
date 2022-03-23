@@ -32,8 +32,8 @@ public class CoureurService {
     }
 
     public ArrayList<Coureur> generateF1Match() {
-//        List<Coureur> coureurs = getCoureurLijstViaDB();
-        List<Coureur> coureurs = getCoureurLijstLocal();
+        List<Coureur> coureurs = getCoureurLijstViaDB();
+//        List<Coureur> coureurs = getCoureurLijstLocal();
         List<Coureur> einduitslag;
 
         einduitslag = berekenF1Uitslag(coureurs);
@@ -88,31 +88,31 @@ public class CoureurService {
         }
     }
 
-    private List<Coureur> getCoureurLijstLocal() {
-        List<Coureur> coureurs = new ArrayList<>();
-
-        coureurs.add(new Coureur("Alexander Albon", 1));
-        coureurs.add(new Coureur("Fernando Alonso", 1));
-        coureurs.add(new Coureur("Valtteri Bottas", 1));
-        coureurs.add(new Coureur("Pierre Gasly", 1));
-        coureurs.add(new Coureur("Lewis Hamilton", 1));
-        coureurs.add(new Coureur("Nicholas Latifi", 1));
-        coureurs.add(new Coureur("Charles Leclerc", 1));
-        coureurs.add(new Coureur("Nikita Mazepin", 1));
-        coureurs.add(new Coureur("Lando Norris", 1));
-        coureurs.add(new Coureur("Esteban Ocon", 1));
-        coureurs.add(new Coureur("Sergio Pérez", 1));
-        coureurs.add(new Coureur("Daniel Ricciardo", 1));
-        coureurs.add(new Coureur("George Russell", 1));
-        coureurs.add(new Coureur("Carlos Sainz jr.", 1));
-        coureurs.add(new Coureur("Mick Schumacher", 1));
-        coureurs.add(new Coureur("Yuki Tsunoda", 1));
-        coureurs.add(new Coureur("Lance Stroll", 1));
-        coureurs.add(new Coureur("Max Verstappen", 1));
-        coureurs.add(new Coureur("Sebastian Vettel", 1));
-        coureurs.add(new Coureur("Guanyu Zhou", 1));
-
-        return coureurs;
-    }
+//    private List<Coureur> getCoureurLijstLocal() {
+//        List<Coureur> coureurs = new ArrayList<>();
+//
+//        coureurs.add(new Coureur("Alexander Albon", 1));
+//        coureurs.add(new Coureur("Fernando Alonso", 1));
+//        coureurs.add(new Coureur("Valtteri Bottas", 1));
+//        coureurs.add(new Coureur("Pierre Gasly", 1));
+//        coureurs.add(new Coureur("Lewis Hamilton", 1));
+//        coureurs.add(new Coureur("Nicholas Latifi", 1));
+//        coureurs.add(new Coureur("Charles Leclerc", 1));
+//        coureurs.add(new Coureur("Nikita Mazepin", 1));
+//        coureurs.add(new Coureur("Lando Norris", 1));
+//        coureurs.add(new Coureur("Esteban Ocon", 1));
+//        coureurs.add(new Coureur("Sergio Pérez", 1));
+//        coureurs.add(new Coureur("Daniel Ricciardo", 1));
+//        coureurs.add(new Coureur("George Russell", 1));
+//        coureurs.add(new Coureur("Carlos Sainz jr.", 1));
+//        coureurs.add(new Coureur("Mick Schumacher", 1));
+//        coureurs.add(new Coureur("Yuki Tsunoda", 1));
+//        coureurs.add(new Coureur("Lance Stroll", 1));
+//        coureurs.add(new Coureur("Max Verstappen", 1));
+//        coureurs.add(new Coureur("Sebastian Vettel", 1));
+//        coureurs.add(new Coureur("Guanyu Zhou", 1));
+//
+//        return coureurs;
+//    }
 
 }

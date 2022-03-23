@@ -3,8 +3,6 @@ import History from "./History";
 
 function RaceResults(props) {
 
-    // const {data, loading} = fetchData("http://localhost:8080/competities/raceuitslagen/raceId/" + props.competitieId)
-
     return (
 
         <div>

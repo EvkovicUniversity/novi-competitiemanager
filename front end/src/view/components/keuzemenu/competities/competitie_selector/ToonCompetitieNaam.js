@@ -1,9 +1,9 @@
 import React from "react";
-import NavigeerNaar from "../../../../controller/Navigatie/navigeerNaar";
+import NavigeerNaar from "../../../../../controller/Navigatie/navigeerNaar";
 
 function ToonCompetitieNaam(props) {
 
-    const path = 'competities/' + props.competitieId;
+    const path = "competities/" + props.competitieId;
 
     return (
 

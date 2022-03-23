@@ -52,11 +52,17 @@ public class NcmdbApplication {
                 coureurRepository,
                 competitieRepository,
                 raceuitslagRepository,
-                racesRepository
+                racesRepository,
+                voorspellingRepository
         );
+
 
     }
 
+    /**
+     *
+     *
+     **/
     private void init_gebruikers(GebruikerRepository gebruikerRepository){
         GebruikerService service = new GebruikerService(gebruikerRepository);
 
@@ -68,25 +74,28 @@ public class NcmdbApplication {
 
     }
 
+    /**
+     *
+     *
+     **/
     private void db_init(
             CoureurRepository coureurRep,
             CompetitieRepository competitieRep,
             RaceuitslagRepository raceuitslagRep,
-            RacesRepository racesRep
+            RacesRepository racesRep,
+            VoorspellingRepository voorspellingRep
     ) {
         init_coureurs(coureurRep);
 
-        getCompetitiesMetRaces(coureurRep, raceuitslagRep, racesRep, competitieRep);
+        getCompetitiesMetRaces(coureurRep, raceuitslagRep, racesRep, competitieRep, voorspellingRep);
 
 
     }
 
-    private void init_coureurs(CoureurRepository coureurRepository) {
-        List<Coureur> coureurs = getCoureurList();
-
-        coureurRepository.saveAll(coureurs);
-    }
-
+    /**
+     *  De 20 deelnemnde coureurs worden hier aangemaakt.
+     *  De coureurs hebben een naam en een winfactor. Alleen 'Hamilton' en 'Verstappen' hebben een hogere winfactor gekregen.
+     **/
     private List<Coureur> getCoureurList() {
 
         List<Coureur> coureurs = new ArrayList<>();
@@ -95,7 +104,7 @@ public class NcmdbApplication {
         coureurs.add(new Coureur("Fernando Alonso", 1));
         coureurs.add(new Coureur("Valtteri Bottas", 1));
         coureurs.add(new Coureur("Pierre Gasly", 1));
-        coureurs.add(new Coureur("Lewis Hamilton", 1));
+        coureurs.add(new Coureur("Lewis Hamilton", 6));
         coureurs.add(new Coureur("Nicholas Latifi", 1));
         coureurs.add(new Coureur("Charles Leclerc", 1));
         coureurs.add(new Coureur("Nikita Mazepin", 1));
@@ -108,13 +117,24 @@ public class NcmdbApplication {
         coureurs.add(new Coureur("Mick Schumacher", 1));
         coureurs.add(new Coureur("Yuki Tsunoda", 1));
         coureurs.add(new Coureur("Lance Stroll", 1));
-        coureurs.add(new Coureur("Max Verstappen", 1));
+        coureurs.add(new Coureur("Max Verstappen", 7));
         coureurs.add(new Coureur("Sebastian Vettel", 1));
         coureurs.add(new Coureur("Guanyu Zhou", 1));
 
         return coureurs;
     }
+    /**
+     *  Hier worden de coureurs met bovenstaande methode opgehaald en opgeslagen in de database.
+     **/
+    private void init_coureurs(CoureurRepository coureurRepository) {
+        List<Coureur> coureurs = getCoureurList();
 
+        coureurRepository.saveAll(coureurs);
+    }
+
+    /**
+     *  Hier wordt een lijst gecreërd waarin competities worden gestopt.
+     **/
     private List<Competitie> getCompetities() {
         List<Competitie> competities = new ArrayList<>();
 
@@ -128,7 +148,12 @@ public class NcmdbApplication {
         return competities;
     }
 
-    private void getCompetitiesMetRaces(CoureurRepository coureurRepository, RaceuitslagRepository raceuitslagRepository, RacesRepository racesRepository, CompetitieRepository competitieRepository) {
+    private void getCompetitiesMetRaces(CoureurRepository coureurRepository,
+                                        RaceuitslagRepository raceuitslagRepository,
+                                        RacesRepository racesRepository,
+                                        CompetitieRepository competitieRepository,
+                                        VoorspellingRepository voorspellingRepository
+    ) {
         // Maak Competities.
         Competitie competitie1 = new Competitie("CompetitieCompleet1");
         Competitie competitie2 = new Competitie("CompetitieCompleet2");
@@ -213,6 +238,8 @@ public class NcmdbApplication {
         races1.setRaceResultaten(uitslagVoor1);
         races2.setRaceResultaten(uitslagVoor2);
 
+        doVoorspelling(voorspellingRepository, uitslag11);
+
         // Sla op in DB
         racesRepository.save(races1);
         racesRepository.save(races2);
@@ -224,6 +251,8 @@ public class NcmdbApplication {
         // Sla de competities op in DB
         competitieRepository.save(competitie1);
         competitieRepository.save(competitie2);
+
+
     }
 
     /**
@@ -239,8 +268,31 @@ public class NcmdbApplication {
         return lijstMetNieuweCoureurObjecten;
     }
 
-    private void doVoorspelling(){
-        Voorspelling voorspelling = new Voorspelling();
+    private void doVoorspelling(VoorspellingRepository voorspellingRepository, Raceuitslag raceuitslag){
+        Voorspelling voorspelling1 = new Voorspelling();
+        voorspelling1.setRace(raceuitslag);
+        voorspelling1.setCoureurId(7L);
+        voorspelling1.setCoureurNaam("Lewis Hamilton");
+        voorspelling1.setVoorspellingEindpositie(2);
+
+        voorspellingRepository.save(voorspelling1);
+
+        Voorspelling voorspelling2 = new Voorspelling();
+        voorspelling2.setRace(raceuitslag);
+        voorspelling2.setCoureurId(3L);
+        voorspelling2.setCoureurNaam("Alexander Albon");
+        voorspelling2.setVoorspellingEindpositie(3);
+
+        voorspellingRepository.save(voorspelling2);
+
+        Voorspelling voorspelling3 = new Voorspelling();
+        voorspelling3.setRace(raceuitslag);
+        voorspelling3.setCoureurId(20L);
+        voorspelling3.setCoureurNaam("Max Verstappen");
+        voorspelling3.setVoorspellingEindpositie(1);
+
+        voorspellingRepository.save(voorspelling3);
+
     }
 
 }

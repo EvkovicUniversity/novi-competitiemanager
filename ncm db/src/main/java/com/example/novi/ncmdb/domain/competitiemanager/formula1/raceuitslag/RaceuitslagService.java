@@ -21,8 +21,4 @@ public class RaceuitslagService {
         return raceuitslagRepository.findById(id).get();
     }
 
-//    public Optional<Races> findByRaceId(){
-//        return raceuitslagRepository.findByRaceId();
-//    }
-
 }

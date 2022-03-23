@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import DoeVoorspelling from "../DoeVoorspelling";
+import DoeVoorspelling from "./DoeVoorspelling";
 
 function OpkomendeRace(){
 
@@ -8,7 +8,7 @@ function OpkomendeRace(){
         return (
             <div>
                 <div className="competitieMenuContent">
-                    <h1 className="uitklapbare_pijl" onClick={() => setOpen(!open)}> > </h1>
+                    <h1 className="uitklapbare_pijl" onClick={() => setOpen(!open)}> {'\u276F'} </h1>
                     <h2 className="titel_CompetitieMenuContent">Opkomend</h2>
                 </div>
 

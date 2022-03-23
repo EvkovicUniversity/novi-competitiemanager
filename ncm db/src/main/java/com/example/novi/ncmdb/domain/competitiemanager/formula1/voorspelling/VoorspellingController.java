@@ -1,11 +1,10 @@
 package com.example.novi.ncmdb.domain.competitiemanager.formula1.voorspelling;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+import java.util.List;
+
+@RestController
 public class VoorspellingController {
 
     private final VoorspellingService voorspellingService;
@@ -14,9 +13,17 @@ public class VoorspellingController {
         this.voorspellingService = voorspellingService;
     }
 
+
+
     @CrossOrigin
-    @GetMapping(path = "http://localhost:8080/voorspelling/user/{raceuitslagId}")
-    String getVoorspellingByUitslagId(@PathVariable Long raceuitslagId){
-        return "Henk";
+    @GetMapping(path = "user/voorspelling/{voorspellingId}")
+    Voorspelling getVoorspellingById(@PathVariable Long voorspellingId){
+        return voorspellingService.findById(voorspellingId);
+    }
+
+    @CrossOrigin
+    @PostMapping(path = "user/formula1/voorspelling/{}")
+    public void addVoorspelling(){
+//        voorspellingService.addVoorspelling();
     }
 }

@@ -1,9 +1,9 @@
-import React from "react";
-import DataServices from "../../../../controller/services/DataServices";
-import RaceResults from "./competitiemenu/RaceResults";
-import OpkomendeRace from "./competitiemenu/OpkomendeRace";
+import React, {Component} from "react";
+import DataServices from "../../../../../controller/services/DataServices";
+import RaceResults from "./RaceResults";
+import OpkomendeRace from "./OpkomendeRace";
 
-class Competitie extends React.Component {
+class Competitie extends Component {
 
     constructor(props) {
         super(props);

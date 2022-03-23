@@ -15,7 +15,4 @@ public interface RaceuitslagRepository extends CrudRepository<Raceuitslag, Long>
     @Override
     Optional<Raceuitslag> findById(Long id);
 
-//    @Query("SELECT races FROM Competitie where races.id = 21")
-//    public Optional<Races> findByRaceId();
-
 }

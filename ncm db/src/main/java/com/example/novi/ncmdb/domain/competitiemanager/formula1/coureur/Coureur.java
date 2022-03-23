@@ -1,6 +1,7 @@
 package com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur;
 
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.Raceuitslag;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.voorspelling.Voorspelling;
 
 import javax.persistence.*;
 
@@ -17,6 +18,10 @@ public class Coureur {
     @ManyToOne
     @JoinColumn(name = "raceuitslag_id")
     private Raceuitslag raceuitslag;
+
+    @OneToOne
+    private Voorspelling voorspelling;
+
 
     /**
      * CONSTRUCTORS

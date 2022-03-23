@@ -1,8 +1,8 @@
-import React from "react";
+import React, {Component} from "react";
 import ToonCompetitieNaam from "./ToonCompetitieNaam";
-import DataServices from "../../../../controller/services/DataServices";
+import DataServices from "../../../../../controller/services/DataServices";
 
-class ToonCompetities extends React.Component {
+class ToonCompetitiesTerSelectie extends Component {
 
     constructor(props) {
         super(props);
@@ -41,4 +41,4 @@ class ToonCompetities extends React.Component {
     }
 }
 
-export default ToonCompetities;
+export default ToonCompetitiesTerSelectie;

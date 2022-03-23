@@ -2,6 +2,7 @@ package com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag;
 
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.Coureur;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.races.Races;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.voorspelling.Voorspelling;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -26,6 +27,13 @@ public class Raceuitslag {
             orphanRemoval = true
     )
     private List<Coureur> raceuitkomst = new ArrayList<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "raceuitslag",
+    cascade = CascadeType.ALL,
+    orphanRemoval = true
+    )
+    private List<Voorspelling> voorspellingen = new ArrayList<>();
 
     /**
      * CONSTRUCTORS
@@ -60,4 +68,7 @@ public class Raceuitslag {
         return raceuitkomst;
     }
 
+    public List<Voorspelling> getVoorspellingen() {
+        return voorspellingen;
+    }
 }

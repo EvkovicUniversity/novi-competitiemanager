@@ -1,8 +1,9 @@
 import React, {useState} from "react";
-import RaceUitslag from "../RaceUitslag";
 import fetchData from "../../../../../controller/Data/fetchData";
+import Raceuitslag from "./Raceuitslag";
 
 function RaceUitslagMenu(props) {
+
     const [open, setOpen] = useState(false);
 
     const {data, error, loading} = fetchData("http://localhost:8080/competities/raceuitslagen/racesId/" + props.raceId);
@@ -19,11 +20,11 @@ function RaceUitslagMenu(props) {
                 races =>
                     <div>
                         <div className="competitieMenuContent">
-                            <h2 className="uitklapbare_pijl" onClick={() => setOpen(!open)}> > </h2>
+                            <h2 className="uitklapbare_pijl" onClick={() => setOpen(!open)}> {'\u276F'} </h2>
                             <h2 className="titel_CompetitieMenuContent">Race {aantalRaces--}</h2>
                         </div>
 
-                        {open && <RaceUitslag raceId={races.id} racenummer={aantalRaces+1}/> }
+                        {open && <Raceuitslag raceId={races.id} racenummer={aantalRaces+1}/>}
                     </div>
             )}
 

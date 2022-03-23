@@ -9,7 +9,7 @@ public class GebruikerService {
 
     private final GebruikerRepository gebruikerRepository;
 
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     public GebruikerService(GebruikerRepository gebruikerRepository){
         this.gebruikerRepository = gebruikerRepository;
@@ -20,18 +20,23 @@ public class GebruikerService {
         return gebruikerRepository.findById(gebruikerId).get();
     }
 
-    public void gebruikersnaamWijzigen(Long gebruikerId) {
+    public void wijzigGebruikersnaam(Long gebruikerId, String nieuweNaam) {
+        Gebruiker gebruiker = this.gebruikerRepository.findById(gebruikerId).get();
+        gebruiker.setGebruikersnaam(nieuweNaam);
 
+        gebruikerToevoegen(gebruiker);
     }
 
-    public void wachtwoordWijzigen(Long gebruikerId) {
+    public void wijzigWachtwoord(Long gebruikerId, String nieuwwachtwoord) {
+        Gebruiker gebruiker = this.gebruikerRepository.findById(gebruikerId).get();
+        gebruiker.setWachtwoord(nieuwwachtwoord);
 
+        gebruikerToevoegen(gebruiker);
     }
 
-    public Gebruiker gebruikerToevoegen(Gebruiker gebruiker){
+    public void gebruikerToevoegen(Gebruiker gebruiker){
         String encodedPassword = this.passwordEncoder.encode(gebruiker.getWachtwoord());
         gebruiker.setWachtwoord(encodedPassword);
-        return gebruikerRepository.save(gebruiker);
+        gebruikerRepository.save(gebruiker);
     }
-
 }

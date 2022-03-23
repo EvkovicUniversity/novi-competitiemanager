@@ -15,11 +15,13 @@ function history(props) {
 
                     <div>
                         <div className="competitieMenuContent">
-                            <h1 className="uitklapbare_pijl" onClick={() => setOpen(!open)}> > </h1>
+                            <h1 className="uitklapbare_pijl" onClick={() => setOpen(!open)}> {'\u276F'} </h1>
                             <h2 className="titel_CompetitieMenuContent">History</h2>
                         </div>
 
-                        {open && <RaceUitslagMenu raceId={data}/>}
+                        {open && <RaceUitslagMenu
+                            raceId={data}
+                        />}
                     </div>
 
         </div>

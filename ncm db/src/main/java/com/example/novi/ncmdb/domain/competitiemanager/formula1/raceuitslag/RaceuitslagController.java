@@ -1,14 +1,15 @@
 package com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag;
 
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.Coureur;
-import org.springframework.stereotype.Controller;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.voorspelling.Voorspelling;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class RaceuitslagController {
 
     private final RaceuitslagService raceuitslagService;
@@ -24,10 +25,16 @@ public class RaceuitslagController {
     }
 
     @CrossOrigin
-    @GetMapping(path = "competities/raceuitslagen/{uitslagId}")
+    @GetMapping(path = "/competities/raceuitslagen/{uitslagId}")
     public Iterable<Coureur> getUitkomstByUitslagId(@PathVariable Long uitslagId) {
 
         return raceuitslagService.findById(uitslagId).getRaceuitkomst();
+    }
+
+    @CrossOrigin
+    @GetMapping(path = "user/voorspelling/raceuitslag/{raceuitslagId}")
+    Iterable<Voorspelling> getVoorspellingenByRaceuitslag(@PathVariable Long raceuitslagId){
+        return raceuitslagService.findById(raceuitslagId).getVoorspellingen();
     }
 
 }

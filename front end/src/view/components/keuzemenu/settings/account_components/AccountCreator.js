@@ -1,13 +1,19 @@
 import React, {Component} from "react";
 import axios from "axios";
 
-class VeranderGebruikersnaam extends Component {
+class AccountCreator extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            gebruikersnaam: ''
+
+            gebruikersnaam: '',
+            wachtwoord: '',
+
+
+            velden: {},
+            errors: {}
         }
     }
 
@@ -18,7 +24,8 @@ class VeranderGebruikersnaam extends Component {
     submitHandler = (e) => {
         e.preventDefault()
         console.log(this.state)
-        axios.put('http://localhost:8080/gebruikers/gebruikersnaamwijzigen/2/' + this.state.gebruikersnaam, this.state)
+
+        axios.post('http://localhost:8080/gebruikers/toevoegen', this.state)
             .then(res => {
                 console.log(res)
             })
@@ -29,27 +36,37 @@ class VeranderGebruikersnaam extends Component {
 
     render() {
 
-        const {gebruikersnaam} = this.state;
+        const {
+            gebruikersnaam,
+            wachtwoord
+        } = this.state;
 
         return (
             <div>
-                <h1>Gebruikersnaam wijzigen</h1>
-                <p>voor Henk</p>
-                {/*<p>voor {this.state.gebruikersnaam}</p>*/}
+                <h1>Account creëren</h1>
 
                 <form onSubmit={this.submitHandler}>
+
                     <input type="text"
-                           placeholder="Nieuwe gebruikersnaam"
                            name="gebruikersnaam"
+                           defaultValue="hello"
                            value={gebruikersnaam}
                            onChange={this.changeHandler}
+                           placeholder="Voer gebruikersnaam in"
+                    /><br/>
+                    <input type="password"
+                           name="wachtwoord"
+                           value={wachtwoord}
+                           onChange={this.changeHandler}
+                           placeholder="Voer wachtwoord in"
                     /><br/>
 
-                    <button className="button01">Doorgaan</button>
+                    <button className="button01">Creër</button>
+
                 </form>
             </div>
         )
     }
 }
 
-export default VeranderGebruikersnaam;
+export default AccountCreator;

@@ -14,23 +14,13 @@ public class GebruikerController {
     @CrossOrigin
     @PutMapping(path = "gebruikers/gebruikersnaamwijzigen/{gebruikerId}/{nieuweNaam}")
     public void veranderGebruikersnaam(@PathVariable Long gebruikerId, @PathVariable String nieuweNaam){
-        Gebruiker gebruiker = gebruikerService.findById(gebruikerId);
-
-        gebruiker.setGebruikersnaam(nieuweNaam);
-
-        gebruikerService.gebruikersnaamWijzigen(gebruikerId);
-        gebruikerService.gebruikerToevoegen(gebruiker);
+        gebruikerService.wijzigGebruikersnaam(gebruikerId, nieuweNaam);
     }
 
     @CrossOrigin
     @PutMapping(path = "gebruikers/wachtwoordwijzigen/{gebruikerId}/{nieuwwachtwoord}")
     public void veranderWachtwoord(@PathVariable Long gebruikerId, @PathVariable String nieuwwachtwoord){
-        Gebruiker gebruiker = gebruikerService.findById(gebruikerId);
-
-        gebruiker.setWachtwoord(nieuwwachtwoord);
-
-        gebruikerService.wachtwoordWijzigen(gebruikerId);
-        gebruikerService.gebruikerToevoegen(gebruiker);
+        gebruikerService.wijzigWachtwoord(gebruikerId, nieuwwachtwoord);
 
     }
 
