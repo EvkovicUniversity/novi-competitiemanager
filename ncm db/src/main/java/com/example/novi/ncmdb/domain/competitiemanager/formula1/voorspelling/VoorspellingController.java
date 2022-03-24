@@ -2,8 +2,6 @@ package com.example.novi.ncmdb.domain.competitiemanager.formula1.voorspelling;
 
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 import static java.lang.Long.parseLong;
 
 @RestController
@@ -17,7 +15,7 @@ public class VoorspellingController {
 
 
     @CrossOrigin
-    @GetMapping(path = "user/voorspelling/{voorspellingId}")
+    @GetMapping(path = "/competitiemanager/user/voorspelling/{voorspellingId}")
     Voorspelling getVoorspellingById(@PathVariable String voorspellingId) {
 
         if (voorspellingId != null && !voorspellingId.equals("undefined")) {
@@ -29,7 +27,7 @@ public class VoorspellingController {
     }
 
     @CrossOrigin
-    @PostMapping(path = "user/formula1/voorspelling/{}")
+    @PostMapping(path = "/competitiemanager/user/formula1/voorspelling/{}")
     public void addVoorspelling() {
 //        voorspellingService.addVoorspelling();
     }

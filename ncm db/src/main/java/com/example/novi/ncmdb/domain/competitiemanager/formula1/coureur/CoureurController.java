@@ -21,14 +21,14 @@ public class CoureurController {
 
     // TODO: verwijderen.
     @CrossOrigin
-    @GetMapping(path = "/formula1/coureurs")
+    @GetMapping(path = "/competitiemanager/formula1/coureurs")
     public List<Coureur> getCoureurs() {
 
         return coureurService.findAll();
     }
 
     @CrossOrigin
-    @GetMapping(path = "/formula1/vanillaCoureurs")
+    @GetMapping(path = "/competitiemanager/formula1/vanillaCoureurs")
     public List<Coureur> getVanillaCoureurs(){
 
         List<Coureur> coureurs = coureurService.findAll();

@@ -18,13 +18,13 @@ public class RaceuitslagController {
     }
 
     @CrossOrigin
-    @GetMapping(path = "/competities/raceuitslagen")
+    @GetMapping(path = "/competitiemanager/competities/raceuitslagen")
     public List<Raceuitslag> getRaceuitslagen() {
         return raceuitslagService.findAll();
     }
 
     @CrossOrigin
-    @GetMapping(path = "/competities/raceuitslagen/{uitslagId}")
+    @GetMapping(path = "/competitiemanager/competities/raceuitslagen/{uitslagId}")
     public Iterable<Coureur> getUitkomstByUitslagId(@PathVariable String uitslagId) {
 
         if (uitslagId != null && !uitslagId.equals("undefined")){
@@ -36,7 +36,7 @@ public class RaceuitslagController {
     }
 
     @CrossOrigin
-    @GetMapping(path = "user/voorspelling/raceuitslag/{raceuitslagId}")
+    @GetMapping(path = "/competitiemanager/user/voorspelling/raceuitslag/{raceuitslagId}")
     Iterable<Voorspelling> getVoorspellingenByRaceuitslag(@PathVariable String raceuitslagId){
 
         if (raceuitslagId != null && !raceuitslagId.equals("undefined")){
@@ -48,7 +48,7 @@ public class RaceuitslagController {
     }
 
     @CrossOrigin
-    @PostMapping(path = "formula1/playmatch/{competitieId}")
+    @PostMapping(path = "/competitiemanager/formula1/playmatch/{competitieId}")
     public void doRace(@PathVariable String competitieId){
 
         if (competitieId != null && !competitieId.equals("undefined")){

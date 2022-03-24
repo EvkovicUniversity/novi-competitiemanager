@@ -20,13 +20,13 @@ public class RacesController {
     }
 
     @CrossOrigin
-    @GetMapping(path = "races/getAll")
+    @GetMapping(path = "/competitiemanager/races/getAll")
     Iterable<Races> getAllRaces() {
         return racesService.findAll();
     }
 
     @CrossOrigin
-    @GetMapping(path = "/competities/raceuitslagen/racesId/{raceId}")
+    @GetMapping(path = "/competitiemanager/competities/raceuitslagen/racesId/{raceId}")
     public List<Raceuitslag> getRaceuitslagIds(@PathVariable String raceId) {
 
         if (raceId != null && !raceId.equals("undefined")){
