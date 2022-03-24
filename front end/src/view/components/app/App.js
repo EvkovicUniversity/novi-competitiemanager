@@ -3,23 +3,28 @@ import logo from "../../resources/logo/novi_logo.png";
 import './App.css';
 import AppRouter from "../../../controller/Navigatie/Router";
 import '../algemeen.css';
+import {BrowserRouter, Link} from "react-router-dom";
 
 
 function App() {
 
     return (
-        <div className="background">
-            <div className="outer_content_container">
-                <div className="inner_content_container">
-                    <img src={logo} className="novi-logo" alt="novi-logo"/>
-                    <div className="alternating_content_container">
+        <BrowserRouter>
+            <div className="background">
+                <div className="outer_content_container">
+                    <div className="inner_content_container">
+                        <Link to={"/menu"}>
+                            <img src={logo} className="novi-logo" alt="novi-logo"/>
+                        </Link>
+                        <div className="alternating_content_container">
 
-                        <AppRouter/>
+                            <AppRouter/>
 
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </BrowserRouter>
     );
 }
 

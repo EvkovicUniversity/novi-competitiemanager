@@ -3,10 +3,7 @@ import fetchData from "../../../../../../controller/Data/fetchData";
 
 function Raceuitslag(props) {
 
-    const {
-        data,
-        loading
-    } = fetchData("http://localhost:8080/competitiemanager/competities/raceuitslagen/" + props.raceId);
+    let {data, loading} = fetchData("http://localhost:8080/competitiemanager/competities/raceuitslagen/" + props.raceId);
     const raceuitslagenResult = Object.keys(data).map((key) => data[key]);
 
     const {data: voorspellingen} = fetchData("http://localhost:8080/competitiemanager/user/voorspelling/raceuitslag/" + props.raceId)
@@ -54,7 +51,7 @@ function Raceuitslag(props) {
         <div>
 
             <div className="competitieMenuContent">
-                <h2 className="uitklapbare_pijl" onClick={() => setOpen(!open)}> {'\u276F'} </h2>
+                <h2 className={!open ? "uitklapbare_pijl_ingeklapt" : "uitklapbare_pijl_uitgeklapt"} onClick={() => setOpen(!open)}> {'\u276F'} </h2>
                 <h2 className="titel_CompetitieMenuContent">Race </h2>
             </div>
 

@@ -93,5 +93,14 @@ html{
   /*attributen*/
   border-bottom-left-radius: 14px;
   border-bottom-right-radius: 14px;
+}
 
+.Link{
+  color: black;
+  text-decoration: none;
+
+}
+
+#LinkButton{
+  color: White;
 }

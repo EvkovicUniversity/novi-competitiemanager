@@ -1,5 +1,5 @@
 import React from "react";
-import NavigeerNaar from "../../../../controller/Navigatie/navigeerNaar";
+import {Link} from "react-router-dom";
 
 function Accountsettings() {
 
@@ -7,16 +7,22 @@ function Accountsettings() {
         <div>
             <h1>Account instellingen</h1>
 
-            <div className="keuzemenuknop" id="keuzemenuknop_accountsettings" onClick={NavigeerNaar('settings/gebruikersnaam-veranderen')}>
+            <div className="keuzemenuknop" id="keuzemenuknop_accountsettings">
+                <Link to={"/settings/gebruikersnaam-wijzigen"} className="Link">
                 <p>Verander gebruikersnaam</p>
+                </Link>
             </div>
 
-            <div className="keuzemenuknop" id="keuzemenuknop_accountsettings" onClick={NavigeerNaar('settings/wachtwoord-veranderen')}>
-                <p>Verander wachtwoord</p>
+            <div className="keuzemenuknop" id="keuzemenuknop_accountsettings">
+                <Link to={"/settings/wachtwoord-wijzigen"} className="Link">
+                    <p>Verander wachtwoord</p>
+                </Link>
             </div>
 
-            <div className="keuzemenuknop" id="keuzemenuknop_accountsettings" onClick={NavigeerNaar('settings/account-maken')}>
-                <p>Creër een account</p>
+            <div className="keuzemenuknop" id="keuzemenuknop_accountsettings">
+                <Link to={"/settings/account-maken"} className="Link">
+                    <p>Creër een account</p>
+                </Link>
             </div>
 
         </div>

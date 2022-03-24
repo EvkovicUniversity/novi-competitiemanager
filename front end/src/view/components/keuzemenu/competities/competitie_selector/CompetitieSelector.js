@@ -1,6 +1,7 @@
 import React from "react";
-import NavigeerNaar from "../../../../../controller/Navigatie/navigeerNaar";
+
 import ToonCompetitiesTerSelectie from "./ToonCompetitiesTerSelectie";
+import {Link} from "react-router-dom";
 
 
 function CompetitieSelector() {
@@ -13,7 +14,11 @@ function CompetitieSelector() {
                 <ToonCompetitiesTerSelectie/>
             </div>
 
-            <button className='button01' onClick={NavigeerNaar('competities/creator')}>Create</button>
+            <button className='button01'>
+                <Link to={"/CompetitieCreator"} className="Link" id="LinkButton">
+                    Create
+                </Link>
+            </button>
         </div>
     );
 }

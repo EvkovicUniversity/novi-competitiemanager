@@ -1,21 +1,27 @@
 import React from "react";
 import "./keuzemenu.css";
-import NavigeerNaar from "../../../controller/Navigatie/navigeerNaar";
+import {Link} from "react-router-dom";
 
 function Keuzemenu() {
 
-    return(
+    return (
         <div>
-            <div className="keuzemenuknop" id="keuzemenu_01" onClick={NavigeerNaar('competities')}>
-                <p>Competities bekijken</p>
+            <div className="keuzemenuknop" id="keuzemenu_01">
+                <Link to={"/competities"}  className="Link">
+                    <p>Competities bekijken</p>
+                </Link>
             </div>
 
-            <div className="keuzemenuknop" id="keuzemenu_02" onClick={NavigeerNaar('settings')}>
-                <p>Account instellingen</p>
+            <div className="keuzemenuknop" id="keuzemenu_02" >
+                <Link to={"/settings"}  className="Link">
+                    <p>Account instellingen</p>
+                </Link>
             </div>
 
-            <div className="keuzemenuknop" id="keuzemenu_03" onClick={NavigeerNaar('')}>
-                <p>Uitloggen</p>
+            <div className="keuzemenuknop" id="keuzemenu_03">
+                <Link to={"/login"}  className="Link">
+                    <p>Uitloggen</p>
+                </Link>
             </div>
         </div>
     )

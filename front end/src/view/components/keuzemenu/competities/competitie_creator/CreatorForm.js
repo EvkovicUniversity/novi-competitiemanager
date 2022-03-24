@@ -33,6 +33,7 @@ class CreatorForm extends Component {
     }
 
     render() {
+
         const {
             competitienaam,
             // team_deelnemers,

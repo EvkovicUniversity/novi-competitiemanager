@@ -8,26 +8,24 @@ import Accountsettings from "../../view/components/keuzemenu/settings/Accountset
 import AccountCreator from "../../view/components/authorisatie/register/AccountCreator";
 import VeranderWachtwoord from "../../view/components/keuzemenu/settings/account_components/VeranderWachtwoord";
 import VeranderGebruikersnaam from "../../view/components/keuzemenu/settings/account_components/VeranderGebruikersnaam";
-import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 
 class AppRouter extends Component {
 
     render() {
         return (
 
-                <BrowserRouter>
                     <Switch>
-                        <Route path="/login" component={LoginPage}/>
+                        <Route exact path={["/", "/login"]} component={LoginPage}/>
                         <Route exact path='/menu' component={Keuzemenu}/>
-                        <Route path='competities' component={CompetitieSelector}/>
-                        <Route path='competities/:competitieid' component={CompetitieSelected}/>
-                        <Route path='competities/creator' component={Competitiecreator}/>
-                        <Route path='settings' component={Accountsettings}/>
-                        <Route path='settings/gebruikersnaam-veranderen' component={VeranderGebruikersnaam}/>
-                        <Route path='settings/wachtwoord-veranderen' component={VeranderWachtwoord}/>
-                        <Route path='settings/account-maken' component={AccountCreator}/>
+                        <Route exact path='/competities' component={CompetitieSelector}/>
+                        <Route exact path='/competities/:competitieid' component={CompetitieSelected}/>
+                        <Route exact path='/CompetitieCreator' component={Competitiecreator}/>
+                        <Route exact path='/settings' component={Accountsettings}/>
+                        <Route exact path='/settings/gebruikersnaam-wijzigen' component={VeranderGebruikersnaam}/>
+                        <Route exact path='/settings/wachtwoord-wijzigen' component={VeranderWachtwoord}/>
+                        <Route exact path='/settings/account-maken' component={AccountCreator}/>
                     </Switch>
-                </BrowserRouter>
         );
     }
 }

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import fetchData from "../../../../../../controller/Data/fetchData";
 import Raceuitslag from "./Raceuitslag";
 
@@ -17,6 +17,7 @@ function RaceUitslagMenu(props) {
 
             {result.map(
                 races =>
+
                     <div key={"race"+uniqueKeyCounter++}>
                         <Raceuitslag raceId={races.id} racenummer={aantalRaces+1}/>
                     </div>

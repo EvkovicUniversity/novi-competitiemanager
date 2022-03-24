@@ -1,38 +1,3 @@
-// import React from "react";
-// import "../../algemeen.css";
-// import "./login-page-css.css";
-// import NavigeerNaar from "../../../../controller/Navigatie/navigeerNaar";
-//
-// function LoginPage() {
-//
-//     return (
-//         <div>
-//             <h1>Novi's competitiemanager</h1>
-//
-//             <form action="">
-//                 <input type="text"
-//                        placeholder="gebruikersnaam"
-//                        className="login_invoervelden"
-//                        id="username_input"/>
-//                 <br/>
-//                 <input type="password"
-//                        placeholder="wachtwoord"
-//                        className="login_invoervelden"
-//                        id="password_input"/>
-//                 <br/>
-//                 <button className="button01" id="login_button" onClick={NavigeerNaar('menu')}>Login</button>
-//             </form>
-//
-//             <p id="geen_wachtwoord_paragraaf">
-//                 Neem contact op met de beheerder in geval van
-//                 wachtwoord vergeten of het aanmaken van een account.
-//             </p>
-//         </div>
-//     );
-// }
-//
-// export default LoginPage;
-
 import React, {Component} from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
@@ -112,6 +77,7 @@ export default class Login extends Component {
     render() {
         return (
             <div>
+                <h1>Novi's Competitiemanager</h1>
 
                 <Form
                     onSubmit={this.handleLogin}
@@ -119,39 +85,35 @@ export default class Login extends Component {
                         this.form = c;
                     }}
                 >
-                    <div className="login_invoervelden">
-                        <Input
-                            type="text"
-                            name="username"
-                            classname="login_invoervelden"
-                            placeholder="Gebruikersnaam"
-                            value={this.state.username}
-                            onChange={this.onChangeUsername}
-                            validations={[required]}
-                        />
-                    </div>
-                    <div>
-                        <Input
-                            type="password"
-                            name="password"
-                            placeholder="Wachtwoord"
-                            value={this.state.password}
-                            onChange={this.onChangePassword}
-                            validations={[required]}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <button
-                            className="button01"
-                            id="login_button"
-                            disabled={this.state.loading}
-                        >
-                            {this.state.loading && (
-                                <span className="spinner-border spinner-border-sm"></span>
-                            )}
-                            <span>Login</span>
-                        </button>
-                    </div>
+                    <Input
+                        type="text"
+                        name="username"
+                        className="login_invoervelden"
+                        placeholder="Gebruikersnaam"
+                        value={this.state.username}
+                        onChange={this.onChangeUsername}
+                        validations={[required]}
+                    />
+                    <Input
+                        type="password"
+                        name="password"
+                        className="login_invoervelden"
+                        placeholder="Wachtwoord"
+                        value={this.state.password}
+                        onChange={this.onChangePassword}
+                        validations={[required]}
+                    />
+                    <button
+                        className="button01"
+                        id="login_button"
+                        disabled={this.state.loading}
+                    >
+                        {this.state.loading && (
+                            <span className="spinner-border spinner-border-sm"></span>
+                        )}
+                        <span>Login</span>
+                    </button>
+
                     {this.state.message && (
                         <div className="form-group">
                             <div className="alert alert-danger" role="alert">

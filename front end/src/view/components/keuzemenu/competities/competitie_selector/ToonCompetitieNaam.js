@@ -1,5 +1,5 @@
 import React from "react";
-import NavigeerNaar from "../../../../../controller/Navigatie/navigeerNaar";
+import {Link} from "react-router-dom";
 
 function ToonCompetitieNaam(props) {
 
@@ -7,8 +7,10 @@ function ToonCompetitieNaam(props) {
 
     return (
 
-        <div onClick={NavigeerNaar(path)}>
-            <p>{props.competitienaam}</p>
+        <div>
+            <Link to={path} className="Link">
+                <p>{props.competitienaam}</p>
+            </Link>
         </div>
 
     )

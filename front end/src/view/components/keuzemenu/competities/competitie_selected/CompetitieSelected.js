@@ -18,10 +18,12 @@ class CompetitieSelected extends Component {
         const getUrl = window.location.href;
         const urlParsed = getUrl.replace("http://localhost:3000", "");
 
+        if (parseInt(urlParsed) === !String){
         DataServices.getData("http://localhost:8080/competitiemanager/formula1" + urlParsed)
             .then((res) => {
                 this.setState({competitieinfo: res.data})
             })
+        }
     }
 
     // TODO: Als deze methode aan staat (en hij op de onClick staat) krijg ik in de backend een foutmelding.
@@ -51,6 +53,7 @@ class CompetitieSelected extends Component {
 
                     <div className="competitieMenuInhoudContainer">
                         <History competitieId={this.state.competitieinfo.id}/>
+                        {console.log(this.state.competitieinfo.id)}
                     </div>
 
                 </div>
