@@ -79,11 +79,12 @@ input{
     width: 100%;
     overflow: auto;
 
-    border: 2px solid purple;
 }
 
 .competitieMenuInhoudContainer{
     border: 2px solid black;
+    width: 22em;
+    margin: auto auto 1em auto;
 }
 
 .competitieMenuContent{

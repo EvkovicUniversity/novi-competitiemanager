@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import DataServices from "../../../../../controller/services/DataServices";
+import DataServices from "../../../../../controller/services/data/DataServices";
 import OpkomendeRace from "./Opkomend/OpkomendeRace";
 import History from "./History/History";
 import axios from "axios";
@@ -18,7 +18,7 @@ class CompetitieSelected extends Component {
         const getUrl = window.location.href;
         const urlParsed = getUrl.replace("http://localhost:3000", "");
 
-        DataServices.getData("http://localhost:8080/formula1" + urlParsed)
+        DataServices.getData("http://localhost:8080/competitiemanager/formula1" + urlParsed)
             .then((res) => {
                 this.setState({competitieinfo: res.data})
             })
@@ -28,7 +28,7 @@ class CompetitieSelected extends Component {
     //  hierdoor ontstaan er twee nieuwe races.
     //  Wat mij opvalt is dat deze 4x af vuurt terwijl dat alleen zou moeten als er op de knop gedrukt wordt.
     doRace(){
-        axios.post("http://localhost:8080/formula1/playmatch/" + this.state.competitieinfo.id)
+        axios.post("http://localhost:8080/competitiemanager/formula1/playmatch/" + this.state.competitieinfo.id)
             .then(res => {
                 console.log(res)
             })

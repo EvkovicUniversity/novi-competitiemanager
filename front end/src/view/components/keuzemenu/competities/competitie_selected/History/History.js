@@ -6,7 +6,7 @@ function history(props) {
 
     const [open, setOpen] = useState(false)
 
-    const {data, loading} = fetchData("http://localhost:8080/competities/raceuitslagen/raceId/" + props.competitieId)
+    const {data, loading} = fetchData("http://localhost:8080/competitiemanager/competities/raceuitslagen/raceId/" + props.competitieId)
 
     if (loading) return <h1>Loading...</h1>
 

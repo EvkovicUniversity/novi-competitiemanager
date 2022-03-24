@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import ToonCompetitieNaam from "./ToonCompetitieNaam";
-import DataServices from "../../../../../controller/services/DataServices";
+import DataServices from "../../../../../controller/services/data/DataServices";
 
 class ToonCompetitiesTerSelectie extends Component {
 
@@ -13,7 +13,7 @@ class ToonCompetitiesTerSelectie extends Component {
     }
 
     componentDidMount() {
-        DataServices.getData("http://localhost:8080/formula1/competities")
+        DataServices.getData("http://localhost:8080/competitiemanager/formula1/competities")
             .then((res) => {
                 this.setState({competities: res.data})
             })
