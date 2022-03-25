@@ -6,9 +6,8 @@ function history(props) {
 
     const [open, setOpen] = useState(false)
 
-    const {data, loading} = fetchData("http://localhost:8080/competities/raceuitslagen/raceId/" + props.competitieId)
-
-    if (loading) return <h1>Loading...</h1>
+    const data = fetchData("http://localhost:8080/competitiemanager/competities/raceuitslagen/raceId/" + props.competitieId)
+    const raceId = Object.keys(data).map((key) => data[key]);
 
     return (
         <div>
@@ -20,7 +19,7 @@ function history(props) {
                         </div>
 
                         {open && <RaceUitslagMenu
-                            raceId={data}
+                            raceId={raceId[0]}
                         />}
                     </div>
 

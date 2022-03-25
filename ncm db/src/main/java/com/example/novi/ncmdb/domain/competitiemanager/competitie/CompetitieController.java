@@ -16,13 +16,13 @@ public class CompetitieController {
     }
 
     @CrossOrigin
-    @GetMapping(path = "/formula1/competities")
+    @GetMapping(path = "/competitiemanager/formula1/competities")
     public List<Competitie> getCompetities() {
         return competitieService.findAll();
     }
 
     @CrossOrigin
-    @GetMapping(path = "/competities/raceuitslagen/raceId/{competitieId}")
+    @GetMapping(path = "/competitiemanager/competities/raceuitslagen/raceId/{competitieId}")
     public Long getRaceId(@PathVariable String competitieId){
 
         if (competitieId != null && !competitieId.equals("undefined")){
@@ -33,7 +33,7 @@ public class CompetitieController {
     }
 
     @CrossOrigin
-    @GetMapping(path = "/formula1/competities/{id}")
+    @GetMapping(path = "/competitiemanager/formula1/competities/{id}")
     public Competitie getCompetitieById(@PathVariable String id) {
 
         if (id != null && !id.equals("undefined")){
@@ -44,7 +44,7 @@ public class CompetitieController {
     }
 
     @CrossOrigin
-    @PostMapping(path = "/formula1/competities")
+    @PostMapping(path = "/competitiemanager/formula1/competities")
     public void addCompetities(@RequestBody Competitie competitie) {
         competitieService.addCompetitie(competitie);
     }

@@ -1,7 +1,7 @@
 import React from "react";
-import "../algemeen.css";
 import "./login-page-css.css";
-import NavigeerNaar from "../../../controller/Navigatie/navigeerNaar";
+import NavigeerNaar from "../../../controller/Navigatie/NavigeerNaar";
+
 
 function LoginPage() {
 

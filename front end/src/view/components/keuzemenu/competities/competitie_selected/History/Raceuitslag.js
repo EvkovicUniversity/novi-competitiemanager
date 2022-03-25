@@ -13,6 +13,7 @@ function Raceuitslag(props) {
 
     if (ladenRaceuitslagen) return <h1>Loading...</h1>;
 
+
     function findArrayElementByTitle(array, coureurnaam) {
         return array.find((element) => {
             return element.coureurNaam === coureurnaam;
@@ -45,17 +46,19 @@ function Raceuitslag(props) {
         return '-';
     }
 
-    let uniqueKeyCounter=0;
+    let uniqueKeyCounter = 0;
     return (
 
         <div>
 
             <div className="competitieMenuContent">
+
                 <h2 className={!open ? "uitklapbare_pijl_ingeklapt" : "uitklapbare_pijl_uitgeklapt"} onClick={()=>setOpen(!open)}> {'\u276F'} </h2>
                 <h2 className="titel_CompetitieMenuContent">Race {racenummer--}</h2>
             </div>
 
             {open &&
+
                 <table className='tabel'>
                     <thead>
                     <tr>
@@ -70,9 +73,11 @@ function Raceuitslag(props) {
                             coureur =>
 
                                 <tr key={"raceTabel" + uniqueKeyCounter++}>
+
                                     <td className='tableRow1' id='positieWaarde'>{coureur.eindpositie}e</td>
                                     <td className='tableRow1'>{coureur.name}</td>
                                     <td className='tableRow1'
+
                                         id='voorspelling'>{voorspellingResultaat(coureur.name, coureur.eindpositie)}</td>
                                 </tr>
                         )

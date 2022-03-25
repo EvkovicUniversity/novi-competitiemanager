@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import DataServices from "../../../../../../controller/services/DataServices";
+import DataServices from "../../../../../../controller/services/data/DataServices";
 import axios from "axios";
 
 class doeVoorspelling extends Component {
@@ -28,7 +28,7 @@ class doeVoorspelling extends Component {
     }
 
     componentDidMount() {
-        (DataServices.getData("http://localhost:8080/formula1/vanillaCoureurs")
+        (DataServices.getData("http://localhost:8080/competitiemanager/formula1/vanillaCoureurs")
             .then((res) => {
                 this.setState({raceUitslag: res.data})
             }))

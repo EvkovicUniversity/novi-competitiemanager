@@ -20,7 +20,7 @@ public class CoureurController {
     }
 
     @CrossOrigin
-    @GetMapping(path = "/formula1/vanillaCoureurs")
+    @GetMapping(path = "/competitiemanager/formula1/vanillaCoureurs")
     public List<Coureur> getVanillaCoureurs(){
 
         List<Coureur> coureurs = coureurService.findAll();

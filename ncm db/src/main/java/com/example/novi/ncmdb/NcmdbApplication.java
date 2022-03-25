@@ -1,8 +1,5 @@
 package com.example.novi.ncmdb;
 
-import com.example.novi.ncmdb.domain.authenticatie.gebruiker.Gebruiker;
-import com.example.novi.ncmdb.domain.authenticatie.gebruiker.GebruikerRepository;
-import com.example.novi.ncmdb.domain.authenticatie.gebruiker.GebruikerService;
 import com.example.novi.ncmdb.domain.competitiemanager.competitie.Competitie;
 import com.example.novi.ncmdb.domain.competitiemanager.competitie.CompetitieRepository;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.Coureur;
@@ -16,22 +13,19 @@ import com.example.novi.ncmdb.domain.competitiemanager.formula1.voorspelling.Voo
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.voorspelling.VoorspellingRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@SpringBootApplication(exclude = SecurityAutoConfiguration.class)
+@SpringBootApplication
 public class NcmdbApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext configurableApplicationContext =
                 SpringApplication.run(NcmdbApplication.class, args);
 
-        GebruikerRepository gebruikerRepository =
-                configurableApplicationContext.getBean(GebruikerRepository.class);
         CoureurRepository coureurRepository =
                 configurableApplicationContext.getBean(CoureurRepository.class);
         CompetitieRepository competitieRepository =
@@ -46,8 +40,6 @@ public class NcmdbApplication {
 
         NcmdbApplication app = new NcmdbApplication();
 
-        app.init_gebruikers(gebruikerRepository);
-
         app.db_init(
                 coureurRepository,
                 competitieRepository,
@@ -56,21 +48,6 @@ public class NcmdbApplication {
                 voorspellingRepository
         );
 
-
-    }
-
-    /**
-     *
-     *
-     **/
-    private void init_gebruikers(GebruikerRepository gebruikerRepository){
-        GebruikerService service = new GebruikerService(gebruikerRepository);
-
-        Gebruiker user1 = new Gebruiker("noviadmin", "noviadmin");
-        Gebruiker user2 = new Gebruiker("evan", "evan");
-
-        service.gebruikerToevoegen(user1);
-        service.gebruikerToevoegen(user2);
 
     }
 
