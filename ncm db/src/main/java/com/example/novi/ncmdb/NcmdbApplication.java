@@ -11,6 +11,9 @@ import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.Race
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.RaceuitslagRepository;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.voorspelling.Voorspelling;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.voorspelling.VoorspellingRepository;
+import com.example.novi.ncmdb.domain.competitiemanager.gebruikers.Gebruiker;
+import com.example.novi.ncmdb.domain.competitiemanager.gebruikers.GebruikerRepository;
+import com.example.novi.ncmdb.domain.competitiemanager.gebruikers.GebruikerService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
@@ -37,6 +40,8 @@ public class NcmdbApplication {
                 configurableApplicationContext.getBean(RaceuitslagRepository.class);
         VoorspellingRepository voorspellingRepository =
                 configurableApplicationContext.getBean(VoorspellingRepository.class);
+        GebruikerRepository gebruikerRepository =
+                configurableApplicationContext.getBean(GebruikerRepository.class);
 
 
         NcmdbApplication app = new NcmdbApplication();
@@ -48,6 +53,8 @@ public class NcmdbApplication {
                 racesRepository,
                 voorspellingRepository
         );
+
+        app.init_gebruikers(gebruikerRepository);
 
 
     }
@@ -270,6 +277,20 @@ public class NcmdbApplication {
         voorspelling3.setVoorspellingEindpositie(1);
 
         voorspellingRepository.save(voorspelling3);
+
+    }
+
+    private void init_gebruikers(GebruikerRepository gebruikerRepository){
+        List<Gebruiker> gebruikers = new ArrayList<>();
+        GebruikerService service = new GebruikerService(gebruikerRepository);
+
+        Gebruiker user1 = new Gebruiker("noviadmin", "noviadmin");
+        Gebruiker user2 = new Gebruiker("evan", "evan");
+
+        gebruikerRepository.save(user1);
+        gebruikerRepository.save(user2);
+        service.gebruikerToevoegen(user1);
+        service.gebruikerToevoegen(user2);
 
     }
 
