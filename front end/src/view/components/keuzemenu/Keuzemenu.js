@@ -19,7 +19,7 @@ function Keuzemenu() {
             </div>
 
             <div className="keuzemenuknop" id="keuzemenu_03">
-                <Link to={"/login"}  className="Link">
+                <Link to={"/"}  className="Link">
                     <p>Uitloggen</p>
                 </Link>
             </div>
