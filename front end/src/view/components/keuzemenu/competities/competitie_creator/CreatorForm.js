@@ -7,12 +7,12 @@ class CreatorForm extends Component {
 
         this.state = {
             competitienaam: '',
-            team_deelnemers: '',
-            extraDeelnemers: '',
-            startmoment: '',
-            raceAantal: '',
-            tijdAantal: '',
-            tijdseenheid: ''
+            // team_deelnemers: '',
+            // extraDeelnemers: '',
+            // startmoment: '',
+            // raceAantal: '',
+            // tijdAantal: '',
+            // tijdseenheid: ''
         }
     }
 
@@ -23,7 +23,7 @@ class CreatorForm extends Component {
     submitHandler = (e) => {
         e.preventDefault()
         console.log(this.state)
-        axios.post('http://localhost:8080/formula1/competities', this.state)
+        axios.post('http://localhost:8080/competitiemanager/formula1/competities', this.state)
             .then(res => {
                 console.log(res)
             })
