@@ -23,7 +23,7 @@ public class GebruikerController {
     }
 
     @CrossOrigin
-    @PutMapping(path = "gebruikers/wachtwoordwijzigen/{gebruikerId}/{nieuwwachtwoord}")
+    @PutMapping(path = "gebruikers/wachtwoordwijzigen/{gebruikerId}/{nieuwWachtwoord}")
     public void veranderWachtwoord(@PathVariable Long gebruikerId, @PathVariable String nieuwwachtwoord){
         Gebruiker gebruiker = gebruikerService.findById(gebruikerId);
 
