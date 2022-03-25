@@ -22,8 +22,8 @@ class AppRouter extends Component {
                 <Route path='competities/:competitieid' element={<CompetitieSelected/>}/>
                 <Route path='competities/creator' element={<Competitiecreator/>}/>
                 <Route path='settings' element={<Accountsettings/>}/>
-                <Route path='settings/gebruikersnaam-veranderen' element={<VeranderGebruikersnaam/>}/>
-                <Route path='settings/wachtwoord-veranderen' element={<VeranderWachtwoord/>}/>
+                <Route path='settings/gebruikersnaam-wijzigen' element={<VeranderGebruikersnaam/>}/>
+                <Route path='settings/wachtwoord-wijzigen' element={<VeranderWachtwoord/>}/>
                 <Route path='settings/account-maken' element={<AccountCreator/>}/>
             </Routes>
         );

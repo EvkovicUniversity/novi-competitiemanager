@@ -32,7 +32,7 @@ class VeranderGebruikersnaam extends Component {
         return (
             <div>
                 <h1>Gebruikersnaam wijzigen</h1>
-                <p>voor {this.state.gebruikersnaam}</p>
+                <p>voor [gebruikersnaam] {this.state.gebruikersnaam}</p>
 
                 <form onSubmit={this.submitHandler}>
                     <input type="text"

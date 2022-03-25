@@ -21,7 +21,7 @@ class VeranderWachtwoord extends Component {
 
             <div>
                 <h1>Wachtwoord wijzigen</h1>
-                {/*<p>Voor {this.state.gebruikersnaam}</p>*/}
+                <p>Voor [gebruikersnaam]{this.state.gebruikersnaam}</p>
 
                 <form>
                     <input type="password"

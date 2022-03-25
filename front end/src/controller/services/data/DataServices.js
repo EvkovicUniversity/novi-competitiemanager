@@ -1,7 +1,7 @@
-import React from "react";
+import React, {Component} from "react";
 import axios from "axios";
 
-class DataServices extends React.Component{
+class DataServices extends Component{
 
     getData(url){
         return axios.get(url)
