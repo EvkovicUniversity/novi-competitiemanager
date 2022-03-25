@@ -19,14 +19,6 @@ public class CoureurController {
         this.coureurService = coureurService;
     }
 
-    // TODO: verwijderen.
-    @CrossOrigin
-    @GetMapping(path = "/formula1/coureurs")
-    public List<Coureur> getCoureurs() {
-
-        return coureurService.findAll();
-    }
-
     @CrossOrigin
     @GetMapping(path = "/formula1/vanillaCoureurs")
     public List<Coureur> getVanillaCoureurs(){

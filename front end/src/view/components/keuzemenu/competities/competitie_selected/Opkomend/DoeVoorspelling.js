@@ -47,8 +47,8 @@ class doeVoorspelling extends Component {
 
                         <thead>
                         <tr>
-                            <th className='tabelheaders' id='positieCel'>Coureur</th>
-                            <th className='tabelheaders'>Voorspel eindpositie</th>
+                            <th className='tabelheaders' id="positieCel">Coureur</th>
+                            <th className='tabelheaders'>Voorspel <br/> eindpositie</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -57,12 +57,12 @@ class doeVoorspelling extends Component {
                             this.state.raceUitslag.map(
                                 coureur =>
                                     <tr key={coureur.id}>
-                                        <td className='tableRow'>{coureur.name}</td>
-                                        <td><input type='text'
-                                                   id="input_voorspelling"
-                                                   name="voorspellingEindpositie"
+                                        <td className="tableRow1">{coureur.name}</td>
+                                        <td className="tableRow2"><input type='text'
+                                                                         id="input_voorspelling"
+                                                                         name="voorspellingEindpositie"
                                             // value={voorspellingEindpositie}
-                                                   onChange={this.changeHandler}
+                                                                         onChange={this.changeHandler}
                                         />
                                         </td>
                                     </tr>

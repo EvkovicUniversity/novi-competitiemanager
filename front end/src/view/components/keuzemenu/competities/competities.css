@@ -56,21 +56,37 @@ input{
 }
 
 .tabelheaders{
-    border-bottom: 2px solid orange;
+    border-bottom: 2px solid black;
+    font-weight: bolder;
+    border-width: 3px;
 }
 
 #positieCel{
-    border-right: 2px solid orange;
+    border-right: 2px solid black;
+
+}
+#positieCel2{
+    border-right: 2px solid black;
+    border-left: 2px solid black;
 }
 
 #positieWaarde{
-    border-right: 2px solid blue;
+    border-right: 2px solid black;
 }
 
-.tableRow{
-    border-bottom: 2px solid blue;
+.tableRow1{
+    border-bottom: 2px solid black;
+    font-weight: bold;
 }
+.tableRow2{
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
 
+}
+#input_voorspelling{
+    width: 1.5em;
+    border-bottom: 2px solid black;
+}
 .competitieMenuContainer{
     margin: auto;
 
@@ -78,20 +94,24 @@ input{
     max-height: 17em;
     width: 100%;
     overflow: auto;
-
-    border: 2px solid purple;
 }
 
 .competitieMenuInhoudContainer{
     border: 2px solid black;
+    width: 22em;
+    margin: auto auto 1em auto;
 }
 
 .competitieMenuContent{
     display: flex;
 }
 
-.uitklapbare_pijl{
+.uitklapbare_pijl_ingeklapt{
     margin-left: 1em;
+}
+.uitklapbare_pijl_uitgeklapt{
+    margin-left: 1em;
+    transform: rotate(90deg);
 }
 
 .titel_CompetitieMenuContent{
