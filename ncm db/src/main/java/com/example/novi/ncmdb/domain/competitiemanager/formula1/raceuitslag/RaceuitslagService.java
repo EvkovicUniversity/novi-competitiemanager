@@ -1,7 +1,7 @@
 package com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag;
 
-import com.example.novi.ncmdb.domain.competitiemanager.competitie.Competitie;
-import com.example.novi.ncmdb.domain.competitiemanager.competitie.CompetitieService;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.competitie.Competitie;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.competitie.CompetitieService;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.Coureur;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.CoureurService;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.races.Races;

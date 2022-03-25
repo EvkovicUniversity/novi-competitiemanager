@@ -4,15 +4,14 @@ import fetchData from "../../../../../../controller/Data/fetchData";
 function Raceuitslag(props) {
     const [open, setOpen] = useState(false);
 
-    const {data: raceuitslagen, loading: ladenRaceuitslagen} = fetchData("http://localhost:8080/competities/raceuitslagen/" + props.raceId);
+    const {data: raceuitslagen, loading: ladenRaceuitslagen} = fetchData("http://localhost:8080/competitiemanager/competities/raceuitslagen/" + props.raceId);
     const raceuitslagenResult = Object.keys(raceuitslagen).map((key) => raceuitslagen[key]);
     let racenummer = props.racenummer;
 
-    const {data: voorspellingen} = fetchData("http://localhost:8080/user/voorspelling/raceuitslag/" + props.raceId)
+    const {data: voorspellingen} = fetchData("http://localhost:8080/competitiemanager/user/voorspelling/raceuitslag/" + props.raceId)
     const voorspellingsdata = Object.keys(voorspellingen).map((key) => voorspellingen[key]);
 
     if (ladenRaceuitslagen) return <h1>Loading...</h1>;
-
 
     function findArrayElementByTitle(array, coureurnaam) {
         return array.find((element) => {

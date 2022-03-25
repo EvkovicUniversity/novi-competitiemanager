@@ -6,7 +6,7 @@ import CompetitieSelector from "../../view/components/keuzemenu/competities/comp
 import CompetitieSelected from "../../view/components/keuzemenu/competities/competitie_selected/CompetitieSelected";
 import Competitiecreator from "../../view/components/keuzemenu/competities/competitie_creator/Competitiecreator";
 import Accountsettings from "../../view/components/keuzemenu/settings/Accountsettings";
-import AccountCreator from "../../view/components/authorisatie/register/AccountCreator";
+import AccountCreator from "../../view/components/keuzemenu/settings/account_components/AccountCreator";
 import VeranderWachtwoord from "../../view/components/keuzemenu/settings/account_components/VeranderWachtwoord";
 import VeranderGebruikersnaam from "../../view/components/keuzemenu/settings/account_components/VeranderGebruikersnaam";
 import LoginPage from "../../view/components/login/LoginPage";

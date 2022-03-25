@@ -1,4 +1,4 @@
-package com.example.novi.ncmdb.domain.competitiemanager.competitie;
+package com.example.novi.ncmdb.domain.competitiemanager.formula1.competitie;
 
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.races.Races;
 import com.fasterxml.jackson.annotation.*;

@@ -1,7 +1,7 @@
 package com.example.novi.ncmdb;
 
-import com.example.novi.ncmdb.domain.competitiemanager.competitie.Competitie;
-import com.example.novi.ncmdb.domain.competitiemanager.competitie.CompetitieRepository;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.competitie.Competitie;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.competitie.CompetitieRepository;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.Coureur;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.CoureurRepository;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.CoureurService;
@@ -13,13 +13,14 @@ import com.example.novi.ncmdb.domain.competitiemanager.formula1.voorspelling.Voo
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.voorspelling.VoorspellingRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 public class NcmdbApplication {
 
     public static void main(String[] args) {
