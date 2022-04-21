@@ -1,5 +1,7 @@
 package com.example.novi.ncmdb.domain.competitiemanager.formula1.competitie;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,14 +25,32 @@ public class CompetitieController {
 
     @CrossOrigin
     @GetMapping(path = "/competitiemanager/competities/raceuitslagen/raceId/{competitieId}")
-    public Long getRaceId(@PathVariable String competitieId){
+    public ResponseEntity<Long> getRaceId(@PathVariable String competitieId){
 
         if (competitieId != null && !competitieId.equals("undefined")){
-            Long competitieIdLong = parseLong(competitieId);
-            return competitieService.findById(competitieIdLong).getRaces().getId();
+
+            try {
+                Long competitieIdLong = parseLong(competitieId);
+                return new ResponseEntity<>(competitieService.findById(competitieIdLong).getRaces().getId(), HttpStatus.OK);
+            } catch (Exception e) {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+
         }
-        return null;
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
+
+//    @CrossOrigin
+//    @GetMapping(path = "/competitiemanager/competities/raceuitslagen/raceId/{competitieId}")
+//    public Long getRaceId(@PathVariable String competitieId){
+//
+//        if (competitieId != null && !competitieId.equals("undefined")){
+//            Long competitieIdLong = parseLong(competitieId);
+//
+//            return competitieService.findById(competitieIdLong).getRaces().getId();
+//        }
+//        return null;
+//    }
 
     @CrossOrigin
     @GetMapping(path = "/competitiemanager/formula1/competities/{id}")
