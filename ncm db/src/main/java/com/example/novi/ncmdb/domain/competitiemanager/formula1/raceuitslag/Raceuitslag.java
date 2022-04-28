@@ -13,8 +13,7 @@ import java.util.List;
 public class Raceuitslag {
 
     @Id
-    @GeneratedValue
-    private Long id;
+    private String id = dummyId();
 
     @ManyToOne
     @JoinColumn(name = "races_id", referencedColumnName = "id")
@@ -29,9 +28,10 @@ public class Raceuitslag {
     private List<Coureur> raceuitkomst = new ArrayList<>();
 
     @JsonIgnore
-    @OneToMany(mappedBy = "raceuitslag",
-    cascade = CascadeType.ALL,
-    orphanRemoval = true
+    @OneToMany(
+            mappedBy = "raceuitslag",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
     )
     private List<Voorspelling> voorspellingen = new ArrayList<>();
 
@@ -45,10 +45,13 @@ public class Raceuitslag {
         this.races = races;
     }
 
+
     /**
      * GETTERS & SETTERS
-     **/
-    public Long getId() {
+     *
+     * @return
+     */
+    public String getId() {
         return id;
     }
 
@@ -64,6 +67,21 @@ public class Raceuitslag {
         this.raceuitkomst = raceuitkomst;
     }
 
+    public void setId(){
+        String cijfer;
+        String newID;
+
+        if (this.races.getRaceResultaten().size() < 10){
+            cijfer = "0" + this.races.getRaceResultaten().size();
+        } else {
+            cijfer = "" + this.races.getRaceResultaten().size();
+        }
+
+        newID = this.races.getCompetitie().getId() + "Race" + cijfer;
+
+        this.id = newID;
+    }
+
     public List<Coureur> getRaceuitkomst() {
         return raceuitkomst;
     }
@@ -71,4 +89,12 @@ public class Raceuitslag {
     public List<Voorspelling> getVoorspellingen() {
         return voorspellingen;
     }
+
+    private String dummyId() {
+        Double randomGetal = Math.random();
+        String randomString= randomGetal.toString().substring(2,10);
+
+        return ("TBR" + randomString).substring(0, 10);
+    }
+
 }

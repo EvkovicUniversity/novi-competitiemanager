@@ -1,64 +1,68 @@
-import React, {Component} from "react";
-import DataServices from "../../../../../controller/services/data/DataServices";
+import React, {useEffect, useState} from "react";
 import OpkomendeRace from "./Opkomend/OpkomendeRace";
 import History from "./History/History";
 import axios from "axios";
+import fetchData from "../../../../../controller/Data/fetchData";
+import Melding from "../../../melding/Melding";
 
-class CompetitieSelected extends Component {
+function CompetitieSelected() {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            competitieinfo: []
-        }
-    }
-
-    componentDidMount() {
+    function fetchCompInfo() {
         const getUrl = window.location.href;
         const urlParsed = getUrl.replace("http://localhost:3000", "");
 
-        DataServices.getData("http://localhost:8080/competitiemanager/formula1" + urlParsed)
-            .then((res) => {
-                this.setState({competitieinfo: res.data})
-            })
+        return fetchData(false, "http://localhost:8080/competitiemanager/formula1" + urlParsed)
     }
+    const {data, loading, error} = fetchCompInfo();
+    const result = Object.keys(data).map((key) => data[key]);
 
-    // TODO: Als deze methode aan staat (en hij op de onClick staat) krijg ik in de backend een foutmelding.
-    //  hierdoor ontstaan er twee nieuwe races.
-    //  Wat mij opvalt is dat deze 4x af vuurt terwijl dat alleen zou moeten als er op de knop gedrukt wordt.
-    doRace(){
-        axios.post("http://localhost:8080/competitiemanager/formula1/playmatch/" + this.state.competitieinfo.id)
-            .then(res => {
-                console.log(res)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
+    const [openMelding, setOpenMelding] = useState(false);
+    const [akkoord, setAkkoord] = useState(false);
 
-    render() {
-        return (
-            <div>
+    const raceMelding = useState("U gaat een nieuwe race beginnen, doorgaan?")
 
-                <h1>{this.state.competitieinfo.competitienaam}</h1>
+    let data2post = [];
 
-                <div className='competitieMenuContainer'>
+    useEffect(() => {
+        if (akkoord) {
+            console.log(data2post);
 
-                    <div className="competitieMenuInhoudContainer">
-                        <OpkomendeRace/>
-                    </div>
+            axios.post("http://localhost:8080/competitiemanager/formula1/playmatch/" + result[0])
+                .then(res => {
+                    console.log(res)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        }
+    }, [akkoord])
 
-                    <div className="competitieMenuInhoudContainer">
-                        <History competitieId={this.state.competitieinfo.id}/>
-                    </div>
+    if (loading) return <h1>Loading...</h1>;
+    if (error) console.log(error);
 
+    return (
+        <div>
+
+            <h1>{result[1]}</h1>
+
+            <div className='competitieMenuContainer'>
+
+                <div className="competitieMenuInhoudContainer">
+                    <OpkomendeRace/>
                 </div>
 
-                <button className="button01" >Race!</button>
+                <div className="competitieMenuInhoudContainer">
+                    <History competitieId={result[0]}/>
+                </div>
+
             </div>
-        )
-    }
+
+            <button className="button01" onClick={() => setOpenMelding(!openMelding)} >Race!</button>
+
+            {openMelding && <Melding bericht={raceMelding} openMelding={setOpenMelding} akkoord={setAkkoord}/>}
+
+        </div>
+    )
 
 }
 

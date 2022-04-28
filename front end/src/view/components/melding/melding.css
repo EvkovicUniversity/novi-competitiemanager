@@ -1,0 +1,43 @@
+.alert_background{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(51,51,51,0.5);
+    z-index: 10;
+}
+
+.alert_container{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+
+    height: 17%;
+    width: 13%;
+
+    background-color: white;
+    border-radius: 25px;
+
+
+}
+
+.alert_border{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 1em;
+
+    width: 14.5em;
+    height: 9em;
+}

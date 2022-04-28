@@ -15,7 +15,11 @@ public class Races {
     @GeneratedValue
     private Long id;
 
-    @OneToOne(mappedBy = "races")
+    @OneToOne(
+            mappedBy = "races",
+            orphanRemoval = true,
+            cascade = CascadeType.ALL
+    )
     private Competitie competitie;
 
     @JsonIgnore

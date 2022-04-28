@@ -21,7 +21,7 @@ public class CompetitieService {
         return competitieRepository.findById(id).get();
     }
 
-    public void addCompetitie(Competitie competitie) {
-        competitieRepository.save(competitie);
+    public Competitie save(Competitie competitie) {
+        return competitieRepository.save(competitie);
     }
 }

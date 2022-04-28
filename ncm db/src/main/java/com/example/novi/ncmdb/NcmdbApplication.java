@@ -78,7 +78,7 @@ public class NcmdbApplication {
     }
 
     /**
-     *  De 20 deelnemnde coureurs worden hier aangemaakt.
+     *  De 20 deelnemende coureurs worden hier aangemaakt.
      *  De coureurs hebben een naam en een winfactor. Alleen 'Hamilton' en 'Verstappen' hebben een hogere winfactor gekregen.
      **/
     private List<Coureur> getCoureurList() {
@@ -144,8 +144,8 @@ public class NcmdbApplication {
         Competitie competitie2 = new Competitie("CompetitieCompleet2");
 
         // Maak de containers waarin de races worden opgeslagen.
-        Races races1 = new Races();
-        Races races2 = new Races();
+        Races races1 = new Races(competitie1);
+        Races races2 = new Races(competitie2);
 
         // Maak de raceuitslag containers.
         // Bind 4 uitslagen aan racecontainer 'races1'
@@ -165,69 +165,102 @@ public class NcmdbApplication {
         racesRepository.save(races1);
         racesRepository.save(races2);
 
-        // Sla de races op in DB
-        // Uitslagen voor 'races1'
-        raceuitslagRepository.save(uitslag11);
-        raceuitslagRepository.save(uitslag12);
-        raceuitslagRepository.save(uitslag13);
-        raceuitslagRepository.save(uitslag14);
+        // Sla de raceuitslagen op in DB
+        List<Raceuitslag> raceuitslagen1 = Arrays.asList(uitslag11, uitslag12, uitslag13, uitslag14);
+        List<Raceuitslag> raceuitslagen2 = Arrays.asList(uitslag21, uitslag22, uitslag23, uitslag24,uitslag25);
+        raceuitslagRepository.saveAll(raceuitslagen1);
+        raceuitslagRepository.saveAll(raceuitslagen2);
 
-        // Uitslagen voor 'races2'
-        raceuitslagRepository.save(uitslag21);
-        raceuitslagRepository.save(uitslag22);
-        raceuitslagRepository.save(uitslag23);
-        raceuitslagRepository.save(uitslag24);
-        raceuitslagRepository.save(uitslag25);
+//         Zet de races in een lijst
+        List<Raceuitslag> uitslagVoor1 = new ArrayList<>();
 
-
-        CoureurService coureurService = new CoureurService(coureurRepository);
-
-        // Genereer een raceuitkomst
-        List<Coureur> raceUitslag1 = coureurService.generateF1Match();
-        List<Coureur> raceUitslag2 = coureurService.generateF1Match();
-        List<Coureur> raceUitslag3 = coureurService.generateF1Match();
-        List<Coureur> raceUitslag4 = coureurService.generateF1Match();
-        List<Coureur> raceUitslag5 = coureurService.generateF1Match();
-        List<Coureur> raceUitslag6 = coureurService.generateF1Match();
-        List<Coureur> raceUitslag7 = coureurService.generateF1Match();
-        List<Coureur> raceUitslag8 = coureurService.generateF1Match();
-        List<Coureur> raceUitslag9 = coureurService.generateF1Match();
-
-        // Maak nieuwe coureurobjecten. In dit nieuwe object zijn coureur (dus zijn eindpositie) & uitslag met elkaar verbonden
-        List<Coureur> lijstMetNieuweCoureurObjecten1 = geefLijstMetNieuweCoureurObjecten(raceUitslag1, uitslag11);
-        List<Coureur> lijstMetNieuweCoureurObjecten2 = geefLijstMetNieuweCoureurObjecten(raceUitslag2, uitslag12);
-        List<Coureur> lijstMetNieuweCoureurObjecten3 = geefLijstMetNieuweCoureurObjecten(raceUitslag3, uitslag13);
-        List<Coureur> lijstMetNieuweCoureurObjecten4 = geefLijstMetNieuweCoureurObjecten(raceUitslag4, uitslag14);
-        List<Coureur> lijstMetNieuweCoureurObjecten5 = geefLijstMetNieuweCoureurObjecten(raceUitslag5, uitslag21);
-        List<Coureur> lijstMetNieuweCoureurObjecten6 = geefLijstMetNieuweCoureurObjecten(raceUitslag6, uitslag22);
-        List<Coureur> lijstMetNieuweCoureurObjecten7 = geefLijstMetNieuweCoureurObjecten(raceUitslag7, uitslag23);
-        List<Coureur> lijstMetNieuweCoureurObjecten8 = geefLijstMetNieuweCoureurObjecten(raceUitslag8, uitslag24);
-        List<Coureur> lijstMetNieuweCoureurObjecten9 = geefLijstMetNieuweCoureurObjecten(raceUitslag9, uitslag25);
-
-        // Sla op in DB
-        coureurRepository.saveAll(lijstMetNieuweCoureurObjecten1);
-        coureurRepository.saveAll(lijstMetNieuweCoureurObjecten2);
-        coureurRepository.saveAll(lijstMetNieuweCoureurObjecten3);
-        coureurRepository.saveAll(lijstMetNieuweCoureurObjecten4);
-        coureurRepository.saveAll(lijstMetNieuweCoureurObjecten5);
-        coureurRepository.saveAll(lijstMetNieuweCoureurObjecten6);
-        coureurRepository.saveAll(lijstMetNieuweCoureurObjecten7);
-        coureurRepository.saveAll(lijstMetNieuweCoureurObjecten8);
-        coureurRepository.saveAll(lijstMetNieuweCoureurObjecten9);
-
-        // Zet de races in een lijst
-        List<Raceuitslag> uitslagVoor1 = Arrays.asList(uitslag11, uitslag12, uitslag13, uitslag14);
-        List<Raceuitslag> uitslagVoor2 = Arrays.asList(uitslag21, uitslag22, uitslag23, uitslag24, uitslag25);
-
-        // Koppel de races aan een racecontainer
+        uitslagVoor1.add(uitslag11);
         races1.setRaceResultaten(uitslagVoor1);
-        races2.setRaceResultaten(uitslagVoor2);
-
-        doVoorspelling(voorspellingRepository, uitslag11);
-
-        // Sla op in DB
+        uitslag11.setId();
+        raceuitslagRepository.save(uitslag11);
         racesRepository.save(races1);
+
+        uitslagVoor1.add(uitslag12);
+        races1.setRaceResultaten(uitslagVoor1);
+        uitslag12.setId();
+        raceuitslagRepository.save(uitslag12);
+        racesRepository.save(races1);
+
+        uitslagVoor1.add(uitslag13);
+        races1.setRaceResultaten(uitslagVoor1);
+        uitslag13.setId();
+        raceuitslagRepository.save(uitslag13);
+        racesRepository.save(races1);
+
+        uitslagVoor1.add(uitslag14);
+        races1.setRaceResultaten(uitslagVoor1);
+        uitslag14.setId();
+        raceuitslagRepository.save(uitslag14);
+        racesRepository.save(races1);
+
+        List<Raceuitslag> uitslagVoor2 = new ArrayList<>();
+
+        uitslagVoor2.add(uitslag21);
+        races2.setRaceResultaten(uitslagVoor2);
+        uitslag21.setId();
+        raceuitslagRepository.save(uitslag21);
         racesRepository.save(races2);
+
+        uitslagVoor2.add(uitslag22);
+        races2.setRaceResultaten(uitslagVoor2);
+        uitslag22.setId();
+        raceuitslagRepository.save(uitslag22);
+        racesRepository.save(races2);
+
+        uitslagVoor2.add(uitslag23);
+        races2.setRaceResultaten(uitslagVoor2);
+        uitslag23.setId();
+        raceuitslagRepository.save(uitslag23);
+        racesRepository.save(races2);
+
+        uitslagVoor2.add(uitslag24);
+        races2.setRaceResultaten(uitslagVoor2);
+        uitslag24.setId();
+        raceuitslagRepository.save(uitslag24);
+        racesRepository.save(races2);
+
+        uitslagVoor2.add(uitslag25);
+        races2.setRaceResultaten(uitslagVoor2);
+        uitslag25.setId();
+        raceuitslagRepository.save(uitslag25);
+        racesRepository.save(races2);
+//
+//        // Koppel de races aan een racecontainer
+//        races1.setRaceResultaten(uitslagVoor1);
+//        races2.setRaceResultaten(uitslagVoor2);
+//
+////        doVoorspelling(voorspellingRepository, uitslag11);
+//
+//        // Sla op in DB
+//        racesRepository.save(races1);
+//        racesRepository.save(races2);
+
+        //Genereer F1 Matches
+        CoureurService coureurService = new CoureurService(coureurRepository);
+        List<Coureur> genmatch1 = coureurService.generateF1Match();
+        List<Coureur> genmatch2 = coureurService.generateF1Match();
+        List<Coureur> genmatch3 = coureurService.generateF1Match();
+        List<Coureur> genmatch4 = coureurService.generateF1Match();
+        List<Coureur> genmatch5 = coureurService.generateF1Match();
+        List<Coureur> genmatch6 = coureurService.generateF1Match();
+        List<Coureur> genmatch7 = coureurService.generateF1Match();
+        List<Coureur> genmatch8 = coureurService.generateF1Match();
+        List<Coureur> genmatch9 = coureurService.generateF1Match();
+
+        koppelCoureurAanRaceuitslag(genmatch1, uitslag11, coureurRepository);
+        koppelCoureurAanRaceuitslag(genmatch2, uitslag12, coureurRepository);
+        koppelCoureurAanRaceuitslag(genmatch3, uitslag13, coureurRepository);
+        koppelCoureurAanRaceuitslag(genmatch4, uitslag14, coureurRepository);
+        koppelCoureurAanRaceuitslag(genmatch5, uitslag21, coureurRepository);
+        koppelCoureurAanRaceuitslag(genmatch6, uitslag22, coureurRepository);
+        koppelCoureurAanRaceuitslag(genmatch7, uitslag23, coureurRepository);
+        koppelCoureurAanRaceuitslag(genmatch8, uitslag24, coureurRepository);
+        koppelCoureurAanRaceuitslag(genmatch9, uitslag25, coureurRepository);
 
         // Koppel de racecontainer aan competitie
         competitie1.setRaces(races1);
@@ -237,7 +270,14 @@ public class NcmdbApplication {
         competitieRepository.save(competitie1);
         competitieRepository.save(competitie2);
 
+    }
 
+    private void koppelCoureurAanRaceuitslag(List<Coureur> genmatch, Raceuitslag uitslag, CoureurRepository repo) {
+        for (Coureur c : genmatch) {
+            c.setRaceuitslag(uitslag);
+        }
+
+        repo.saveAll(genmatch);
     }
 
     /**

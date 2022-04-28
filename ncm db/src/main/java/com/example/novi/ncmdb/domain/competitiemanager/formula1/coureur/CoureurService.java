@@ -93,7 +93,7 @@ public class CoureurService {
         }
     }
 
-    public List<Coureur> geefLijstMetNieuweCoureurObjecten(List<Coureur> raceresultaten, Raceuitslag koppelAanRaceuitslag) {
+    public List<Coureur> geefLijstCoureursMetEindpositieGekoppeldAanRaceuitslag(List<Coureur> raceresultaten, Raceuitslag koppelAanRaceuitslag) {
         List<Coureur> lijstMetNieuweCoureurObjecten = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             Coureur eenCoureur = raceresultaten.get(i);

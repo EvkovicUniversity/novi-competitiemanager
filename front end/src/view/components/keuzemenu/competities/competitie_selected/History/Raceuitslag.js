@@ -2,16 +2,15 @@ import React, {useState} from "react";
 import fetchData from "../../../../../../controller/Data/fetchData";
 
 function Raceuitslag(props) {
+    const {data: raceuitslagData, loading: raceuitslagLoading, error: raceuitslagError} = fetchData(props.raceId,
+        "http://localhost:8080/competitiemanager/competities/raceuitslagen/" + props.raceId);
+    const raceuitslagenResult = Object.keys(raceuitslagData).map((key) => raceuitslagData[key]);
+
+    const {data: predictData, predictLoading, predictError} = fetchData(props.raceId,
+        "http://localhost:8080/competitiemanager/user/voorspelling/raceuitslag/" + props.raceId);
+    const voorspellingsdata = Object.keys(predictData).map((key) => predictData[key]);
+
     const [open, setOpen] = useState(false);
-
-    const {data: raceuitslagen, loading: ladenRaceuitslagen} = fetchData("http://localhost:8080/competitiemanager/competities/raceuitslagen/" + props.raceId);
-    const raceuitslagenResult = Object.keys(raceuitslagen).map((key) => raceuitslagen[key]);
-    let racenummer = props.racenummer;
-
-    const {data: voorspellingen} = fetchData("http://localhost:8080/competitiemanager/user/voorspelling/raceuitslag/" + props.raceId)
-    const voorspellingsdata = Object.keys(voorspellingen).map((key) => voorspellingen[key]);
-
-    if (ladenRaceuitslagen) return <h1>Loading...</h1>;
 
     function findArrayElementByTitle(array, coureurnaam) {
         return array.find((element) => {
@@ -45,14 +44,22 @@ function Raceuitslag(props) {
         return '-';
     }
 
+    if (predictLoading) return <h1>Loading...</h1>;
+    if (raceuitslagLoading) return <h1>Loading...</h1>;
+    if (predictError) console.log(predictError);
+    if (raceuitslagError) console.log(raceuitslagError);
+
+    let racenummer = props.racenummer;
     let uniqueKeyCounter = 0;
+
     return (
 
         <div>
 
             <div className="competitieMenuContent">
 
-                <h2 className={!open ? "uitklapbare_pijl_ingeklapt" : "uitklapbare_pijl_uitgeklapt"} onClick={()=>setOpen(!open)}> {'\u276F'} </h2>
+                <h2 className={!open ? "uitklapbare_pijl_ingeklapt" : "uitklapbare_pijl_uitgeklapt"}
+                    onClick={() => setOpen(!open)}> {'\u276F'} </h2>
                 <h2 className="titel_CompetitieMenuContent">Race {racenummer--}</h2>
             </div>
 
@@ -88,4 +95,5 @@ function Raceuitslag(props) {
     )
 }
 
+//
 export default Raceuitslag;

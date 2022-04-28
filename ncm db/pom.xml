@@ -15,6 +15,10 @@
 	<description>Database setup for the &apos;Novi Competitiemanager&apos;</description>
 	<properties>
 		<java.version>11</java.version>
+
+<!--Versions-->
+		<mockito.version>4.4.0</mockito.version>
+		<httpclient.version>4.5.13</httpclient.version>
 	</properties>
 	<dependencies>
 
@@ -54,8 +58,15 @@
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-junit-jupiter</artifactId>
-			<version>4.3.1</version>
+			<version>${mockito.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${httpclient.version}</version>
+		</dependency>
+
 
 	</dependencies>
 

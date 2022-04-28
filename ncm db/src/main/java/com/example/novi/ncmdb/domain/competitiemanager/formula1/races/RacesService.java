@@ -11,8 +11,8 @@ public class RacesService {
         this.racesRepository = racesRepository;
     }
 
-    public void save(Races races) {
-        racesRepository.save(races);
+    public Races save(Races races) {
+        return racesRepository.save(races);
     }
 
     public Races findById(Long id) {

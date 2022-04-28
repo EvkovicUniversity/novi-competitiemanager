@@ -3,11 +3,13 @@ import RaceUitslagMenu from "./RaceUitslagMenu";
 import fetchData from "../../../../../../controller/Data/fetchData";
 
 function history(props) {
+    const {data,loading, error} = fetchData(props.competitieId,
+        "http://localhost:8080/competitiemanager/competities/raceuitslagen/raceId/" + props.competitieId);
 
     const [open, setOpen] = useState(false)
 
-    const data = fetchData("http://localhost:8080/competitiemanager/competities/raceuitslagen/raceId/" + props.competitieId)
-    const raceId = Object.keys(data).map((key) => data[key]);
+    if (loading) return <h1>Loading...</h1>
+    if (error) return console.log(error);
 
     return (
         <div>
@@ -19,7 +21,7 @@ function history(props) {
                         </div>
 
                         {open && <RaceUitslagMenu
-                            raceId={raceId[0]}
+                            raceId={data}
                         />}
                     </div>
 
