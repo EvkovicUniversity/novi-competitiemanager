@@ -234,7 +234,7 @@ public class NcmdbApplication {
 //        races1.setRaceResultaten(uitslagVoor1);
 //        races2.setRaceResultaten(uitslagVoor2);
 //
-////        doVoorspelling(voorspellingRepository, uitslag11);
+        doVoorspelling(voorspellingRepository, uitslag11);
 //
 //        // Sla op in DB
 //        racesRepository.save(races1);
@@ -252,15 +252,15 @@ public class NcmdbApplication {
         List<Coureur> genmatch8 = coureurService.generateF1Match();
         List<Coureur> genmatch9 = coureurService.generateF1Match();
 
-        koppelCoureurAanRaceuitslag(genmatch1, uitslag11, coureurRepository);
-        koppelCoureurAanRaceuitslag(genmatch2, uitslag12, coureurRepository);
-        koppelCoureurAanRaceuitslag(genmatch3, uitslag13, coureurRepository);
-        koppelCoureurAanRaceuitslag(genmatch4, uitslag14, coureurRepository);
-        koppelCoureurAanRaceuitslag(genmatch5, uitslag21, coureurRepository);
-        koppelCoureurAanRaceuitslag(genmatch6, uitslag22, coureurRepository);
-        koppelCoureurAanRaceuitslag(genmatch7, uitslag23, coureurRepository);
-        koppelCoureurAanRaceuitslag(genmatch8, uitslag24, coureurRepository);
-        koppelCoureurAanRaceuitslag(genmatch9, uitslag25, coureurRepository);
+        coureurService.koppelCoureurAanRaceuitslag(genmatch1, uitslag11);
+        coureurService.koppelCoureurAanRaceuitslag(genmatch2, uitslag12);
+        coureurService.koppelCoureurAanRaceuitslag(genmatch3, uitslag13);
+        coureurService.koppelCoureurAanRaceuitslag(genmatch4, uitslag14);
+        coureurService.koppelCoureurAanRaceuitslag(genmatch5, uitslag21);
+        coureurService.koppelCoureurAanRaceuitslag(genmatch6, uitslag22);
+        coureurService.koppelCoureurAanRaceuitslag(genmatch7, uitslag23);
+        coureurService.koppelCoureurAanRaceuitslag(genmatch8, uitslag24);
+        coureurService.koppelCoureurAanRaceuitslag(genmatch9, uitslag25);
 
         // Koppel de racecontainer aan competitie
         competitie1.setRaces(races1);
@@ -270,14 +270,6 @@ public class NcmdbApplication {
         competitieRepository.save(competitie1);
         competitieRepository.save(competitie2);
 
-    }
-
-    private void koppelCoureurAanRaceuitslag(List<Coureur> genmatch, Raceuitslag uitslag, CoureurRepository repo) {
-        for (Coureur c : genmatch) {
-            c.setRaceuitslag(uitslag);
-        }
-
-        repo.saveAll(genmatch);
     }
 
     /**

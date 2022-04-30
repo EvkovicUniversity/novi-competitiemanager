@@ -48,7 +48,7 @@ function CompetitieSelected() {
             <div className='competitieMenuContainer'>
 
                 <div className="competitieMenuInhoudContainer">
-                    <OpkomendeRace/>
+                    <OpkomendeRace competitieId={result[0]}/>
                 </div>
 
                 <div className="competitieMenuInhoudContainer">

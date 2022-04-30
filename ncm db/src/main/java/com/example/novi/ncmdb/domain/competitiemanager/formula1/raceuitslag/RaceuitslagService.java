@@ -2,6 +2,7 @@ package com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag;
 
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.competitie.Competitie;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.competitie.CompetitieService;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.Coureur;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.CoureurService;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.races.Races;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.races.RacesService;
@@ -45,6 +46,9 @@ public class RaceuitslagService {
 
         racesService.save(races);
         raceuitslagRepository.save(nieuweUitslag);
+
+        List<Coureur> genmatch = coureurService.generateF1Match();
+        coureurService.koppelCoureurAanRaceuitslag(genmatch, nieuweUitslag);
 
     }
 }

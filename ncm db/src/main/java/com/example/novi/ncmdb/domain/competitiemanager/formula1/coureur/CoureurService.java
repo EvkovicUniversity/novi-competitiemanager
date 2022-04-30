@@ -102,4 +102,12 @@ public class CoureurService {
         return lijstMetNieuweCoureurObjecten;
     }
 
+    public void koppelCoureurAanRaceuitslag(List<Coureur> genmatch, Raceuitslag uitslag) {
+        for (Coureur c : genmatch) {
+            c.setRaceuitslag(uitslag);
+        }
+
+        coureurRepository.saveAll(genmatch);
+    }
+
 }
