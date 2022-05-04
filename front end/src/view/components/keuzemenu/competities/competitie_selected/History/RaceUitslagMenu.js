@@ -5,7 +5,7 @@ import Raceuitslag from "./Raceuitslag";
 function RaceUitslagMenu(props) {
 
     const {data, loading, error} = fetchData(props.raceId,
-        "http://localhost:8080/competitiemanager/competities/raceuitslagen/racesId/" + props.raceId);
+        "http://localhost:8080/competitiemanager/formula1/competities/raceuitslagen/racesId/" + props.raceId);
     const result = Object.keys(data).map((key) => data[key]).reverse();
 
     if (loading) return <h1>Loading...</h1>;

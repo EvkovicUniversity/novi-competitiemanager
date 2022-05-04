@@ -12,28 +12,27 @@ import java.util.List;
 import static java.lang.Long.parseLong;
 
 @RestController
+@RequestMapping(path = "/competitiemanager/formula1")
 public class RaceuitslagController {
 
-    private final RaceuitslagService raceuitslagService;
-    private final VoorspellingController voorspellingController;
+    private final RaceuitslagService service;
 
-    public RaceuitslagController(RaceuitslagService raceuitslagService, VoorspellingController voorspellingController) {
-        this.raceuitslagService = raceuitslagService;
-        this.voorspellingController = voorspellingController;
+    public RaceuitslagController(RaceuitslagService service) {
+        this.service = service;
     }
 
     @CrossOrigin
-    @GetMapping(path = "/competitiemanager/competities/raceuitslagen")
+    @GetMapping(path = "/competities/raceuitslagen")
     public ResponseEntity<List<Raceuitslag>> getRaceuitslagen() {
-        return new ResponseEntity<>(raceuitslagService.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
     }
 
     @CrossOrigin
-    @GetMapping(path = "/competitiemanager/competities/raceuitslagen/{uitslagId}")
+    @GetMapping(path = "/competities/raceuitslagen/{uitslagId}")
     public ResponseEntity<Iterable<Coureur>> getUitkomstByUitslagId(@PathVariable String uitslagId) {
 
         try {
-            return new ResponseEntity<>(raceuitslagService.findById(uitslagId).getRaceuitkomst(), HttpStatus.OK);
+            return new ResponseEntity<>(service.findById(uitslagId).getRaceuitkomst(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -41,11 +40,11 @@ public class RaceuitslagController {
     }
 
     @CrossOrigin
-    @GetMapping(path = "/competitiemanager/user/voorspelling/raceuitslag/{raceuitslagId}")
-    ResponseEntity<List<Voorspelling>> getVoorspellingenByRaceuitslag(@PathVariable String raceuitslagId){
+    @GetMapping(path = "/user/voorspelling/raceuitslag/{raceuitslagId}")
+    public ResponseEntity<List<Voorspelling>> getVoorspellingenByRaceuitslag(@PathVariable String raceuitslagId){
 
         try {
-            return new ResponseEntity<>(raceuitslagService.findById(raceuitslagId).getVoorspellingen(), HttpStatus.OK);
+            return new ResponseEntity<>(service.findById(raceuitslagId).getVoorspellingen(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -53,14 +52,12 @@ public class RaceuitslagController {
     }
 
     @CrossOrigin
-    @PostMapping(path = "/competitiemanager/formula1/playmatch/{competitieId}")
+    @PostMapping(path = "/playmatch/{competitieId}")
     public void doRace(@PathVariable String competitieId){
-
-        System.out.println("match played");
 
         try {
             Long competitieIdLong = parseLong(competitieId);
-            raceuitslagService.doRace(competitieIdLong);
+            service.doRace(competitieIdLong);
         } catch (Exception e) {
             System.out.println(e);
         }

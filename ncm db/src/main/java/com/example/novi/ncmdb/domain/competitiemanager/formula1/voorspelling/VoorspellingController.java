@@ -10,6 +10,7 @@ import java.net.URI;
 import static java.lang.Long.parseLong;
 
 @RestController
+@RequestMapping(path = "/competitiemanager/formula1")
 public class VoorspellingController {
 
     private final VoorspellingService service;
@@ -19,7 +20,7 @@ public class VoorspellingController {
     }
 
     @CrossOrigin
-    @GetMapping(path = "/competitiemanager/user/voorspelling/{voorspellingId}")
+    @GetMapping(path = "/user/voorspelling/{voorspellingId}")
     ResponseEntity<Voorspelling> getVoorspellingById(@PathVariable String voorspellingId) {
 
         try {
@@ -34,7 +35,7 @@ public class VoorspellingController {
 
     @CrossOrigin
     @PostMapping(
-            path = "/competitiemanager/user/formula1/voorspelling/{competitieId}",
+            path = "/user/formula1/voorspelling/{competitieId}",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )

@@ -3,11 +3,11 @@ import fetchData from "../../../../../../controller/Data/fetchData";
 
 function Raceuitslag(props) {
     const {data: raceuitslagData, loading: raceuitslagLoading, error: raceuitslagError} = fetchData(props.raceId,
-        "http://localhost:8080/competitiemanager/competities/raceuitslagen/" + props.raceId);
+        "http://localhost:8080/competitiemanager/formula1/competities/raceuitslagen/" + props.raceId);
     const raceuitslagenResult = Object.keys(raceuitslagData).map((key) => raceuitslagData[key]);
 
     const {data: predictData, predictLoading, predictError} = fetchData(props.raceId,
-        "http://localhost:8080/competitiemanager/user/voorspelling/raceuitslag/" + props.raceId);
+        "http://localhost:8080/competitiemanager/formula1/user/voorspelling/raceuitslag/" + props.raceId);
     const voorspellingsdata = Object.keys(predictData).map((key) => predictData[key]);
 
     const [open, setOpen] = useState(false);

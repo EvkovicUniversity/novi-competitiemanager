@@ -1,23 +1,13 @@
 package com.example.novi.ncmdb.controller;
 
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.competitie.Competitie;
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.competitie.CompetitieController;
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.competitie.CompetitieRepository;
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.competitie.CompetitieService;
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.CoureurService;
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.races.RacesService;
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.RaceuitslagService;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.ContentType;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.io.IOException;
 

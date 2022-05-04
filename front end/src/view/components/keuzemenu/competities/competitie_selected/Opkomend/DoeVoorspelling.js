@@ -13,11 +13,10 @@ function doeVoorspelling(props) {
     const [akkoord, setAkkoord] = useState(false);
 
 
-    const [competitieInfo, setCompetitieInfo] = useState(props.competitieId);
-    const [raceInfo, setRaceInfo] = useState(props.competitieId);
+    const [competitieInfo] = useState(props.competitieId);
     const [voorspelling, setVoorspelling] = useState();
 
-    const [postdata, setPostdata] = useState([]);
+    const [postdata] = useState([]);
     let meldingBericht = useState("U doet een voorspelling, wilt u doorgaan?");
 
     function clickVoorspel(e) {
@@ -28,7 +27,7 @@ function doeVoorspelling(props) {
     function handleSubmit(e) {
         postdata.push(voorspelling);
         postdata.push(competitieInfo);
-        axios.post("http://localhost:8080/competitiemanager/user/formula1/voorspelling/" + props.competitieId, {
+        axios.post("http://localhost:8080/competitiemanager/formula1/user/formula1/voorspelling/" + props.competitieId, {
             postdata
         })
             .then((response) => {
@@ -61,9 +60,8 @@ function doeVoorspelling(props) {
             <p>Wie gaat de volgende race winnen?</p>
 
             <form>
-                {/*<select onChange={e => setPostdata(e.target.value)}>*/}
                 <select onChange={handleChange}>
-                    <option value="default">Kies een coureur:</option>
+                    <option value="default" key="default">Kies een coureur:</option>
 
                     {
                         result.map(
@@ -74,44 +72,9 @@ function doeVoorspelling(props) {
 
                 </select>
 
-                <button className="button01" onClick={clickVoorspel} >Voorspel!</button>
+                <button className="button01" onClick={clickVoorspel}>Voorspel!</button>
             </form>
 
-
-            {/*<form onSubmit={handleSubmit}>*/}
-
-            {/*    <button type='submit' className="button01" onClick={clickVoorspel}>Voorspel</button>*/}
-            {/*    {openMelding && <Melding bericht={meldingBericht} openMelding={setOpenMelding} akkoord={setAkkoord}/>}*/}
-
-            {/*    <table className='tabel'>*/}
-
-            {/*        <thead>*/}
-            {/*        <tr>*/}
-            {/*            <th className='tabelheaders' id="positieCel">Coureur</th>*/}
-            {/*            <th className='tabelheaders'>Voorspel <br/> eindpositie</th>*/}
-            {/*        </tr>*/}
-            {/*        </thead>*/}
-            {/*        <tbody>*/}
-
-            {/*        {*/}
-            {/*            result.map(*/}
-            {/*                coureur =>*/}
-            {/*                    <tr key={dummy++}>*/}
-            {/*                        <td className="tableRow1">{coureur.name}</td>*/}
-            {/*                        <td className="tableRow2"><input type='text'*/}
-            {/*                                                         id="input_voorspelling"*/}
-            {/*                                                         key={coureur.name}*/}
-            {/*                                                         name={coureur.name}*/}
-            {/*                                                         onChange={handleChange}*/}
-            {/*                        />*/}
-            {/*                        </td>*/}
-            {/*                    </tr>*/}
-            {/*            )*/}
-            {/*        }*/}
-
-            {/*        </tbody>*/}
-            {/*    </table>*/}
-            {/*</form>*/}
         </div>
     );
 }

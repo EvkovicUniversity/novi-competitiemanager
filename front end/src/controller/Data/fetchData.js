@@ -7,15 +7,14 @@ export default function fetchData(pathParam, url) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const abortController = new AbortController();
-        const signal = abortController.signal;
+        const ac = new AbortController();
 
         if (pathParam !== undefined ) {
             if (pathParam === false || pathParam !== "") {
 
                 setLoading(true);
                 axios
-                    .get(url, {signal: signal})
+                    .get(url, {signal: ac.signal})
                     .then((response) => {
                         setData(response.data);
                     })
@@ -24,11 +23,8 @@ export default function fetchData(pathParam, url) {
                     })
                     .finally(() => {
                         setLoading(false);
+                        return () => ac.abort();
                     });
-
-                return function cleanup() {
-                    abortController.abort();
-                }
             }
         }
     }, [pathParam, url]);

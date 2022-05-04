@@ -2,10 +2,7 @@ package com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Array;
 import java.util.ArrayList;
@@ -13,6 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
+@RequestMapping(path = "/competitiemanager/formula1")
 public class CoureurController {
 
     private final CoureurService coureurService;
@@ -22,7 +20,7 @@ public class CoureurController {
     }
 
     @CrossOrigin
-    @GetMapping(path = "/competitiemanager/formula1/vanillaCoureurs")
+    @GetMapping(path = "/vanillaCoureurs")
     public ResponseEntity<List<Coureur>> getVanillaCoureurs(){
 
         List<Coureur> coureurs = coureurService.findAll();

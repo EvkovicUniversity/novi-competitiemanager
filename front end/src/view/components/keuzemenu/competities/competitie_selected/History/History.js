@@ -4,7 +4,7 @@ import fetchData from "../../../../../../controller/Data/fetchData";
 
 function history(props) {
     const {data,loading, error} = fetchData(props.competitieId,
-        "http://localhost:8080/competitiemanager/competities/raceuitslagen/raceId/" + props.competitieId);
+        "http://localhost:8080/competitiemanager/formula1/competities/raceuitslagen/raceId/" + props.competitieId);
 
     const [open, setOpen] = useState(false)
 
@@ -13,7 +13,6 @@ function history(props) {
 
     return (
         <div>
-
                     <div>
                         <div className="competitieMenuContent">
                             <h1 className={!open ? "uitklapbare_pijl_ingeklapt" : "uitklapbare_pijl_uitgeklapt"} onClick={() => setOpen(!open)}> {'\u276F'} </h1>
