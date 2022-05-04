@@ -9,6 +9,7 @@ import com.example.novi.ncmdb.domain.competitiemanager.formula1.races.RacesServi
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class RaceuitslagService {
@@ -43,9 +44,8 @@ public class RaceuitslagService {
 
         //Eerst kijken of er een voorspelling gedaan is. Zo ja, dan bestaat het object Raceuitslag al.
         int index = races.getRaceResultaten().size();
-        System.out.println("size: " + index);
-        Raceuitslag laatsteRace = races.getRaceResultaten().get(index-1);
-        System.out.println("laatste race: " + laatsteRace.getId());
+        Raceuitslag laatsteRace = findById(ifExists());
+        System.out.println(laatsteRace.getId());
 
 
         if (!laatsteRace.isPlayed()) {
@@ -53,14 +53,12 @@ public class RaceuitslagService {
             System.out.println("laatste race is niet played.");
             List<Coureur> genmatch = coureurService.generateF1Match();
             coureurService.koppelCoureurAanRaceuitslag(genmatch, laatsteRace);
-            laatsteRace.setRaceuitkomst(genmatch);
 
             laatsteRace.setPlayed();
             raceuitslagRepository.save(laatsteRace);
         } else {
 
             Raceuitslag nieuweUitslag = new Raceuitslag(races);
-            System.out.println(nieuweUitslag.getRaces().getRaceResultaten().size());
 
             nieuweUitslag.setId(false);
             raceuitslagRepository.save(nieuweUitslag);
@@ -76,4 +74,31 @@ public class RaceuitslagService {
 
         }
     }
+
+    public String ifExists() {
+        String competitieId = "22";
+        String filler = "Race";
+        String string = "";
+        int i = 0;
+
+        try {
+
+            for (i = 0; ; i++) {
+                string = "";
+
+                if (i < 10) {
+                    filler = "Race0" + i;
+                } else {
+                    filler = "Race" + i;
+                }
+                findById(competitieId+filler+string);
+
+            }
+        } catch (NoSuchElementException e) {
+            filler = "Race0";
+            return competitieId+filler+(i-1);
+        }
+
+    }
+
 }

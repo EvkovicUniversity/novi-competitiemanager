@@ -25,6 +25,7 @@ function Raceuitslag(props) {
 
         let voorspellingArray = findArrayElementByTitle(voorspellingsdata, coureurnaam);
 
+
         if (voorspellingArray !== undefined) {
 
             array = Object.values(voorspellingArray);
@@ -32,6 +33,8 @@ function Raceuitslag(props) {
 
             if (naamCoureurUitVoorspelling === coureurnaam) {
                 eindpositieVoorspelling = array[1]
+                console.log("eindpositieVoorspelling: " + eindpositieVoorspelling)
+                console.log("coureureindposistie: " + coureurEindpositie)
                 if (coureurEindpositie === eindpositieVoorspelling) {
                     return '\u2705';
                 } else {

@@ -13,16 +13,16 @@ import static java.lang.Long.parseLong;
 @RequestMapping(path = "/competitiemanager/formula1")
 public class RacesController {
 
-    private final RacesService racesService;
+    private final RacesService service;
 
-    public RacesController(RacesService racesService) {
-        this.racesService = racesService;
+    public RacesController(RacesService service) {
+        this.service = service;
     }
 
     @CrossOrigin
     @GetMapping(path = "/races/getAll")
     Iterable<Races> getAllRaces() {
-        return racesService.findAll();
+        return service.findAll();
     }
 
     @CrossOrigin
@@ -31,10 +31,19 @@ public class RacesController {
 
         if (raceId != null && !raceId.equals("undefined")){
             Long raceIdLong = parseLong(raceId);
-            return new ResponseEntity<>(racesService.findById(raceIdLong).getRaceResultaten(), HttpStatus.OK);
+            return new ResponseEntity<>(service.findById(raceIdLong).getRaceResultaten(), HttpStatus.OK);
         }
 
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
+//    @CrossOrigin
+//    @GetMapping(path = "/competities/raceuitslagen/racesId/{raceId}")
+//    public ResponseEntity<List<Raceuitslag>> getAllRacesMatchingId(@PathVariable String raceId) {
+//
+//        service.findAllById();
+//
+//        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//    }
 
 }

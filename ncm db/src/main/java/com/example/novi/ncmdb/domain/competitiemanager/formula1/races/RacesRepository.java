@@ -5,4 +5,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RacesRepository extends CrudRepository<Races, Long> {
+
+    @Override
+    Iterable<Races> findAllById(Iterable<Long> longs);
 }

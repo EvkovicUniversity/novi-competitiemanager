@@ -27,6 +27,7 @@ function doeVoorspelling(props) {
     function handleSubmit(e) {
         postdata.push(voorspelling);
         postdata.push(competitieInfo);
+        console.log(postdata);
         axios.post("http://localhost:8080/competitiemanager/formula1/user/formula1/voorspelling/" + props.competitieId, {
             postdata
         })

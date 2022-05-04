@@ -3,7 +3,9 @@ package com.example.novi.ncmdb.domain.competitiemanager.formula1.voorspelling;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.competitie.Competitie;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.competitie.CompetitieService;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.races.Races;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.races.RacesService;
 import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.Raceuitslag;
+import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.RaceuitslagService;
 import com.example.novi.ncmdb.domain.competitiemanager.utils.DataUtils;
 import org.springframework.stereotype.Service;
 
@@ -13,14 +15,18 @@ import static java.lang.Long.parseLong;
 public class VoorspellingService {
 
     private final VoorspellingRepository voorspellingRepository;
+    private final RaceuitslagService raceuitslagService;
+    private final RacesService racesService;
     private final CompetitieService competitieService;
     private final DataUtils utils = new DataUtils();
 
     /**
      * Constructor
      */
-    public VoorspellingService(VoorspellingRepository voorspellingRepository, CompetitieService competitieService){
+    public VoorspellingService(VoorspellingRepository voorspellingRepository, RaceuitslagService raceuitslagService, RacesService racesService, CompetitieService competitieService){
         this.voorspellingRepository = voorspellingRepository;
+        this.raceuitslagService = raceuitslagService;
+        this.racesService = racesService;
         this.competitieService = competitieService;
     }
 
@@ -48,6 +54,7 @@ public class VoorspellingService {
         String coureurNaam = getCoureurNaam(jsonbody);
 
         Competitie competitie = getCompetitie(competitieId);
+        System.out.println("1e size: " + competitie.getRaces().getRaceResultaten().size());
 
         //Creër voorspelling Object
         Voorspelling voorspelling = maakVoorspelling(coureurNaam);
@@ -61,9 +68,15 @@ public class VoorspellingService {
         Races racecontainer = competitie.getRaces();
         racecontainer.addRaceResultaat(futureRaceuitslag);
         voorspelling.setRaceuitslag(futureRaceuitslag);
+        competitie.setRaces(racecontainer);
 
         //Sla op
         save(voorspelling);
+        raceuitslagService.save(futureRaceuitslag);
+        racesService.save(racecontainer);
+        competitieService.save(competitie);
+        System.out.println(futureRaceuitslag.getRaces().getId());
+        System.out.println("2e size: " + competitie.getRaces().getRaceResultaten().size());
     }
 
     public String getCompetitieId(String jsonbody) {
