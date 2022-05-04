@@ -12,7 +12,12 @@ function doeVoorspelling(props) {
     const [openMelding, setOpenMelding] = useState(false);
     const [akkoord, setAkkoord] = useState(false);
 
-    const [postdata, setPostdata] = useState('');
+
+    const [competitieInfo, setCompetitieInfo] = useState(props.competitieId);
+    const [raceInfo, setRaceInfo] = useState(props.competitieId);
+    const [voorspelling, setVoorspelling] = useState();
+
+    const [postdata, setPostdata] = useState([]);
     let meldingBericht = useState("U doet een voorspelling, wilt u doorgaan?");
 
     function clickVoorspel(e) {
@@ -20,12 +25,9 @@ function doeVoorspelling(props) {
         setOpenMelding(!openMelding)
     }
 
-    function handleChange(e) {
-        setPostdata(e.target.value)
-        console.log("postdata: " + postdata)
-    }
-
     function handleSubmit(e) {
+        postdata.push(voorspelling);
+        postdata.push(competitieInfo);
         axios.post("http://localhost:8080/competitiemanager/user/formula1/voorspelling/" + props.competitieId, {
             postdata
         })
@@ -39,15 +41,18 @@ function doeVoorspelling(props) {
 
     useEffect(() => {
         if (akkoord === true) {
+            console.log("postdata: " + voorspelling)
             handleSubmit();
         }
     }, [akkoord]);
 
-
-    let dummy = 0;
-
     if (loading) return <h1>Loading...</h1>;
     if (error) console.log(error);
+
+
+    function handleChange(e) {
+        setVoorspelling(e.target.value)
+    }
 
     return (
         <div>
@@ -56,7 +61,9 @@ function doeVoorspelling(props) {
             <p>Wie gaat de volgende race winnen?</p>
 
             <form>
+                {/*<select onChange={e => setPostdata(e.target.value)}>*/}
                 <select onChange={handleChange}>
+                    <option value="default">Kies een coureur:</option>
 
                     {
                         result.map(

@@ -21,11 +21,9 @@ function CompetitieSelected() {
 
     const raceMelding = useState("U gaat een nieuwe race beginnen, doorgaan?")
 
-    let data2post = [];
-
     useEffect(() => {
         if (akkoord) {
-            console.log(data2post);
+            console.log(result[0]);
 
             axios.post("http://localhost:8080/competitiemanager/formula1/playmatch/" + result[0])
                 .then(res => {

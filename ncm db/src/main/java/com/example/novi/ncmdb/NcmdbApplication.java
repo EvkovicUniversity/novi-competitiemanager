@@ -176,25 +176,25 @@ public class NcmdbApplication {
 
         uitslagVoor1.add(uitslag11);
         races1.setRaceResultaten(uitslagVoor1);
-        uitslag11.setId();
+        uitslag11.setId(false);
         raceuitslagRepository.save(uitslag11);
         racesRepository.save(races1);
 
         uitslagVoor1.add(uitslag12);
         races1.setRaceResultaten(uitslagVoor1);
-        uitslag12.setId();
+        uitslag12.setId(false);
         raceuitslagRepository.save(uitslag12);
         racesRepository.save(races1);
 
         uitslagVoor1.add(uitslag13);
         races1.setRaceResultaten(uitslagVoor1);
-        uitslag13.setId();
+        uitslag13.setId(false);
         raceuitslagRepository.save(uitslag13);
         racesRepository.save(races1);
 
         uitslagVoor1.add(uitslag14);
         races1.setRaceResultaten(uitslagVoor1);
-        uitslag14.setId();
+        uitslag14.setId(false);
         raceuitslagRepository.save(uitslag14);
         racesRepository.save(races1);
 
@@ -202,31 +202,31 @@ public class NcmdbApplication {
 
         uitslagVoor2.add(uitslag21);
         races2.setRaceResultaten(uitslagVoor2);
-        uitslag21.setId();
+        uitslag21.setId(false);
         raceuitslagRepository.save(uitslag21);
         racesRepository.save(races2);
 
         uitslagVoor2.add(uitslag22);
         races2.setRaceResultaten(uitslagVoor2);
-        uitslag22.setId();
+        uitslag22.setId(false);
         raceuitslagRepository.save(uitslag22);
         racesRepository.save(races2);
 
         uitslagVoor2.add(uitslag23);
         races2.setRaceResultaten(uitslagVoor2);
-        uitslag23.setId();
+        uitslag23.setId(false);
         raceuitslagRepository.save(uitslag23);
         racesRepository.save(races2);
 
         uitslagVoor2.add(uitslag24);
         races2.setRaceResultaten(uitslagVoor2);
-        uitslag24.setId();
+        uitslag24.setId(false);
         raceuitslagRepository.save(uitslag24);
         racesRepository.save(races2);
 
         uitslagVoor2.add(uitslag25);
         races2.setRaceResultaten(uitslagVoor2);
-        uitslag25.setId();
+        uitslag25.setId(false);
         raceuitslagRepository.save(uitslag25);
         racesRepository.save(races2);
 //

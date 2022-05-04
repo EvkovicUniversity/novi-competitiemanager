@@ -20,15 +20,27 @@ public class Voorspelling {
     private Integer voorspellingEindpositie;
     private Long coureurId;
 
+    private String StoneyBoneyID;
+
     /**
      * CONSTRUCTORS
      **/
     public Voorspelling() {
     }
 
+    public String getStoneyBoneyID() {
+        return StoneyBoneyID;
+    }
+
+    public void setStoneyBoneyID(String stoneyBoneyID) {
+        StoneyBoneyID = stoneyBoneyID;
+    }
+
     /**
      * GETTERS & SETTERS
      **/
+
+
     public String getCoureurNaam() {
         return coureurNaam;
     }

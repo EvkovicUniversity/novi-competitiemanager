@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import DoeVoorspelling from "./DoeVoorspelling";
 
-function OpkomendeRace(){
+function OpkomendeRace(props){
 
     const [open, setOpen] = useState(true);
 
@@ -12,7 +12,7 @@ function OpkomendeRace(){
                     <h2 className="titel_CompetitieMenuContent">Opkomend</h2>
                 </div>
 
-                {open && <DoeVoorspelling/>}
+                {open && <DoeVoorspelling competitieId={props.competitieId}/>}
 
             </div>
         )

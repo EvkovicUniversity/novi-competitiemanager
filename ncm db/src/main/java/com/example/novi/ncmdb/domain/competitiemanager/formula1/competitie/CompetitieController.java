@@ -80,7 +80,7 @@ public class CompetitieController {
         competitieService.save(savedCompetitie);
 
         Raceuitslag raceuitslag = new Raceuitslag(savedRaces);
-        raceuitslag.setId();
+        raceuitslag.setId(false);
 
 
 

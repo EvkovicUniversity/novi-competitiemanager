@@ -32,7 +32,7 @@ public class CompetitieControllerTests {
 
         HttpResponse response = HttpClientBuilder.create().build().execute(request);
 
-        Assertions.assertEquals(response.getStatusLine().getStatusCode(), HttpStatus.OK.value());
+        Assertions.assertEquals(HttpStatus.OK.value(), response.getStatusLine().getStatusCode());
     }
 
     @Test
@@ -51,11 +51,11 @@ public class CompetitieControllerTests {
      */
     @Test
     void getRaceIdHappy() throws IOException {
-        HttpUriRequest request = new HttpGet("http://localhost:8080/competitiemanager/competities/raceuitslagen/raceId/215");
+        HttpUriRequest request = new HttpGet("http://localhost:8080/competitiemanager/competities/raceuitslagen/raceId/22");
 
         HttpResponse response = HttpClientBuilder.create().build().execute(request);
 
-        Assertions.assertEquals(response.getStatusLine().getStatusCode(), HttpStatus.OK.value());
+        Assertions.assertEquals(HttpStatus.OK.value(), response.getStatusLine().getStatusCode());
     }
 
     @Test
@@ -64,7 +64,7 @@ public class CompetitieControllerTests {
 
         HttpResponse response = HttpClientBuilder.create().build().execute(request);
 
-        Assertions.assertEquals(response.getStatusLine().getStatusCode(), HttpStatus.NOT_FOUND.value());
+        Assertions.assertEquals(HttpStatus.NOT_FOUND.value(), response.getStatusLine().getStatusCode());
     }
 
     @Test
@@ -73,7 +73,7 @@ public class CompetitieControllerTests {
 
         HttpResponse response = HttpClientBuilder.create().build().execute(request);
 
-        Assertions.assertEquals(response.getStatusLine().getStatusCode(), HttpStatus.NOT_FOUND.value());
+        Assertions.assertEquals(HttpStatus.NOT_FOUND.value(), response.getStatusLine().getStatusCode());
     }
 
     @Test
@@ -82,16 +82,16 @@ public class CompetitieControllerTests {
 
         HttpResponse response = HttpClientBuilder.create().build().execute(request);
 
-        Assertions.assertEquals(response.getStatusLine().getStatusCode(), HttpStatus.NOT_FOUND.value());
+        Assertions.assertEquals(HttpStatus.NOT_FOUND.value(), response.getStatusLine().getStatusCode());
     }
 
     @Test
     void getCompetitieById() throws IOException {
-        HttpUriRequest request = new HttpGet("http://localhost:8080/competitiemanager/formula1/competities/215");
+        HttpUriRequest request = new HttpGet("http://localhost:8080/competitiemanager/formula1/competities/22");
 
         HttpResponse response = HttpClientBuilder.create().build().execute(request);
 
-        Assertions.assertEquals(response.getStatusLine().getStatusCode(), HttpStatus.OK.value());
+        Assertions.assertEquals(HttpStatus.OK.value(), response.getStatusLine().getStatusCode());
     }
 
 }

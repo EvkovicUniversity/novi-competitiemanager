@@ -35,6 +35,8 @@ public class Raceuitslag {
     )
     private List<Voorspelling> voorspellingen = new ArrayList<>();
 
+    private String StoneyBoney;
+
     /**
      * CONSTRUCTORS
      **/
@@ -45,12 +47,21 @@ public class Raceuitslag {
         this.races = races;
     }
 
+    public String getStoneyBoney() {
+        return StoneyBoney;
+    }
+
+    public void setStoneyBoney(String stoneyBoney) {
+        StoneyBoney = stoneyBoney;
+    }
 
     /**
      * GETTERS & SETTERS
      *
      * @return
      */
+
+
     public String getId() {
         return id;
     }
@@ -67,17 +78,24 @@ public class Raceuitslag {
         this.raceuitkomst = raceuitkomst;
     }
 
-    public void setId(){
-        String cijfer;
+    public void setId(boolean isPrediction){
+        String filler;
         String newID;
+        int cijfer;
 
-        if (this.races.getRaceResultaten().size() < 10){
-            cijfer = "0" + this.races.getRaceResultaten().size();
+        if (isPrediction) {
+            cijfer = this.races.getRaceResultaten().size() + 1;
         } else {
-            cijfer = "" + this.races.getRaceResultaten().size();
+            cijfer = this.races.getRaceResultaten().size();
         }
 
-        newID = this.races.getCompetitie().getId() + "Race" + cijfer;
+        if (this.races.getRaceResultaten().size() < 9){
+            filler = "0";
+        } else {
+            filler = "";
+        }
+
+        newID = this.races.getCompetitie().getId() + "Race" + filler + cijfer;
 
         this.id = newID;
     }
