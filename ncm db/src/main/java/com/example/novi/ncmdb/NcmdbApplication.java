@@ -177,24 +177,28 @@ public class NcmdbApplication {
         uitslagVoor1.add(uitslag11);
         races1.setRaceResultaten(uitslagVoor1);
         uitslag11.setId(false);
+        uitslag11.setPlayed();
         raceuitslagRepository.save(uitslag11);
         racesRepository.save(races1);
 
         uitslagVoor1.add(uitslag12);
         races1.setRaceResultaten(uitslagVoor1);
         uitslag12.setId(false);
+        uitslag12.setPlayed();
         raceuitslagRepository.save(uitslag12);
         racesRepository.save(races1);
 
         uitslagVoor1.add(uitslag13);
         races1.setRaceResultaten(uitslagVoor1);
         uitslag13.setId(false);
+        uitslag13.setPlayed();
         raceuitslagRepository.save(uitslag13);
         racesRepository.save(races1);
 
         uitslagVoor1.add(uitslag14);
         races1.setRaceResultaten(uitslagVoor1);
         uitslag14.setId(false);
+        uitslag14.setPlayed();
         raceuitslagRepository.save(uitslag14);
         racesRepository.save(races1);
 
@@ -203,30 +207,35 @@ public class NcmdbApplication {
         uitslagVoor2.add(uitslag21);
         races2.setRaceResultaten(uitslagVoor2);
         uitslag21.setId(false);
+        uitslag21.setPlayed();
         raceuitslagRepository.save(uitslag21);
         racesRepository.save(races2);
 
         uitslagVoor2.add(uitslag22);
         races2.setRaceResultaten(uitslagVoor2);
         uitslag22.setId(false);
+        uitslag22.setPlayed();
         raceuitslagRepository.save(uitslag22);
         racesRepository.save(races2);
 
         uitslagVoor2.add(uitslag23);
         races2.setRaceResultaten(uitslagVoor2);
         uitslag23.setId(false);
+        uitslag23.setPlayed();
         raceuitslagRepository.save(uitslag23);
         racesRepository.save(races2);
 
         uitslagVoor2.add(uitslag24);
         races2.setRaceResultaten(uitslagVoor2);
         uitslag24.setId(false);
+        uitslag24.setPlayed();
         raceuitslagRepository.save(uitslag24);
         racesRepository.save(races2);
 
         uitslagVoor2.add(uitslag25);
         races2.setRaceResultaten(uitslagVoor2);
         uitslag25.setId(false);
+        uitslag25.setPlayed();
         raceuitslagRepository.save(uitslag25);
         racesRepository.save(races2);
 //
@@ -234,7 +243,7 @@ public class NcmdbApplication {
 //        races1.setRaceResultaten(uitslagVoor1);
 //        races2.setRaceResultaten(uitslagVoor2);
 //
-        doVoorspelling(voorspellingRepository, uitslag11);
+//        doVoorspelling(voorspellingRepository, uitslag11);
 //
 //        // Sla op in DB
 //        racesRepository.save(races1);
@@ -285,32 +294,32 @@ public class NcmdbApplication {
         return lijstMetNieuweCoureurObjecten;
     }
 
-    private void doVoorspelling(VoorspellingRepository voorspellingRepository, Raceuitslag raceuitslag){
-        Voorspelling voorspelling1 = new Voorspelling();
-        voorspelling1.setRace(raceuitslag);
-        voorspelling1.setCoureurId(7L);
-        voorspelling1.setCoureurNaam("Lewis Hamilton");
-        voorspelling1.setVoorspellingEindpositie(2);
-
-        voorspellingRepository.save(voorspelling1);
-
-        Voorspelling voorspelling2 = new Voorspelling();
-        voorspelling2.setRace(raceuitslag);
-        voorspelling2.setCoureurId(3L);
-        voorspelling2.setCoureurNaam("Alexander Albon");
-        voorspelling2.setVoorspellingEindpositie(3);
-
-        voorspellingRepository.save(voorspelling2);
-
-        Voorspelling voorspelling3 = new Voorspelling();
-        voorspelling3.setRace(raceuitslag);
-        voorspelling3.setCoureurId(20L);
-        voorspelling3.setCoureurNaam("Max Verstappen");
-        voorspelling3.setVoorspellingEindpositie(1);
-
-        voorspellingRepository.save(voorspelling3);
-
-    }
+//    private void doVoorspelling(VoorspellingRepository voorspellingRepository, Raceuitslag raceuitslag){
+//        Voorspelling voorspelling1 = new Voorspelling();
+//        voorspelling1.setRace(raceuitslag);
+//        voorspelling1.setCoureurId(7L);
+//        voorspelling1.setCoureurNaam("Lewis Hamilton");
+//        voorspelling1.setVoorspellingEindpositie(2);
+//
+//        voorspellingRepository.save(voorspelling1);
+//
+//        Voorspelling voorspelling2 = new Voorspelling();
+//        voorspelling2.setRace(raceuitslag);
+//        voorspelling2.setCoureurId(3L);
+//        voorspelling2.setCoureurNaam("Alexander Albon");
+//        voorspelling2.setVoorspellingEindpositie(3);
+//
+//        voorspellingRepository.save(voorspelling2);
+//
+//        Voorspelling voorspelling3 = new Voorspelling();
+//        voorspelling3.setRace(raceuitslag);
+//        voorspelling3.setCoureurId(20L);
+//        voorspelling3.setCoureurNaam("Max Verstappen");
+//        voorspelling3.setVoorspellingEindpositie(1);
+//
+//        voorspellingRepository.save(voorspelling3);
+//
+//    }
 
     private void init_gebruikers(GebruikerRepository gebruikerRepository){
         List<Gebruiker> gebruikers = new ArrayList<>();

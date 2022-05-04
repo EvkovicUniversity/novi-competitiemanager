@@ -42,7 +42,7 @@ public class RaceuitslagController {
 
     @CrossOrigin
     @GetMapping(path = "/competitiemanager/user/voorspelling/raceuitslag/{raceuitslagId}")
-    ResponseEntity<Iterable<Voorspelling>> getVoorspellingenByRaceuitslag(@PathVariable String raceuitslagId){
+    ResponseEntity<List<Voorspelling>> getVoorspellingenByRaceuitslag(@PathVariable String raceuitslagId){
 
         try {
             return new ResponseEntity<>(raceuitslagService.findById(raceuitslagId).getVoorspellingen(), HttpStatus.OK);

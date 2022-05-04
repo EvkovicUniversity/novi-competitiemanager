@@ -14,6 +14,7 @@ public class Raceuitslag {
 
     @Id
     private String id = dummyId();
+    private boolean isPlayed = false;
 
     @ManyToOne
     @JoinColumn(name = "races_id", referencedColumnName = "id")
@@ -35,7 +36,6 @@ public class Raceuitslag {
     )
     private List<Voorspelling> voorspellingen = new ArrayList<>();
 
-    private String StoneyBoney;
 
     /**
      * CONSTRUCTORS
@@ -47,20 +47,25 @@ public class Raceuitslag {
         this.races = races;
     }
 
-    public String getStoneyBoney() {
-        return StoneyBoney;
-    }
-
-    public void setStoneyBoney(String stoneyBoney) {
-        StoneyBoney = stoneyBoney;
-    }
-
     /**
      * GETTERS & SETTERS
      *
      * @return
      */
+    public boolean isPlayed() {
+        return isPlayed;
+    }
 
+    public void setPlayed() {
+        isPlayed = true;
+    }
+    public List<Voorspelling> getVoorspellingen() {
+        return voorspellingen;
+    }
+
+    public void setVoorspellingen(List<Voorspelling> voorspellingen) {
+        this.voorspellingen = voorspellingen;
+    }
 
     public String getId() {
         return id;
@@ -102,10 +107,6 @@ public class Raceuitslag {
 
     public List<Coureur> getRaceuitkomst() {
         return raceuitkomst;
-    }
-
-    public List<Voorspelling> getVoorspellingen() {
-        return voorspellingen;
     }
 
     private String dummyId() {

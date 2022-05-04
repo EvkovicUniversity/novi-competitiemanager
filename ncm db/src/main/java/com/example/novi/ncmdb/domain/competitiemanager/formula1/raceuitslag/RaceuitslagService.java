@@ -38,49 +38,42 @@ public class RaceuitslagService {
     }
 
     public void doRace(Long competitieId) {
-
-        System.out.println("competitieId: " + competitieId);
-
         Competitie competitie = competitieService.findById(competitieId);
-        System.out.println("Competitie found!");
-
         Races races = competitie.getRaces();
-        System.out.println("Got races!");
 
-        Raceuitslag nieuweUitslag = new Raceuitslag(races);
-        System.out.println("voor: " + nieuweUitslag.getId());
-        System.out.println(nieuweUitslag.getRaces().getRaceResultaten().size());
+        //Eerst kijken of er een voorspelling gedaan is. Zo ja, dan bestaat het object Raceuitslag al.
+        int index = races.getRaceResultaten().size();
+        System.out.println("size: " + index);
+        Raceuitslag laatsteRace = races.getRaceResultaten().get(index-1);
+        System.out.println("laatste race: " + laatsteRace.getId());
 
-        nieuweUitslag.setId(true);
-        System.out.println("id set.");
-        System.out.println("ID: " + nieuweUitslag.getId());
-        raceuitslagRepository.save(nieuweUitslag);
 
-        List<Coureur> genmatch = coureurService.generateF1Match();
-        System.out.println("match generated.");
+        if (!laatsteRace.isPlayed()) {
 
-        for (Coureur c : genmatch) {
-            System.out.println(c.getName());
+            System.out.println("laatste race is niet played.");
+            List<Coureur> genmatch = coureurService.generateF1Match();
+            coureurService.koppelCoureurAanRaceuitslag(genmatch, laatsteRace);
+            laatsteRace.setRaceuitkomst(genmatch);
+
+            laatsteRace.setPlayed();
+            raceuitslagRepository.save(laatsteRace);
+        } else {
+
+            Raceuitslag nieuweUitslag = new Raceuitslag(races);
+            System.out.println(nieuweUitslag.getRaces().getRaceResultaten().size());
+
+            nieuweUitslag.setId(false);
+            raceuitslagRepository.save(nieuweUitslag);
+
+            List<Coureur> genmatch = coureurService.generateF1Match();
+
+            coureurService.koppelCoureurAanRaceuitslag(genmatch, nieuweUitslag);
+            nieuweUitslag.setRaceuitkomst(genmatch);
+
+            racesService.save(races);
+            raceuitslagRepository.save(nieuweUitslag);
+            competitieService.save(competitie);
+
         }
-
-        coureurService.koppelCoureurAanRaceuitslag(genmatch, nieuweUitslag);
-        nieuweUitslag.setRaceuitkomst(genmatch);
-        System.out.println("koppeling voltooid.");
-        System.out.println(nieuweUitslag.getRaceuitkomst());
-        System.out.println(genmatch);
-
-        racesService.save(races);
-        System.out.println("saved race (container)");
-
-        Raceuitslag saved = raceuitslagRepository.save(nieuweUitslag);
-        System.out.println("saved uitslag.");
-
-        competitieService.save(competitie);
-
-
-        System.out.println("info na afloop:");
-        System.out.println("saved raceId: " + saved.getRaces().getId());
-        System.out.println("saved Id: " + saved.getId());
-
     }
 }

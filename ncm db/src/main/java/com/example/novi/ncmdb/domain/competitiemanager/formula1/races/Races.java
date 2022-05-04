@@ -52,7 +52,14 @@ public class Races {
     }
 
     public List<Raceuitslag> getRaceResultaten() {
-        return raceResultaten;
+        List<Raceuitslag> raceuitslagenPlayed = new ArrayList<>();
+        for (Raceuitslag r : this.raceResultaten) {
+            if (r.isPlayed()) {
+                raceuitslagenPlayed.add(r);
+            }
+        }
+
+        return raceuitslagenPlayed;
     }
 
     public void setCompetitie(Competitie competitie) {
@@ -61,5 +68,9 @@ public class Races {
 
     public void setRaceResultaten(List<Raceuitslag> raceResultaten) {
         this.raceResultaten = raceResultaten;
+    }
+
+    public void addRaceResultaat(Raceuitslag uitslag){
+        this.raceResultaten.add(uitslag);
     }
 }
