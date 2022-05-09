@@ -31,13 +31,17 @@ function Raceuitslag(props) {
             array = Object.values(voorspellingArray);
             naamCoureurUitVoorspelling = array[0];
 
+
+
             if (naamCoureurUitVoorspelling === coureurnaam) {
-                eindpositieVoorspelling = array[1]
-                console.log("eindpositieVoorspelling: " + eindpositieVoorspelling)
-                console.log("coureureindposistie: " + coureurEindpositie)
+                eindpositieVoorspelling = array[2]
+
                 if (coureurEindpositie === eindpositieVoorspelling) {
                     return '\u2705';
                 } else {
+
+                    console.log("coureureindpositie: " + coureurEindpositie);
+                    console.log("eindpositieVoorspelling:" + eindpositieVoorspelling);
                     return '\u274C';
                 }
             }
