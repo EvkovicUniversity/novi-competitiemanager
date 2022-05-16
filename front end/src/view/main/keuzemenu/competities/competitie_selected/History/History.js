@@ -3,10 +3,11 @@ import RaceUitslagMenu from "./RaceUitslagMenu";
 import fetchData from "../../../../../../controller/Data/fetchData";
 
 function history(props) {
-    const {data,loading, error} = fetchData(props.competitieId,
-        "http://localhost:8080/competitiemanager/formula1/competities/raceuitslagen/raceId/" + props.competitieId);
+    const {data, loading, error} = fetchData(props.competitieId,
+            "http://localhost:8080/competitiemanager/formula1/competities/raceuitslagen/raceId/" + props.competitieId);
 
     const [open, setOpen] = useState(false)
+
 
     if (loading) return <h1>Loading...</h1>
     if (error) return console.log(error);

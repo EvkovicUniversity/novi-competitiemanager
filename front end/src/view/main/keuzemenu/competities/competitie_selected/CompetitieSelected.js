@@ -4,6 +4,7 @@ import History from "./History/History";
 import axios from "axios";
 import fetchData from "../../../../../controller/Data/fetchData";
 import Melding from "../../../../components/melding/MeldingPopUp";
+import Notificatie from "../../../../components/melding/Notificatie";
 
 function CompetitieSelected() {
 
@@ -19,18 +20,24 @@ function CompetitieSelected() {
     const [openMelding, setOpenMelding] = useState(false);
     const [akkoord, setAkkoord] = useState(false);
 
+    const [status, setStatus] = useState(0);
+    const [openNotificatie, setOpenNotificatie] = useState(false);
+
     const raceMelding = useState("U gaat een nieuwe race beginnen, doorgaan?")
 
     useEffect(() => {
         if (akkoord) {
-            console.log(result[0]);
 
             axios.post("http://localhost:8080/competitiemanager/formula1/playmatch/" + result[0])
-                .then(res => {
-                    console.log(res)
+                .then((res) => {
+                    setStatus(res.status);
                 })
-                .catch(err => {
-                    console.log(err)
+                .then(() => {
+                    setOpenNotificatie(true);
+                })
+                .catch((err) => {
+                    setStatus(400)
+                    setOpenNotificatie(true);
                 })
         }
     }, [akkoord])
@@ -58,6 +65,8 @@ function CompetitieSelected() {
             <button className="button01" onClick={() => setOpenMelding(!openMelding)} >Race!</button>
 
             {openMelding && <Melding bericht={raceMelding} openMelding={setOpenMelding} akkoord={setAkkoord}/>}
+            {openNotificatie && <Notificatie status={status} openNotificatie={setOpenNotificatie} />}
+
 
         </main>
     )

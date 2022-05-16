@@ -1,12 +1,10 @@
 package com.example.novi.ncmdb.domain.competitiemanager.utils;
 
 public class DataUtils {
-    private final String NONLETTER_REGEX = "\\W";
-    private final String NONNUMBER_REGEX = "[^0-9]";
-    private final String NUMMER_REGEX = "[0-9]";
 
     public String extractName(String input) {
         String output = extractData(input);
+        String NUMMER_REGEX = "[0-9]";
         output = output.replaceAll(NUMMER_REGEX, "");
 
         return addNameSpace(output);
@@ -30,6 +28,7 @@ public class DataUtils {
     public String extractCompetitieId(String input) {
         String output = extractData(input);
 
+        String NONNUMBER_REGEX = "[^0-9]";
         return output.replaceAll(NONNUMBER_REGEX, "");
     }
 
@@ -37,6 +36,7 @@ public class DataUtils {
         String letterRegex = "postdata";
         String output = voorspelling.replaceAll(letterRegex, "");
 
+        String NONLETTER_REGEX = "\\W";
         return output.replaceAll(NONLETTER_REGEX, "");
 
     }

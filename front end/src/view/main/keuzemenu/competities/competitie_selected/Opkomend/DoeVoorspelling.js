@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import fetchData from "../../../../../../controller/Data/fetchData";
 import Melding from "../../../../../components/melding/MeldingPopUp";
 import axios from "axios";
+import Notificatie from "../../../../../components/melding/Notificatie";
 
 
 function doeVoorspelling(props) {
@@ -11,6 +12,9 @@ function doeVoorspelling(props) {
 
     const [openMelding, setOpenMelding] = useState(false);
     const [akkoord, setAkkoord] = useState(false);
+
+    const [status, setStatus] = useState(0);
+    const [openNotificatie, setOpenNotificatie] = useState(false);
 
 
     const [competitieInfo] = useState(props.competitieId);
@@ -27,21 +31,24 @@ function doeVoorspelling(props) {
     function handleSubmit(e) {
         postdata.push(voorspelling);
         postdata.push(competitieInfo);
-        console.log(postdata);
         axios.post("http://localhost:8080/competitiemanager/formula1/user/formula1/voorspelling/" + props.competitieId, {
             postdata
         })
             .then((response) => {
-                console.log(response);
+                setStatus(response.status);
+                console.log(status);
+            })
+            .then(() => {
+                setOpenNotificatie(true);
             })
             .catch((error) => {
-                console.log(error);
+                setStatus(400);
+                setOpenNotificatie(true);
             })
     }
 
     useEffect(() => {
         if (akkoord === true) {
-            console.log("postdata: " + voorspelling)
             handleSubmit();
         }
     }, [akkoord]);
@@ -54,9 +61,13 @@ function doeVoorspelling(props) {
         setVoorspelling(e.target.value)
     }
 
+    let keyCount  = 1;
+
     return (
         <div>
+
             {openMelding && <Melding bericht={meldingBericht} openMelding={setOpenMelding} akkoord={setAkkoord}/>}
+            {openNotificatie && <Notificatie status={status} openNotificatie={setOpenNotificatie} />}
 
             <p>Wie gaat de volgende race winnen?</p>
 
@@ -67,7 +78,7 @@ function doeVoorspelling(props) {
                     {
                         result.map(
                             coureur =>
-                                <option value={coureur.name} key={coureur.name}>{coureur.name}</option>
+                                <option value={coureur.name} key={coureur.name + keyCount++}>{coureur.name}</option>
                         )
                     }
 

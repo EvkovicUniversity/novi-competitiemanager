@@ -9,6 +9,8 @@ import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.Race
 import com.example.novi.ncmdb.domain.competitiemanager.utils.DataUtils;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityExistsException;
+
 import static java.lang.Long.parseLong;
 
 @Service
@@ -49,12 +51,11 @@ public class VoorspellingService {
         return voorspelling;
     }
 
-    public void addVoorspelling(String jsonbody) {
+    public void addVoorspelling(String jsonbody) throws EntityExistsException {
         String competitieId = getCompetitieId(jsonbody);
         String coureurNaam = getCoureurNaam(jsonbody);
 
         Competitie competitie = getCompetitie(competitieId);
-        System.out.println("1e size: " + competitie.getRaces().getRaceResultaten().size());
 
         //Creër voorspelling Object
         Voorspelling voorspelling = maakVoorspelling(coureurNaam);
@@ -75,8 +76,6 @@ public class VoorspellingService {
         raceuitslagService.save(futureRaceuitslag);
         racesService.save(racecontainer);
         competitieService.save(competitie);
-        System.out.println(futureRaceuitslag.getRaces().getId());
-        System.out.println("2e size: " + competitie.getRaces().getRaceResultaten().size());
     }
 
     public String getCompetitieId(String jsonbody) {

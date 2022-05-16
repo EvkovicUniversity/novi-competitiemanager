@@ -45,12 +45,9 @@ public class RaceuitslagService {
         //Eerst kijken of er een voorspelling gedaan is. Zo ja, dan bestaat het object Raceuitslag al.
         int index = races.getRaceResultaten().size();
         Raceuitslag laatsteRace = findById(ifExists());
-        System.out.println(laatsteRace.getId());
-
 
         if (!laatsteRace.isPlayed()) {
 
-            System.out.println("laatste race is niet played.");
             List<Coureur> genmatch = coureurService.generateF1Match();
             coureurService.koppelCoureurAanRaceuitslag(genmatch, laatsteRace);
 

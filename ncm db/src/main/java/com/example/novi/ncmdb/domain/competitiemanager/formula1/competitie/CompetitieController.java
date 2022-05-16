@@ -31,8 +31,8 @@ public class CompetitieController {
     public ResponseEntity<Long> getRaceId(@PathVariable String competitieId) {
 
             try {
-                Long competitieIdLong = parseLong(competitieId);
-                return new ResponseEntity<>(service.findById(competitieIdLong).getRaces().getId(), HttpStatus.OK);
+                    Long competitieIdLong = parseLong(competitieId);
+                    return new ResponseEntity<>(service.findById(competitieIdLong).getRaces().getId(), HttpStatus.OK);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
@@ -60,14 +60,6 @@ public class CompetitieController {
 
         return ResponseEntity.created(URI.create(String.format("/voorspellingen/%s", 4)))
                 .body(competitie);
-    }
-
-    @CrossOrigin
-    @GetMapping(path = "/magikbijjou")
-    public ResponseEntity<Integer> getListSize() {
-        Competitie answer = service.findById(22L);
-
-        return new ResponseEntity<>(answer.getRaces().getRaceResultaten().size(), HttpStatus.OK);
     }
 
 }

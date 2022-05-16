@@ -1,10 +1,12 @@
 package com.example.novi.ncmdb.domain.competitiemanager.formula1.voorspelling;
 
+import org.hibernate.boot.jaxb.hbm.internal.CacheAccessTypeConverter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityExistsException;
 import java.net.URI;
 
 import static java.lang.Long.parseLong;
@@ -40,7 +42,13 @@ public class VoorspellingController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ResponseEntity<String> addVoorspelling(@RequestBody String jsonbody) {
-        service.addVoorspelling(jsonbody);
+
+        try {
+            service.addVoorspelling(jsonbody);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.ALREADY_REPORTED);
+        }
 
         return ResponseEntity.created(URI.create(String.format("/voorspellingen/%s", 4)))
                 .body(jsonbody);
