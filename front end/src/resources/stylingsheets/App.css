@@ -6,7 +6,7 @@ html{
 .background {
   /*content*/
   background-color: black;
-  background-image: url("/src/resources/images/background.jpg");
+  background-image: url("../../resources/images/background.jpg");
 
   /*Positie*/
   position: absolute;

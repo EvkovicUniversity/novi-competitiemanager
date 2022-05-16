@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./resources/images/logo/novi_logo.png";
-import "./resources/stylingsheets/App.css";
 import "./resources/stylingsheets/algemeen.css";
+import "./resources/stylingsheets/App.css";
 import AppRouter from "./controller/Navigatie/Router";
 
 import {BrowserRouter, Link} from "react-router-dom";
