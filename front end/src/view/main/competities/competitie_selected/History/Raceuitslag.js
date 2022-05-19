@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import fetchData from "../../../../../../controller/Data/fetchData";
+import fetchData from "../../../../../controller/Data/fetchData";
 
 function Raceuitslag(props) {
     const {data: raceuitslagData, loading: raceuitslagLoading, error: raceuitslagError} = fetchData(props.raceId,

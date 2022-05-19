@@ -12,6 +12,12 @@ function Notificatie(props) {
         props.openNotificatie(false);
     }
 
+    function handleClass() {
+        this.setState({
+            openNotificatie: false
+        })
+    }
+
 
     return (
         <div className="notificatie_achtergrond">
@@ -24,7 +30,8 @@ function Notificatie(props) {
                             <p id="notificatieImg">{props.status === 201 || 200 ? goedImg : foutImg}</p>
                         </div>
 
-                        <button className="button01" onClick={() => handleOK()}>oki</button>
+                        {/*<button className="button01" onClick={() => handleOK()}>oki</button>*/}
+                        <button className="button01" onClick={() => handleClass()}>oki</button>
                     </div>
                 </div>
             </div>

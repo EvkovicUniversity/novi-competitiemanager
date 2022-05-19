@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import axios from "axios";
+import Notificatie from "../../../components/melding/Notificatie";
 
 class AccountCreator extends Component {
 
@@ -13,7 +14,10 @@ class AccountCreator extends Component {
 
 
             velden: {},
-            errors: {}
+            errors: {},
+
+            openNotificatie: false,
+            responseStatus: 0
         }
     }
 
@@ -26,10 +30,12 @@ class AccountCreator extends Component {
         console.log(this.state)
 
         axios.post('http://localhost:8080/gebruikers/toevoegen', this.state)
-            .then(res => {
-                console.log(res)
+            .then( (res) => {
+                this.setState({responseStatus: res.status});
+                this.setState({openNotificatie: true});
             })
             .catch(err => {
+                this.setState({openNotificatie: true});
                 console.log(err)
             })
     }
@@ -42,7 +48,7 @@ class AccountCreator extends Component {
         } = this.state;
 
         return (
-            <main>
+            <div>
                 <h1>Account creëren</h1>
 
                 <form onSubmit={this.submitHandler}>
@@ -64,7 +70,12 @@ class AccountCreator extends Component {
                     <button className="button01">Creër</button>
 
                 </form>
-            </main>
+
+                {this.state.openNotificatie &&
+                    <Notificatie status={this.state.responseStatus} openNotificatie={this.state.openNotificatie} />
+                }
+
+            </div>
         )
     }
 }

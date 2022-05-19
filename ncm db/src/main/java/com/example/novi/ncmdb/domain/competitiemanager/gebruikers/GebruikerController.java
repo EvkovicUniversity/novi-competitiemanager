@@ -1,5 +1,7 @@
 package com.example.novi.ncmdb.domain.competitiemanager.gebruikers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -7,37 +9,58 @@ public class GebruikerController {
 
     private final GebruikerService gebruikerService;
 
-    public GebruikerController(GebruikerService gebruikerService){
+    public GebruikerController(GebruikerService gebruikerService) {
         this.gebruikerService = gebruikerService;
     }
 
     @CrossOrigin
     @PutMapping(path = "gebruikers/gebruikersnaamwijzigen/{gebruikerId}/{nieuweNaam}")
-    public void veranderGebruikersnaam(@PathVariable Long gebruikerId, @PathVariable String nieuweNaam){
-        Gebruiker gebruiker = gebruikerService.findById(gebruikerId);
+    public ResponseEntity<String> veranderGebruikersnaam(@PathVariable Long gebruikerId, @PathVariable String nieuweNaam) {
 
-        gebruiker.setGebruikersnaam(nieuweNaam);
+        try {
+            Gebruiker gebruiker = gebruikerService.findById(gebruikerId);
 
-        gebruikerService.gebruikersnaamWijzigen(gebruikerId);
-        gebruikerService.gebruikerToevoegen(gebruiker);
+            gebruiker.setGebruikersnaam(nieuweNaam);
+
+            gebruikerService.gebruikersnaamWijzigen(gebruikerId);
+            gebruikerService.gebruikerToevoegen(gebruiker);
+
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
     }
 
     @CrossOrigin
     @PutMapping(path = "gebruikers/wachtwoordwijzigen/{gebruikerId}/{nieuwWachtwoord}")
-    public void veranderWachtwoord(@PathVariable Long gebruikerId, @PathVariable String nieuwwachtwoord){
-        Gebruiker gebruiker = gebruikerService.findById(gebruikerId);
+    public ResponseEntity<String> veranderWachtwoord(@PathVariable Long gebruikerId, @PathVariable String nieuwwachtwoord) {
 
-        gebruiker.setWachtwoord(nieuwwachtwoord);
+        try {
+            Gebruiker gebruiker = gebruikerService.findById(gebruikerId);
 
-        gebruikerService.wachtwoordWijzigen(gebruikerId);
-        gebruikerService.gebruikerToevoegen(gebruiker);
+            gebruiker.setWachtwoord(nieuwwachtwoord);
+
+            gebruikerService.wachtwoordWijzigen(gebruikerId);
+            gebruikerService.gebruikerToevoegen(gebruiker);
+
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
 
     }
 
     @CrossOrigin
     @PostMapping(path = "/gebruikers/toevoegen")
-    public void addGebruiker(@RequestBody Gebruiker gebruiker){
-        gebruikerService.gebruikerToevoegen(gebruiker);
-    }
+    public ResponseEntity<String> addGebruiker(@RequestBody Gebruiker gebruiker) {
 
+        try {
+            gebruikerService.gebruikerToevoegen(gebruiker);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+    }
 }

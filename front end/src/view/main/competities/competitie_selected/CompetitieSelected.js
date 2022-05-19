@@ -2,9 +2,9 @@ import React, {useEffect, useState} from "react";
 import OpkomendeRace from "./Opkomend/OpkomendeRace";
 import History from "./History/History";
 import axios from "axios";
-import fetchData from "../../../../../controller/Data/fetchData";
-import Melding from "../../../../components/melding/MeldingPopUp";
-import Notificatie from "../../../../components/melding/Notificatie";
+import fetchData from "../../../../controller/Data/fetchData";
+import Melding from "../../../components/melding/MeldingPopUp";
+import Notificatie from "../../../components/melding/Notificatie";
 
 function CompetitieSelected() {
 

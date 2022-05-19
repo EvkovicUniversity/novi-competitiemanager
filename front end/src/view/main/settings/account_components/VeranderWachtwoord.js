@@ -15,25 +15,25 @@ class VeranderWachtwoord extends Component {
 
     render() {
 
-        const wachtwoord = '';
+        const {nieuwWachtwoord} = this.state;
 
         return (
 
-            <main>
+            <div>
                 <h1>Wachtwoord wijzigen</h1>
                 <p>Voor [gebruikersnaam]{this.state.gebruikersnaam}</p>
 
                 <form>
                     <input type="password"
                            placeholder="Huidig wachtwoord"
-                           name="wachtwoord"
-                           value={wachtwoord}
+                           name="nieuwWachtwoord"
+                           value={nieuwWachtwoord}
                            onChange={this.changeHandler}
                     /><br/>
 
                     <button className="button01">Doorgaan</button>
                 </form>
-            </main>
+            </div>
         )
     }
 }

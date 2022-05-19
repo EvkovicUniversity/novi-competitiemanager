@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
-import fetchData from "../../../../../../controller/Data/fetchData";
-import Melding from "../../../../../components/melding/MeldingPopUp";
+import fetchData from "../../../../../controller/Data/fetchData";
+import Melding from "../../../../components/melding/MeldingPopUp";
 import axios from "axios";
-import Notificatie from "../../../../../components/melding/Notificatie";
+import Notificatie from "../../../../components/melding/Notificatie";
 
 
 function doeVoorspelling(props) {

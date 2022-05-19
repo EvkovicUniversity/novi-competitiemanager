@@ -1,5 +1,5 @@
 import React from "react";
-import fetchData from "../../../../../../controller/Data/fetchData";
+import fetchData from "../../../../../controller/Data/fetchData";
 import Raceuitslag from "./Raceuitslag";
 
 function RaceUitslagMenu(props) {

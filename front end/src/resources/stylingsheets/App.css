@@ -83,12 +83,13 @@ html{
   cursor: pointer;
 }
 
-.alternating_content_container{
+.main{
   /*positie*/
   margin-left: -2px;
 
   /*afmetingen*/
   height: 24.6em;
+  max-height: 24.6em;
   width: 24em;
 
   /*attributen*/

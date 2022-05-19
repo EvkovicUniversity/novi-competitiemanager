@@ -21,7 +21,7 @@ function App() {
                             </Link>
                         </header>
 
-                        <main className="alternating_content_container">
+                        <main className="main">
                             <AppRouter/>
                         </main>
 

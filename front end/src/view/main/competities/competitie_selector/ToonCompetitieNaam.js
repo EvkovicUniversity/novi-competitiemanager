@@ -1,5 +1,5 @@
 import React from "react";
-import navigeerNaar from "../../../../../controller/Navigatie/NavigeerNaar";
+import navigeerNaar from "../../../../controller/Navigatie/NavigeerNaar";
 
 function ToonCompetitieNaam(props) {
 

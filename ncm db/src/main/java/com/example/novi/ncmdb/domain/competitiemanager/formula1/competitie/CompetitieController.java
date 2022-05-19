@@ -30,12 +30,12 @@ public class CompetitieController {
     @GetMapping(path = "/competities/raceuitslagen/raceId/{competitieId}")
     public ResponseEntity<Long> getRaceId(@PathVariable String competitieId) {
 
-            try {
-                    Long competitieIdLong = parseLong(competitieId);
-                    return new ResponseEntity<>(service.findById(competitieIdLong).getRaces().getId(), HttpStatus.OK);
-            } catch (Exception e) {
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
+        try {
+            Long competitieIdLong = parseLong(competitieId);
+            return new ResponseEntity<>(service.findById(competitieIdLong).getRaces().getId(), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
 
     }
 

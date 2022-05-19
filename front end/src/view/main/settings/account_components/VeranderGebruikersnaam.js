@@ -1,5 +1,6 @@
-import React, {Component} from "react";
+import React, {Component, useState} from "react";
 import axios from "axios";
+import Notificatie from "../../../components/melding/Notificatie";
 
 class VeranderGebruikersnaam extends Component {
 
@@ -8,10 +9,10 @@ class VeranderGebruikersnaam extends Component {
 
         this.state = {
             nieuwegebruikersnaam: '',
+            openNotificatie: false,
+            responseStatus: 0
         }
     }
-
-
 
     changeHandler = (e) => {
         this.setState({[e.target.name]: e.target.value})
@@ -20,8 +21,12 @@ class VeranderGebruikersnaam extends Component {
     submitHandler = (e) => {
         e.preventDefault()
         axios.put('http://localhost:8080/gebruikers/gebruikersnaamwijzigen/2/' + this.state.gebruikersnaam, this.state)
+            .then((res) => {
+                this.state.responseStatus = res.status;
+                this.state.openNotificatie = true;
+            })
             .catch(err => {
-                console.log(err)
+                this.state.openNotificatie = true;
             })
     }
 
@@ -30,7 +35,7 @@ class VeranderGebruikersnaam extends Component {
         const {nieuwegebruikersnaam} = this.state;
 
         return (
-            <main>
+            <div>
                 <h1>Gebruikersnaam wijzigen</h1>
                 <p>voor [gebruikersnaam] {this.state.gebruikersnaam}</p>
 
@@ -44,7 +49,11 @@ class VeranderGebruikersnaam extends Component {
 
                     <button className="button01">Doorgaan</button>
                 </form>
-            </main>
+
+                {this.state.openNotificatie && <Notificatie status={this.state.responseStatus} openNotificatie={this.state.openNotificatie} />}
+
+
+            </div>
         )
     }
 }

@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import DataServices from "../../../../../controller/services/data/DataServices";
+import DataServices from "../../../../controller/services/data/DataServices";
 import ToonCompetitieNaam from "./ToonCompetitieNaam";
 
 class ToonCompetitiesTerSelectie extends Component {
