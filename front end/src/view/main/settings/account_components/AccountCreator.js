@@ -16,8 +16,6 @@ class AccountCreator extends Component {
             velden: {},
             errors: {},
 
-            openNotificatie: false,
-            responseStatus: 0
         }
     }
 
@@ -27,15 +25,9 @@ class AccountCreator extends Component {
 
     submitHandler = (e) => {
         e.preventDefault()
-        console.log(this.state)
 
         axios.post('http://localhost:8080/gebruikers/toevoegen', this.state)
-            .then( (res) => {
-                this.setState({responseStatus: res.status});
-                this.setState({openNotificatie: true});
-            })
             .catch(err => {
-                this.setState({openNotificatie: true});
                 console.log(err)
             })
     }
@@ -70,10 +62,6 @@ class AccountCreator extends Component {
                     <button className="button01">Creër</button>
 
                 </form>
-
-                {this.state.openNotificatie &&
-                    <Notificatie status={this.state.responseStatus} openNotificatie={this.state.openNotificatie} />
-                }
 
             </div>
         )
