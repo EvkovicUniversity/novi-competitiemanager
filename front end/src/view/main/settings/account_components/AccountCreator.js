@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import axios from "axios";
-import Notificatie from "../../../components/melding/Notificatie";
 
 class AccountCreator extends Component {
 

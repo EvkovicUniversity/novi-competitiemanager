@@ -1,5 +1,8 @@
 package com.example.novi.ncmdb.model.authentication.models;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -30,10 +33,10 @@ public class User {
     private Set<Role> roles = new HashSet<>();
     public User() {
     }
-    public User(String username, String email, String password) {
+    public User(String username, String email, CharSequence password) {
         this.username = username;
         this.email = email;
-        this.password = password;
+        setPassword(password);
     }
     public Long getId() {
         return id;
@@ -56,8 +59,10 @@ public class User {
     public String getPassword() {
         return password;
     }
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword(CharSequence password) {
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+        this.password = passwordEncoder.encode(password);
     }
     public Set<Role> getRoles() {
         return roles;

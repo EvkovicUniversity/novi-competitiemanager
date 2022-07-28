@@ -2,10 +2,16 @@ package com.example.novi.ncmdb;
 
 import com.example.novi.ncmdb.model.authentication.models.ERole;
 import com.example.novi.ncmdb.model.authentication.models.Role;
+import com.example.novi.ncmdb.model.authentication.models.User;
 import com.example.novi.ncmdb.model.authentication.repository.RoleRepository;
+import com.example.novi.ncmdb.model.authentication.repository.UserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 
 //
@@ -41,10 +47,13 @@ public class NcmdbApplication {
 
         RoleRepository roleRepository =
                 configurableApplicationContext.getBean(RoleRepository.class);
+        UserRepository userRepository =
+                configurableApplicationContext.getBean(UserRepository.class);
 
         NcmdbApplication app = new NcmdbApplication();
 
         app.add_roles(roleRepository);
+        app.addUser(userRepository, roleRepository);
     }
 
     private void add_roles(RoleRepository roleRepository) {
@@ -61,6 +70,22 @@ public class NcmdbApplication {
         roleRepository.save(role_admin);
         roleRepository.save(role_moderator);
         roleRepository.save(role_user);
+    }
+
+    private void addUser(UserRepository userRepository, RoleRepository roleRepository) {
+        Set<Role> roles = new HashSet<>();
+        roles.add(roleRepository.findByName(ERole.ROLE_USER).get());
+        roles.add(roleRepository.findByName(ERole.ROLE_MODERATOR).get());
+        roles.add(roleRepository.findByName(ERole.ROLE_ADMIN).get());
+
+        User user = new User();
+        user.setUsername("noviadmin");
+        user.setPassword("noviadmin");
+        user.setEmail("competitiemanager@novi.com");
+        user.setRoles(roles);
+
+        userRepository.save(user);
+
     }
 
 

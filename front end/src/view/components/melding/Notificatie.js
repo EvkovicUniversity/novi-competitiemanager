@@ -8,10 +8,6 @@ function Notificatie(props) {
     let foutImg = "\u274C";
     let foutMsg = "Actie mislukt!";
 
-    function handleOK() {
-        props.openNotificatie(false);
-    }
-
     function handleClass() {
         this.setState({
             openNotificatie: false
