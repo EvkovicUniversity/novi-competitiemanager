@@ -17,8 +17,8 @@ function Keuzemenu() {
 
                 <ol>
                     <li className="keuzemenuknop" id="keuzemenu_02">
-                        <Link to={"/settings"} className="Link">
-                            <p>Account instellingen</p>
+                        <Link to={"/profile"} className="Link">
+                            <p>Mijn profiel</p>
                         </Link>
                     </li>
                 </ol>
