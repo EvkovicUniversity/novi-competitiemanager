@@ -18,6 +18,8 @@ const Profile = () => {
                 <strong>Email:</strong> {currentUser.email}
             </p>
             <strong>Authorities:</strong>
+            {currentUser.accessToken.substring(0, 20)} ...{" "}
+            {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
             <ul>
                 {currentUser.roles &&
                     currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}

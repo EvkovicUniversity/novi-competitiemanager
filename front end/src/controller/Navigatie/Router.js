@@ -10,6 +10,9 @@ import VeranderGebruikersnaam from "../../view/main/settings/account_components/
 import LoginPage from "../../view/main/login/LoginPage";
 import Profile from "../../view/main/settings/Profile";
 import AccountCreator from "../../view/main/settings/account_components/AccountCreator";
+import BoardUser from "../../view/components/BoardUser";
+import BoardModerator from "../../view/components/BoardModerator";
+import BoardAdmin from "../../view/components/BoardAdmin";
 
 class AppRouter extends Component {
 
@@ -18,6 +21,9 @@ class AppRouter extends Component {
             <Routes>
                 <Route path="/" element={<LoginPage/>}/>
                 <Route path='menu' element={<Keuzemenu/>}/>
+                {/*<Route path='menu' element={<BoardUser/>}/>*/}
+                {/*<Route path='menu' element={<BoardModerator/>}/>*/}
+                {/*<Route path='menu' element={<BoardAdmin/>}/>*/}
                 <Route path='competities' element={<CompetitieSelector/>}/>
                 <Route path='competities/:competitieid' element={<CompetitieSelected/>}/>
                 <Route path='competitieCreator' element={<Competitiecreator/>}/>

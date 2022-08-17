@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
+import authHeader from "../../services/auth-header";
 
 export default function fetchData(pathParam, url) {
     const [data, setData] = useState({data: []});
@@ -7,14 +8,14 @@ export default function fetchData(pathParam, url) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const ac = new AbortController();
+        // const ac = new AbortController();
 
         if (pathParam !== undefined ) {
             if (pathParam === false || pathParam !== "") {
 
                 setLoading(true);
                 axios
-                    .get(url, {signal: ac.signal})
+                    .get(url, {headers: authHeader()})
                     .then((response) => {
                         setData(response.data);
                     })
@@ -23,7 +24,7 @@ export default function fetchData(pathParam, url) {
                     })
                     .finally(() => {
                         setLoading(false);
-                        return () => ac.abort();
+                        // return () => ac.abort();
                     });
             }
         }

@@ -1,4 +1,4 @@
-import React, {Component, useState} from "react";
+import React, {Component} from "react";
 import axios from "axios";
 import Notificatie from "../../../components/melding/Notificatie";
 
@@ -22,11 +22,12 @@ class VeranderGebruikersnaam extends Component {
         e.preventDefault()
         axios.put('http://localhost:8080/gebruikers/gebruikersnaamwijzigen/2/' + this.state.gebruikersnaam, this.state)
             .then((res) => {
-                this.state.responseStatus = res.status;
-                this.state.openNotificatie = true;
+                this.setState({responseStatus: res.status});
+
+                this.setState({openNotificatie: true});
             })
             .catch(err => {
-                this.state.openNotificatie = true;
+                this.setState({openNotificatie: true});
             })
     }
 
