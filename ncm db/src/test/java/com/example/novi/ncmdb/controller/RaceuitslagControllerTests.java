@@ -1,8 +1,6 @@
 package com.example.novi.ncmdb.controller;
 
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.competitie.Competitie;
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.competitie.CompetitieController;
-import org.apache.http.HttpRequest;
+import com.example.novi.ncmdb.model.formula1.competitie.Competitie;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpUriRequest;

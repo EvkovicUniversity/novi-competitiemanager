@@ -133,3 +133,11 @@
    red/purplish: rgba(227,19,68,255)
 
  */
+
+/*Alerts*/
+.alert-message{
+    background-color: rgba(255, 0, 0, 0.81);
+    width: 50%;
+    margin: auto;
+    height: 2em;
+}

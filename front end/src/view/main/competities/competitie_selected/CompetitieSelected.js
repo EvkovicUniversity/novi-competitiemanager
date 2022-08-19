@@ -5,6 +5,7 @@ import axios from "axios";
 import fetchData from "../../../../controller/Data/fetchData";
 import Melding from "../../../components/melding/MeldingPopUp";
 import Notificatie from "../../../components/melding/Notificatie";
+import authHeader from "../../../../services/auth-header";
 
 function CompetitieSelected() {
 
@@ -23,12 +24,11 @@ function CompetitieSelected() {
     const [status, setStatus] = useState(0);
     const [openNotificatie, setOpenNotificatie] = useState(false);
 
-    const raceMelding = useState("U gaat een nieuwe race beginnen, doorgaan?")
+    const raceMelding = useState("U gaat een nieuwe race simuleren, doorgaan?")
 
     useEffect(() => {
         if (akkoord) {
-
-            axios.post("http://localhost:8080/competitiemanager/formula1/playmatch/" + result[0])
+            axios.post("http://localhost:8080/competitiemanager/formula1/playmatch/" + result[0], {}, {headers: authHeader()})
                 .then((res) => {
                     setStatus(res.status);
                 })
@@ -65,7 +65,7 @@ function CompetitieSelected() {
             <button className="button01" onClick={() => setOpenMelding(!openMelding)} >Race!</button>
 
             {openMelding && <Melding bericht={raceMelding} openMelding={setOpenMelding} akkoord={setAkkoord}/>}
-            {openNotificatie && <Notificatie status={status} openNotificatie={setOpenNotificatie} />}
+            {openNotificatie && <Notificatie status={status} openNotificatie={openNotificatie} setOpenNotificatie={setOpenNotificatie} />}
 
 
         </main>

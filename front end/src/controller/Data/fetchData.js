@@ -8,8 +8,6 @@ export default function fetchData(pathParam, url) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        // const ac = new AbortController();
-
         if (pathParam !== undefined ) {
             if (pathParam === false || pathParam !== "") {
 
@@ -24,7 +22,6 @@ export default function fetchData(pathParam, url) {
                     })
                     .finally(() => {
                         setLoading(false);
-                        // return () => ac.abort();
                     });
             }
         }

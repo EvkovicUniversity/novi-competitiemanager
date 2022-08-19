@@ -6,7 +6,6 @@
 
 .creator_invoerveldcontainer {
     height: 16em;
-    max-height: 17em;
 }
 
 input{
@@ -91,7 +90,6 @@ input{
     margin: auto;
 
     height: 17em;
-    max-height: 17em;
     width: 100%;
     overflow: auto;
 
@@ -130,7 +128,6 @@ input{
 
 .competitieLijstContainer {
     height: 17em;
-    max-height: 17em;
 
     margin: auto;
     overflow: auto;

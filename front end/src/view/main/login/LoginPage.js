@@ -1,8 +1,3 @@
-// import React from "react";
-
-// import NavigeerNaar from "../../../controller/Navigatie/NavigeerNaar";
-
-
 import React, {useState, useRef} from "react";
 import {useNavigate} from 'react-router-dom';
 import Form from "react-validation/build/form";
@@ -14,7 +9,7 @@ import "./login-page-css.css";
 const required = (value) => {
     if (!value) {
         return (
-            <div className="alert alert-danger" role="alert">
+            <div className="alert-message">
                 This field is required!
             </div>
         );
@@ -62,60 +57,65 @@ const Login = () => {
             setLoading(false);
         }
     };
+
     return (
-        <main>
+        <div className="content">
 
             <h1>Novi's competitiemanager</h1>
 
-            <Form onSubmit={handleLogin} ref={form}>
-                <div className="form-group">
-                    <label htmlFor="username">Gebruikersnaam</label>
-                    <Input
-                        type="text"
-                        placeholder="gebruikersnaam"
-                        className="form-control"
-                        name="username"
-                        value={username}
-                        onChange={onChangeUsername}
-                        validations={[required]}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <Input
-                        type="password"
-                        placeholder="wachtwoord"
-                        className="form-control"
-                        name="password"
-                        value={password}
-                        onChange={onChangePassword}
-                        validations={[required]}
-                    />
-                </div>
-                <div className="form-group">
-                    <button className="button01" disabled={loading}>
-                        {loading && (
-                            <span className="spinner-border spinner-border-sm"></span>
-                        )}
-                        <span>Login</span>
-                    </button>
-                </div>
-                {message && (
-                    <div className="form-group">
-                        <div className="alert alert-danger" role="alert">
-                            {message}
+            <div className="form-container">
+                <Form onSubmit={handleLogin} ref={form}>
+                    <div className="login_invoervelden">
+                        <div id="username-invoer">
+                            <label htmlFor="username">Gebruikersnaam</label>
+                            <Input
+                                type="text"
+                                placeholder="gebruikersnaam"
+                                className="form-control"
+                                name="username"
+                                value={username}
+                                onChange={onChangeUsername}
+                                validations={[required]}
+                            />
+                        </div>
+                        <div id="password-invoer">
+                            <label htmlFor="password">Wachtwoord</label>
+                            <Input
+                                type="password"
+                                placeholder="wachtwoord"
+                                className="form-control"
+                                name="password"
+                                value={password}
+                                onChange={onChangePassword}
+                                validations={[required]}
+                            />
                         </div>
                     </div>
-                )}
-                <CheckButton style={{display: "none"}} ref={checkBtn}/>
-            </Form>
+                    <div>
+                        <button className="button01" id="login-button" disabled={loading}>
+                            {loading && (
+                                <p>Loading...</p>
+                            )}
+                            <span>Login</span>
+                        </button>
+                    </div>
+                    {message && (
+                        <div className="alert-container">
+                            <div className="alert-message">
+                                {message}
+                            </div>
+                        </div>
+                    )}
+                    <CheckButton style={{display: "none"}} ref={checkBtn}/>
+                </Form>
+            </div>
 
             <p id="geen_wachtwoord_paragraaf">
                 Neem contact op met de beheerder in geval van
                 wachtwoord vergeten of het aanmaken van een account.
             </p>
 
-        </main>
+        </div>
     );
 };
 export default Login;

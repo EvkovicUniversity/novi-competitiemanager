@@ -4,12 +4,12 @@ import CreatorForm from "./CreatorForm";
 
 function Competitiecreator() {
     return (
-        <main>
+        <div>
             <h1>F1 Competitie Creator</h1>
 
             <CreatorForm/>
 
-        </main>
+        </div>
     )
 }
 

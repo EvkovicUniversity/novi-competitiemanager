@@ -40,8 +40,6 @@ html{
   /*afmetingen*/
   width: 25em;
   height: 35em;
-  max-width: 25em;
-  max-height: 35em;
 
   /*attributen*/
   border-radius: 25px;
@@ -60,8 +58,6 @@ html{
   /*afmetingen*/
   width: 24em;
   height: 34em;
-  max-width: 24em;
-  max-height: 34em;
 
   /*attributen*/
   border: solid black 2px;
@@ -89,7 +85,6 @@ html{
 
   /*afmetingen*/
   height: 24.6em;
-  max-height: 24.6em;
   width: 24em;
 
   /*attributen*/

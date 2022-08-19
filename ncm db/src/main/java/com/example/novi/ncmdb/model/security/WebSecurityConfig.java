@@ -3,7 +3,6 @@ package com.example.novi.ncmdb.model.security;
 import com.example.novi.ncmdb.model.security.jwt.AuthEntryPointJwt;
 import com.example.novi.ncmdb.model.security.jwt.AuthTokenFilter;
 import com.example.novi.ncmdb.model.security.services.UserDetailsServiceImpl;
-import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -61,16 +60,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
         http.csrf().disable();
         http.headers().frameOptions().disable();
-
-//        http.httpBasic();
-//        http.cors().and().csrf().disable()
-//                        .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-//                        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-//                        .authorizeRequests().antMatchers("/api/auth/**").permitAll()
-//                .antMatchers("/h2-console/**").permitAll()
-//                .anyRequest().authenticated();
-//        http.csrf().disable();
-//        http.headers().frameOptions().disable();
     }
 
 }

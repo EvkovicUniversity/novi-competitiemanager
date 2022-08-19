@@ -1,6 +1,5 @@
 package com.example.novi.ncmdb.utils;
 
-import com.example.novi.ncmdb.domain.competitiemanager.utils.DataUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

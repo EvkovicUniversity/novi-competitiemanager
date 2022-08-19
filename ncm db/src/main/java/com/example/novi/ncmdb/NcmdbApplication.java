@@ -1,15 +1,15 @@
 package com.example.novi.ncmdb;
 
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.competitie.Competitie;
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.competitie.CompetitieRepository;
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.Coureur;
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.CoureurRepository;
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.coureur.CoureurService;
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.races.Races;
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.races.RacesRepository;
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.Raceuitslag;
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.raceuitslag.RaceuitslagRepository;
-import com.example.novi.ncmdb.domain.competitiemanager.formula1.voorspelling.VoorspellingRepository;
+import com.example.novi.ncmdb.model.formula1.competitie.Competitie;
+import com.example.novi.ncmdb.model.formula1.competitie.CompetitieRepository;
+import com.example.novi.ncmdb.model.formula1.coureur.Coureur;
+import com.example.novi.ncmdb.model.formula1.coureur.CoureurRepository;
+import com.example.novi.ncmdb.model.formula1.coureur.CoureurService;
+import com.example.novi.ncmdb.model.formula1.races.Races;
+import com.example.novi.ncmdb.model.formula1.races.RacesRepository;
+import com.example.novi.ncmdb.model.formula1.raceuitslag.Raceuitslag;
+import com.example.novi.ncmdb.model.formula1.raceuitslag.RaceuitslagRepository;
+import com.example.novi.ncmdb.model.formula1.voorspelling.VoorspellingRepository;
 import com.example.novi.ncmdb.model.authentication.models.ERole;
 import com.example.novi.ncmdb.model.authentication.models.Role;
 import com.example.novi.ncmdb.model.authentication.models.User;
@@ -67,21 +67,16 @@ public class NcmdbApplication {
         Role role_admin = new Role();
         role_admin.setName(ERole.ROLE_ADMIN);
 
-        Role role_moderator = new Role();
-        role_moderator.setName(ERole.ROLE_MODERATOR);
-
         Role role_user = new Role();
         role_user.setName(ERole.ROLE_USER);
 
         roleRepository.save(role_admin);
-        roleRepository.save(role_moderator);
         roleRepository.save(role_user);
     }
 
     private void addUser(UserRepository userRepository, RoleRepository roleRepository) {
         Set<Role> roles = new HashSet<>();
         roles.add(roleRepository.findByName(ERole.ROLE_USER).get());
-        roles.add(roleRepository.findByName(ERole.ROLE_MODERATOR).get());
         roles.add(roleRepository.findByName(ERole.ROLE_ADMIN).get());
 
         User user = new User();
