@@ -21,8 +21,6 @@ function Notificatie(props) {
                 <div className="notificatie_border">
                     <div className="notificatie_inner">
 
-                        {console.log(props.status)}
-
                         <div className="notificatie_melding">
                             <p id="notificatieMsg">{message}</p>
                             <p id="notificatieImg">{image}</p>

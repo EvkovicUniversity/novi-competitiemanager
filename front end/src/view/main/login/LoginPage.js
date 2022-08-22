@@ -10,7 +10,7 @@ const required = (value) => {
     if (!value) {
         return (
             <div className="alert-message">
-                This field is required!
+                Dit is een verplicht veld!
             </div>
         );
     }
@@ -63,7 +63,7 @@ const Login = () => {
 
             <h1>Novi's competitiemanager</h1>
 
-            <div className="form-container">
+            <div>
                 <Form onSubmit={handleLogin} ref={form}>
                     <div className="login_invoervelden">
                         <div id="username-invoer">
@@ -83,7 +83,6 @@ const Login = () => {
                             <Input
                                 type="password"
                                 placeholder="wachtwoord"
-                                className="form-control"
                                 name="password"
                                 value={password}
                                 onChange={onChangePassword}

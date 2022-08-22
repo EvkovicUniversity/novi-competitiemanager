@@ -3,6 +3,7 @@ import fetchData from "../../../../../controller/Data/fetchData";
 import Melding from "../../../../components/melding/MeldingPopUp";
 import axios from "axios";
 import Notificatie from "../../../../components/melding/Notificatie";
+import authHeader from "../../../../../services/auth-header";
 
 
 function doeVoorspelling(props) {
@@ -31,9 +32,9 @@ function doeVoorspelling(props) {
     function handleSubmit(e) {
         postdata.push(voorspelling);
         postdata.push(competitieInfo);
-        axios.post("http://localhost:8080/competitiemanager/formula1/user/formula1/voorspelling/" + props.competitieId, {
+        axios.post("http://localhost:8080/competitiemanager/formula1/user/formula1/voorspelling/" + props.competitieId,{
             postdata
-        })
+        }, {headers: authHeader()})
             .then((response) => {
                 setStatus(response.status);
                 console.log(status);
@@ -67,7 +68,7 @@ function doeVoorspelling(props) {
         <div>
 
             {openMelding && <Melding bericht={meldingBericht} openMelding={setOpenMelding} akkoord={setAkkoord}/>}
-            {openNotificatie && <Notificatie status={status} openNotificatie={setOpenNotificatie} />}
+            {openNotificatie && <Notificatie status={status} openNotificatie={openNotificatie} setOpenNotificatie={setOpenNotificatie}/>}
 
             <p>Wie gaat de volgende race winnen?</p>
 

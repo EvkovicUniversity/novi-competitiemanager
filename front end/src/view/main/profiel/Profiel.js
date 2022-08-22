@@ -14,19 +14,19 @@ const Profiel = () => {
 
             <div>
                 <div className="keuzemenuknop" id="keuzemenuknop_accountsettings">
-                    <Link to={"/profile/gebruikersnaam-wijzigen"} className="Link">
+                    <Link to={"/profiel/gebruikersnaam-wijzigen"} className="Link">
                         <p>Verander gebruikersnaam</p>
                     </Link>
                 </div>
 
                 <div className="keuzemenuknop" id="keuzemenuknop_accountsettings">
-                    <Link to={"/profile/wachtwoord-wijzigen"} className="Link">
+                    <Link to={"/profiel/wachtwoord-wijzigen"} className="Link">
                         <p>Verander wachtwoord</p>
                     </Link>
                 </div>
 
                 <div className="keuzemenuknop" id="keuzemenuknop_accountsettings">
-                    <Link to={"/profile/account-maken"} className="Link">
+                    <Link to={"/profiel/account-maken"} className="Link">
                         <p>Creër een account</p>
                     </Link>
                 </div>

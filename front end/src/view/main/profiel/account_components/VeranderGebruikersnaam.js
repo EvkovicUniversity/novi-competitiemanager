@@ -1,62 +1,50 @@
-import React, {Component} from "react";
+import React, {useState} from "react";
 import axios from "axios";
-import Notificatie from "../../../components/melding/Notificatie";
+import authHeader from "../../../../services/auth-header";
+import AuthService from "../../../../services/auth.service";
+import authService from "../../../../services/auth.service";
 
-class VeranderGebruikersnaam extends Component {
+const VeranderGebruikersnaam = () => {
 
-    constructor(props) {
-        super(props);
+    const [nieuweGebruikersnaam, setNieuweGebruikersnaam] = useState("");
+    const [openNotificatie, setOpenNotificatie] = useState(false);
+    const [responseStatus, setResponseStatus] = useState(0);
 
-        this.state = {
-            nieuwegebruikersnaam: '',
-            openNotificatie: false,
-            responseStatus: 0
-        }
-    }
+    const changeHandler = (e) => {
+        const username = e.target.value;
+        setNieuweGebruikersnaam(username);
+    };
 
-    changeHandler = (e) => {
-        this.setState({[e.target.name]: e.target.value})
-    }
+    const submitHandler = (e) => {
+        e.preventDefault();
 
-    submitHandler = (e) => {
-        e.preventDefault()
-        axios.put('http://localhost:8080/gebruikers/gebruikersnaamwijzigen/2/' + this.state.gebruikersnaam, this.state)
+        axios.put("http://localhost:8080/user/changeUsername/" + authService.getCurrentUser().username, [nieuweGebruikersnaam], {headers: authHeader()})
             .then((res) => {
-                this.setState({responseStatus: res.status});
-
-                this.setState({openNotificatie: true});
+                setResponseStatus(res.status);
+                setOpenNotificatie(true);
             })
             .catch(err => {
-                this.setState({openNotificatie: true});
-            })
+                setOpenNotificatie(true);
+            });
     }
 
-    render() {
+    return (
+        <div>
+            <h1>Gebruikersnaam wijzigen</h1>
+            <p>voor {AuthService.getCurrentUser().username}</p>
 
-        const {nieuwegebruikersnaam} = this.state;
+            <form onSubmit={submitHandler}>
+                <input type="text"
+                       placeholder="Nieuwe gebruikersnaam"
+                       name="nieuwegebruikersnaam"
+                       value={nieuweGebruikersnaam}
+                       onChange={changeHandler}
+                /><br/>
 
-        return (
-            <div>
-                <h1>Gebruikersnaam wijzigen</h1>
-                <p>voor [gebruikersnaam] {this.state.gebruikersnaam}</p>
-
-                <form onSubmit={this.submitHandler}>
-                    <input type="text"
-                           placeholder="Nieuwe gebruikersnaam"
-                           name="nieuwegebruikersnaam"
-                           value={nieuwegebruikersnaam}
-                           onChange={this.changeHandler}
-                    /><br/>
-
-                    <button className="button01">Doorgaan</button>
-                </form>
-
-                {this.state.openNotificatie && <Notificatie status={this.state.responseStatus} openNotificatie={this.state.openNotificatie} />}
-
-
-            </div>
-        )
-    }
+                <button className="button01">Doorgaan</button>
+            </form>
+        </div>
+    );
 }
 
 export default VeranderGebruikersnaam;

@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import axios from "axios";
+import authHeader from "../../../../services/auth-header";
 
 class CreatorForm extends Component {
     constructor(props) {
@@ -23,7 +24,7 @@ class CreatorForm extends Component {
     submitHandler = (e) => {
         e.preventDefault()
         console.log(this.state)
-        axios.post('http://localhost:8080/competitiemanager/formula1/competities', this.state)
+        axios.post('http://localhost:8080/competitiemanager/formula1/competities', this.state, {headers: authHeader()})
             .then(res => {
                 console.log(res)
             })

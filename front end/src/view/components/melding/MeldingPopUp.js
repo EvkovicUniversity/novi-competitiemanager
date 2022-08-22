@@ -18,7 +18,7 @@ function meldingPopUp(props) {
         <div className="alert_background">
             <div className="alert_container">
                 <div className="alert_border">
-                    <p>Continue?</p>
+                    <p>{props.bericht}</p>
 
                     <button onClick={handleTerug}>Terug</button>
                     <button className="button01" onClick={handleOK}>OK!</button>
