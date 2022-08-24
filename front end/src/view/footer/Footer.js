@@ -8,4 +8,5 @@ function Footer() {
         </p>
     )
 }
+
 export default Footer;

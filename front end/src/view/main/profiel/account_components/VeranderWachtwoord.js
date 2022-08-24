@@ -1,80 +1,62 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import authService from "../../../../services/auth.service";
 import AuthService from "../../../../services/auth.service";
 import authHeader from "../../../../services/auth-header";
-
-// class VeranderWachtwoord extends Component {
-//     constructor(props) {
-//         super(props);
-//
-//         this.state = {
-//             wachtwoord: ''
-//         }
-//     }
-//
-//     changeHandler = (e) => {
-//         this.setState({[e.target.name]: e.target.value})
-//     }
-//
-//     render() {
-//
-//         const {nieuwWachtwoord} = this.state;
-//
-//         return (
-//
-//             <div>
-//                 <h1>Wachtwoord wijzigen</h1>
-//                 <p>Voor [gebruikersnaam]{this.state.gebruikersnaam}</p>
-//
-//                 <form>
-//                     <input type="password"
-//                            placeholder="Huidig wachtwoord"
-//                            name="nieuwWachtwoord"
-//                            value={nieuwWachtwoord}
-//                            onChange={this.changeHandler}
-//                     /><br/>
-//
-//                     <button className="button01">Doorgaan</button>
-//                 </form>
-//             </div>
-//         )
-//     }
-// }
+import Melding from "../../../components/melding/MeldingPopUp";
+import Notificatie from "../../../components/melding/Notificatie";
 
 const VeranderWachtwoord = () => {
 
     const [nieuwWachtwoord, setNieuwWachtwoord] = useState("");
+
+    const [openMelding, setOpenMelding] = useState(false);
     const [openNotificatie, setOpenNotificatie] = useState(false);
-    const [responseStatus, setResponseStatus] = useState(0);
+    const [akkoord, setAkkoord] = useState(false);
+
+    const meldingBericht = useState("U staat op het punt uw wachtwoord te wijzigen. U zal opnieuw moeten inloggen. Doorgaan?")
 
     const changeHandler = (e) => {
         const wachtwoord = e.target.value;
         setNieuwWachtwoord(wachtwoord);
     };
 
-    const submitHandler = (e) => {
-        e.preventDefault();
+    useEffect(() => {
+        if (akkoord) {
+            axios.put("http://localhost:8080/user/changePassword/" + authService.getCurrentUser().username, [nieuwWachtwoord], {headers: authHeader()})
+                .then((res) => {
 
-        axios.put("http://localhost:8080/user/changePassword/" + authService.getCurrentUser().username, [nieuwWachtwoord], {headers: authHeader()})
-            .then((res) => {
-                setResponseStatus(res.status);
-                setOpenNotificatie(true);
-            })
-            .catch(err => {
-                setOpenNotificatie(true);
-            });
+                    if (res.status === 200) {
+                        AuthService.logout();
+                        window.location.reload();
+                    } else {
+                        setOpenNotificatie(true);
+                    }
+                })
+                .catch(err => {
+                });
+        }
+    }, [akkoord])
+
+    function toonMelding(e) {
+        e.preventDefault();
+        setOpenMelding(!openMelding);
     }
 
     return (
         <div>
-            <h1>Wachtwoord wijzigen</h1>
-            <p>voor {AuthService.getCurrentUser().username}</p>
 
-            <form onSubmit={submitHandler}>
-                <input type="text"
-                       placeholder="Nieuwe gebruikersnaam"
-                       name="nieuwegebruikersnaam"
+            {openMelding && <Melding bericht={meldingBericht} openMelding={setOpenMelding} akkoord={setAkkoord}/>}
+            {openNotificatie && <Notificatie status={400} openNotificatie={openNotificatie}
+                                             setOpenNotificatie={setOpenNotificatie}/>}
+
+            <h1>Wachtwoord wijzigen</h1>
+            <p>voor {AuthService.getCurrentUser().username !== null ? AuthService.getCurrentUser().username : ""}</p>
+
+            <form onSubmit={toonMelding}>
+                <input type="password"
+                       placeholder="Nieuw wachtwoord"
+                       name="nieuwewachtwoord"
                        value={nieuwWachtwoord}
                        onChange={changeHandler}
                 /><br/>

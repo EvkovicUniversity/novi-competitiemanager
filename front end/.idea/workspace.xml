@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="14fb4eb0-34ed-4422-8de6-a26a9671e6d6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/config/security/jwt/JwtUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/novi-competitiemanager.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Data/fetchData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Data/fetchData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Data/useAsync.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Data/useAsync.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Navigatie/NavigeerNaar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Navigatie/NavigeerNaar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Navigatie/ProtectedRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Navigatie/ProtectedRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Navigatie/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Navigatie/Router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/services/data/DataServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/services/data/DataServices.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth-header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/auth-header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/user.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/user.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/components/BoardAdmin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/components/BoardUser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/footer/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/footer/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/main/competities/competitie_creator/CreatorForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/main/competities/competitie_creator/CreatorForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/main/competities/competitie_selected/CompetitieSelected.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/main/competities/competitie_selected/CompetitieSelected.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/main/competities/competitie_selected/History/History.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/main/competities/competitie_selected/History/History.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/main/competities/competitie_selected/History/Raceuitslag.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/main/competities/competitie_selected/History/Raceuitslag.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/main/competities/competitie_selected/Opkomend/DoeVoorspelling.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/main/competities/competitie_selected/Opkomend/DoeVoorspelling.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/main/competities/competitie_selected/Opkomend/OpkomendeRace.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/main/competities/competitie_selected/Opkomend/OpkomendeRace.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/main/competities/competitie_selector/ToonCompetitieNaam.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/main/competities/competitie_selector/ToonCompetitieNaam.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/main/competities/competitie_selector/ToonCompetitiesTerSelectie.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/main/competities/competitie_selector/ToonCompetitiesTerSelectie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/main/login/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/main/login/LoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/main/profiel/account_components/VeranderGebruikersnaam.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/main/profiel/account_components/VeranderGebruikersnaam.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/main/profiel/account_components/VeranderWachtwoord.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/main/profiel/account_components/VeranderWachtwoord.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/NcmdbApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/NcmdbApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/authentication/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/controller/user/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/authentication/controllers/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/controller/user/RoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/authentication/controllers/TestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/authentication/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/controller/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/authentication/models/ERole.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/user/ERole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/authentication/models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/user/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/authentication/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/authentication/repository/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/repository/user/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/authentication/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/repository/user/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/competitie/Competitie.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/Competitie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/competitie/CompetitieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/controller/formula1/CompetitieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/competitie/CompetitieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/repository/formula1/CompetitieRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/competitie/CompetitieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/service/formula1/CompetitieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/coureur/Coureur.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/Coureur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/coureur/CoureurController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/controller/formula1/CoureurController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/coureur/CoureurRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/repository/formula1/CoureurRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/coureur/CoureurService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/service/formula1/CoureurService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/races/Races.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/Races.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/races/RacesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/controller/formula1/RacesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/races/RacesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/repository/formula1/RacesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/races/RacesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/service/formula1/RacesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/raceuitslag/Raceuitslag.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/Raceuitslag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/raceuitslag/RaceuitslagController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/controller/formula1/RaceuitslagController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/raceuitslag/RaceuitslagRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/repository/formula1/RaceuitslagRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/raceuitslag/RaceuitslagService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/service/formula1/RaceuitslagService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/voorspelling/Voorspelling.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/Voorspelling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/voorspelling/VoorspellingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/controller/formula1/VoorspellingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/voorspelling/VoorspellingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/repository/formula1/VoorspellingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/formula1/voorspelling/VoorspellingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/service/formula1/VoorspellingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/config/security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/security/jwt/AuthEntryPointJwt.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/config/security/jwt/AuthEntryPointJwt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/security/jwt/AuthTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/config/security/jwt/AuthTokenFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/security/jwt/JwtUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/security/services/UserDetailsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/config/security/services/UserDetailsImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/security/services/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/config/security/services/UserDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/service/user/RoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/model/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/service/user/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/utils/DataUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/main/java/com/example/novi/ncmdb/utils/DataUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/test/java/com/example/novi/ncmdb/controller/CoureurControllerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/test/java/com/example/novi/ncmdb/controller/CoureurControllerTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/test/java/com/example/novi/ncmdb/controller/RaceuitslagControllerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/test/java/com/example/novi/ncmdb/controller/RaceuitslagControllerTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ncm db/src/test/java/com/example/novi/ncmdb/service/CoureurServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ncm db/src/test/java/com/example/novi/ncmdb/service/CoureurServiceTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="feature_HttpResponseEntities" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="25vMfWqg7cwdehPFEQNL9JQM1Du" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="D:\Program Files\JetBrains\IntelliJ IDEA 2021.3.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ws\git\novi-competitiemanager\front end\src\view\main" />
+      <recent name="D:\ws\git\novi-competitiemanager\front end\src" />
+      <recent name="D:\ws\git\novi-competitiemanager\front end\src\resources\images" />
+      <recent name="D:\ws\git\novi-competitiemanager\front end\src\resources\images\logo" />
+      <recent name="D:\ws\git\novi-competitiemanager\front end\src\resources\stylingsheets" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="14fb4eb0-34ed-4422-8de6-a26a9671e6d6" name="Changes" comment="" />
+      <created>1646403213819</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1646403213819</updated>
+      <workItem from="1646403219076" duration="4500000" />
+      <workItem from="1646485319106" duration="3685000" />
+      <workItem from="1646647341607" duration="14954000" />
+      <workItem from="1646691581554" duration="9000" />
+      <workItem from="1646900551897" duration="13450000" />
+      <workItem from="1646993479778" duration="15299000" />
+      <workItem from="1647249072529" duration="8407000" />
+      <workItem from="1647338654510" duration="1264000" />
+      <workItem from="1647418774634" duration="2386000" />
+      <workItem from="1647464016976" duration="604000" />
+      <workItem from="1647504947275" duration="3327000" />
+      <workItem from="1647591597359" duration="9697000" />
+      <workItem from="1647854076219" duration="23577000" />
+      <workItem from="1647937080648" duration="11401000" />
+      <workItem from="1647986216470" duration="840000" />
+      <workItem from="1648029341028" duration="21238000" />
+      <workItem from="1648059403387" duration="7187000" />
+      <workItem from="1648069331684" duration="3012000" />
+      <workItem from="1648110886907" duration="31472000" />
+      <workItem from="1648196755384" duration="2687000" />
+      <workItem from="1648199629509" duration="9205000" />
+      <workItem from="1648230220221" duration="299000" />
+      <workItem from="1650553624993" duration="600000" />
+      <workItem from="1650613096407" duration="21889000" />
+      <workItem from="1650877627122" duration="10778000" />
+      <workItem from="1650972443011" duration="5563000" />
+      <workItem from="1651134048318" duration="10100000" />
+      <workItem from="1651216433801" duration="9540000" />
+      <workItem from="1651304774050" duration="218000" />
+      <workItem from="1652036550499" duration="1591000" />
+      <workItem from="1652137282192" duration="56000" />
+      <workItem from="1652688186070" duration="4555000" />
+      <workItem from="1652692886323" duration="1614000" />
+      <workItem from="1652694634522" duration="20013000" />
+      <workItem from="1652972891932" duration="1294000" />
+      <workItem from="1654537485691" duration="678000" />
+      <workItem from="1654690535951" duration="794000" />
+      <workItem from="1655209067554" duration="48000" />
+      <workItem from="1658658831715" duration="668000" />
+      <workItem from="1658662576778" duration="1285000" />
+      <workItem from="1658993547078" duration="5261000" />
+      <workItem from="1659601151069" duration="4899000" />
+      <workItem from="1660307687535" duration="608000" />
+      <workItem from="1660745216956" duration="5221000" />
+      <workItem from="1660810438136" duration="13648000" />
+      <workItem from="1660838311865" duration="374000" />
+      <workItem from="1660907901714" duration="3439000" />
+      <workItem from="1661153264587" duration="13573000" />
+      <workItem from="1661342581980" duration="12027000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

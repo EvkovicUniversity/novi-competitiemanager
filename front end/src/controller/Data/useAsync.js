@@ -6,7 +6,9 @@ function useAsync(asyncFn, onSuccess) {
         asyncFn().then(data => {
             if (isActive) onSuccess(data);
         });
-        return () => { isActive = false };
+        return () => {
+            isActive = false
+        };
     }, [asyncFn, onSuccess]);
 }
 

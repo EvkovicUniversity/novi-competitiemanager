@@ -32,7 +32,6 @@ function Raceuitslag(props) {
             naamCoureurUitVoorspelling = array[0];
 
 
-
             if (naamCoureurUitVoorspelling === coureurnaam) {
                 eindpositieVoorspelling = array[2]
 

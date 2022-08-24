@@ -8,7 +8,7 @@ export default function fetchData(pathParam, url) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        if (pathParam !== undefined ) {
+        if (pathParam !== undefined) {
             if (pathParam === false || pathParam !== "") {
 
                 setLoading(true);

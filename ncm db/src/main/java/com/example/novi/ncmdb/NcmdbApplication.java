@@ -1,20 +1,16 @@
 package com.example.novi.ncmdb;
 
-import com.example.novi.ncmdb.model.formula1.competitie.Competitie;
-import com.example.novi.ncmdb.model.formula1.competitie.CompetitieRepository;
-import com.example.novi.ncmdb.model.formula1.coureur.Coureur;
-import com.example.novi.ncmdb.model.formula1.coureur.CoureurRepository;
-import com.example.novi.ncmdb.model.formula1.coureur.CoureurService;
-import com.example.novi.ncmdb.model.formula1.races.Races;
-import com.example.novi.ncmdb.model.formula1.races.RacesRepository;
-import com.example.novi.ncmdb.model.formula1.raceuitslag.Raceuitslag;
-import com.example.novi.ncmdb.model.formula1.raceuitslag.RaceuitslagRepository;
-import com.example.novi.ncmdb.model.formula1.voorspelling.VoorspellingRepository;
-import com.example.novi.ncmdb.model.authentication.models.ERole;
-import com.example.novi.ncmdb.model.authentication.models.Role;
-import com.example.novi.ncmdb.model.authentication.models.User;
-import com.example.novi.ncmdb.model.authentication.repository.RoleRepository;
-import com.example.novi.ncmdb.model.authentication.repository.UserRepository;
+import com.example.novi.ncmdb.model.formula1.Competitie;
+import com.example.novi.ncmdb.model.formula1.Coureur;
+import com.example.novi.ncmdb.model.formula1.Races;
+import com.example.novi.ncmdb.model.formula1.Raceuitslag;
+import com.example.novi.ncmdb.model.user.ERole;
+import com.example.novi.ncmdb.model.user.Role;
+import com.example.novi.ncmdb.model.user.User;
+import com.example.novi.ncmdb.repository.formula1.*;
+import com.example.novi.ncmdb.repository.user.RoleRepository;
+import com.example.novi.ncmdb.repository.user.UserRepository;
+import com.example.novi.ncmdb.service.formula1.CoureurService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -106,7 +102,7 @@ public class NcmdbApplication {
         coureurRepository.saveAll(coureurs);
     }
 
-        private void getCompetitiesMetRaces(CoureurRepository coureurRepository,
+    private void getCompetitiesMetRaces(CoureurRepository coureurRepository,
                                         RaceuitslagRepository raceuitslagRepository,
                                         RacesRepository racesRepository,
                                         CompetitieRepository competitieRepository,
@@ -140,7 +136,7 @@ public class NcmdbApplication {
 
         // Sla de raceuitslagen op in DB
         List<Raceuitslag> raceuitslagen1 = Arrays.asList(uitslag11, uitslag12, uitslag13, uitslag14);
-        List<Raceuitslag> raceuitslagen2 = Arrays.asList(uitslag21, uitslag22, uitslag23, uitslag24,uitslag25);
+        List<Raceuitslag> raceuitslagen2 = Arrays.asList(uitslag21, uitslag22, uitslag23, uitslag24, uitslag25);
         raceuitslagRepository.saveAll(raceuitslagen1);
         raceuitslagRepository.saveAll(raceuitslagen2);
 
@@ -301,23 +297,6 @@ public class NcmdbApplication {
         return coureurs;
     }
 
-
 }
 
-//    /**
-//     *  Hier worden de coureurs met bovenstaande methode opgehaald en opgeslagen in de database.
-//     **/
-
-//    /**
-//     * @param raceresultaten:       Dit is een lijst met de uitkomst van een gegenereerde formule1 race.
-//     * @param koppelAanRaceuitslag: dit de raceuitslag waar de uitkomst van raceresultaten aan gekoppeld moet worden
-//     **/
-//    private List<Coureur> geefLijstMetNieuweCoureurObjecten(List<Coureur> raceresultaten, Raceuitslag koppelAanRaceuitslag) {
-//        List<Coureur> lijstMetNieuweCoureurObjecten = new ArrayList<>();
-//        for (int i = 0; i < 20; i++) {
-//            Coureur eenCoureur = raceresultaten.get(i);
-//            lijstMetNieuweCoureurObjecten.add(new Coureur(eenCoureur.getName(), eenCoureur.getEindpositie(), koppelAanRaceuitslag));
-//        }
-//        return lijstMetNieuweCoureurObjecten;
-//    }
 

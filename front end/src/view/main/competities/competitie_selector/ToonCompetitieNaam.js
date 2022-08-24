@@ -8,7 +8,7 @@ function ToonCompetitieNaam(props) {
     return (
 
         <hgroup onClick={navigeerNaar(path)}>
-                <p>{props.competitienaam}</p>
+            <p>{props.competitienaam}</p>
         </hgroup>
 
     )

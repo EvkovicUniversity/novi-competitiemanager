@@ -15,6 +15,7 @@ function CompetitieSelected() {
 
         return fetchData(false, "http://localhost:8080/competitiemanager/formula1" + urlParsed)
     }
+
     const {data, loading, error} = fetchCompInfo();
     const result = Object.keys(data).map((key) => data[key]);
 
@@ -36,7 +37,7 @@ function CompetitieSelected() {
                     setOpenNotificatie(true);
                 })
                 .catch((err) => {
-                    setStatus(400)
+                    setStatus(400);
                     setOpenNotificatie(true);
                 })
         }
@@ -62,10 +63,11 @@ function CompetitieSelected() {
 
             </div>
 
-            <button className="button01" onClick={() => setOpenMelding(!openMelding)} >Race!</button>
+            <button className="button01" onClick={() => setOpenMelding(!openMelding)}>Race!</button>
 
             {openMelding && <Melding bericht={raceMelding} openMelding={setOpenMelding} akkoord={setAkkoord}/>}
-            {openNotificatie && <Notificatie status={status} openNotificatie={openNotificatie} setOpenNotificatie={setOpenNotificatie} />}
+            {openNotificatie && <Notificatie status={status} openNotificatie={openNotificatie}
+                                             setOpenNotificatie={setOpenNotificatie}/>}
 
 
         </main>

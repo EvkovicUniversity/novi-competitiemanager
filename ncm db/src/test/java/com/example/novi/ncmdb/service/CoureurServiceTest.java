@@ -1,7 +1,7 @@
 package com.example.novi.ncmdb.service;
 
-import com.example.novi.ncmdb.model.formula1.coureur.CoureurRepository;
-import com.example.novi.ncmdb.model.formula1.coureur.CoureurService;
+import com.example.novi.ncmdb.repository.formula1.CoureurRepository;
+import com.example.novi.ncmdb.service.formula1.CoureurService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

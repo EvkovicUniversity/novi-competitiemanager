@@ -32,7 +32,7 @@ function doeVoorspelling(props) {
     function handleSubmit(e) {
         postdata.push(voorspelling);
         postdata.push(competitieInfo);
-        axios.post("http://localhost:8080/competitiemanager/formula1/user/formula1/voorspelling/" + props.competitieId,{
+        axios.post("http://localhost:8080/competitiemanager/formula1/user/formula1/voorspelling/" + props.competitieId, {
             postdata
         }, {headers: authHeader()})
             .then((response) => {
@@ -62,13 +62,14 @@ function doeVoorspelling(props) {
         setVoorspelling(e.target.value)
     }
 
-    let keyCount  = 1;
+    let keyCount = 1;
 
     return (
         <div>
 
             {openMelding && <Melding bericht={meldingBericht} openMelding={setOpenMelding} akkoord={setAkkoord}/>}
-            {openNotificatie && <Notificatie status={status} openNotificatie={openNotificatie} setOpenNotificatie={setOpenNotificatie}/>}
+            {openNotificatie && <Notificatie status={status} openNotificatie={openNotificatie}
+                                             setOpenNotificatie={setOpenNotificatie}/>}
 
             <p>Wie gaat de volgende race winnen?</p>
 

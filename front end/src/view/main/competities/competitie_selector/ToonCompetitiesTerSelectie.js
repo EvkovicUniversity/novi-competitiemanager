@@ -28,8 +28,9 @@ class ToonCompetitiesTerSelectie extends Component {
                     this.state.competities.map(
                         competitie =>
 
-                            <li className="keuzemenuknop" id="competitieSelecteren" key={"competitie" + uniqueKeyCounter++}>
-                                <div className="background_enkeleCompetitie" >
+                            <li className="keuzemenuknop" id="competitieSelecteren"
+                                key={"competitie" + uniqueKeyCounter++}>
+                                <div className="background_enkeleCompetitie">
                                     <ToonCompetitieNaam
                                         competitienaam={competitie.competitienaam}
                                         competitieId={competitie.id}

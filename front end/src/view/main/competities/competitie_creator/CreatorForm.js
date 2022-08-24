@@ -76,7 +76,7 @@ class CreatorForm extends Component {
                             <input type="datetime-local"
                                 // TODO: Fix zodat het als JSON gelezen wordt
                                 // name={startmoment} value={startmoment} onChange={this.changeHandler}
-                                id="startmoment_input"
+                                   id="startmoment_input"
                             />
                         </div>
                         <div>

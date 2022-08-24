@@ -14,10 +14,10 @@ public class DataUtils {
         char[] outputArray = input.toCharArray();
         String output = "";
 
-        for (int index = 0; index < outputArray.length ; index++) {
+        for (int index = 0; index < outputArray.length; index++) {
             char sut = outputArray[index];
 
-            if (index != 0 && Character.isUpperCase(sut)){
+            if (index != 0 && Character.isUpperCase(sut)) {
                 output = addSpace(input, index);
             }
         }

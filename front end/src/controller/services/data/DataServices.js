@@ -1,15 +1,14 @@
-
 import axios from "axios";
 import {Component} from "react";
 import authHeader from "../../../services/auth-header";
 
-class DataServices extends Component{
+class DataServices extends Component {
 
-    getData(url){
-        return axios.get(url, { headers: authHeader() })
+    getData(url) {
+        return axios.get(url, {headers: authHeader()})
     }
 
-    postData(url){
+    postData(url) {
         return axios.post(url, {
             "id": 30,
             "competitienaam": "React PostMethod",

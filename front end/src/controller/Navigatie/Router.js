@@ -20,14 +20,14 @@ function AppRouter() {
             <Route path="/" element={<LoginPage/>}/>
 
             <Route element={<ProtectedRoutes/>}>
-                    <Route path='menu' element={<Keuzemenu/>}/>
-                    <Route path='competities' element={<CompetitieSelector/>}/>
-                    <Route path='competities/:competitieid' element={<CompetitieSelected/>}/>
-                    <Route path='competitieCreator' element={<Competitiecreator/>}/>
-                    <Route path='profiel' element={<Profiel/>}/>
-                    <Route path='profiel/gebruikersnaam-wijzigen' element={<VeranderGebruikersnaam/>}/>
-                    <Route path='profiel/wachtwoord-wijzigen' element={<VeranderWachtwoord/>}/>
-                    <Route path='profiel/account-maken' element={<AccountCreator/>}/>
+                <Route path='menu' element={<Keuzemenu/>}/>
+                <Route path='competities' element={<CompetitieSelector/>}/>
+                <Route path='competities/:competitieid' element={<CompetitieSelected/>}/>
+                <Route path='competitieCreator' element={<Competitiecreator/>}/>
+                <Route path='profiel' element={<Profiel/>}/>
+                <Route path='profiel/gebruikersnaam-wijzigen' element={<VeranderGebruikersnaam/>}/>
+                <Route path='profiel/wachtwoord-wijzigen' element={<VeranderWachtwoord/>}/>
+                <Route path='profiel/account-maken' element={<AccountCreator/>}/>
             </Route>
 
         </Routes>
